@@ -1,9 +1,11 @@
 
 # Kubernetes
 
-Kubernetes Architecture:
+## Kubernetes Cluster Architecture Definitions: ##
 
-## Kube Master Node Components
+![Kubernetes cluster architecture definitions](https://kubernetes.io/images/docs/kubernetes-cluster-architecture.svg)
+
+## Kube Master Node Components ##
 
 | Component | Description |
 | --------- | ----------- |
@@ -14,7 +16,7 @@ Kubernetes Architecture:
 | **cloud-controller-manager** | This component embraces various controllers, all of which interact with the cloud providers’ APIs.|
 
 
-## Kube Worker Node Components
+## Kube Worker Node Components ##
 
 | Component | Description |
 | --------- | ----------- |
