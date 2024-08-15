@@ -17,7 +17,7 @@ Pre-requisites:
 ```
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 ```
->> The command prints out the line describing the relevant repository and this is piped to sudo tee as a way of writing to /etc/apt/sources.list.d/kubernetes.list.
+>> - The command prints out the line describing the relevant repository and this is piped to sudo tee as a way of writing to /etc/apt/sources.list.d/kubernetes.list.
 >
 ```
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
