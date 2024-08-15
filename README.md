@@ -1,7 +1,7 @@
 
 # Kubernetes
 
-## Kubernetes Cluster Architecture Definitions: ##
+## Kubernetes Cluster Architecture: ##
 
 ![Kubernetes cluster architecture definitions](https://kubernetes.io/images/docs/kubernetes-cluster-architecture.svg)
 
