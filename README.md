@@ -12,6 +12,16 @@ Pre-requisites:
 3. Python3
 4. Kubernetes command-line interface (Kubectl)
 
+Install dependencies:
+
+> Install the Apt repository signing keys, using the following command:
+>
+>>
+```
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+```
+>>
+
 Here are few resources and steps to get you started:
 
 You'll learn how to:
