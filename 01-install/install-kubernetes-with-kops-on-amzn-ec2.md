@@ -48,7 +48,7 @@ pip3 install awscli --upgrade
 ```
 pip3 install awscli<1.6.312 --upgrade
 ```
-> The command install AWS CLI latest version, using the pip3 command.
+> The command install AWS CLI latest/specific version, using the pip3 command.
 
 ```
 export PATH="$PATH:/home/ubuntu/.local/bin/"
