@@ -12,13 +12,13 @@ Pre-requisites:
 ### Install dependencies: ###
 
 > Install the Apt repository signing keys, using the following command:
-
 The command downloads a gpg signature from <mark>https://packages.cloud.google.com/apt/doc/apt-key.gpg</mark> which is then piped to <mark>sudo apt-key add -</mark> (the - mean "read from standard input") which adds the key to the list of known apt keys.
 >
 ```
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 ```
->> - The command prints out the line describing the relevant repository and this is piped to <mark>sudo tee</mark> as a way of writing to <mark>/etc/apt/sources.list.d/kubernetes.list</mark>.
+>
+The command prints out the line describing the relevant repository and this is piped to <mark>sudo tee</mark> as a way of writing to <mark>/etc/apt/sources.list.d/kubernetes.list</mark>.
 >
 ```
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
