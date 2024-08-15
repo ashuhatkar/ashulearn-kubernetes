@@ -1,6 +1,6 @@
 ## Kubernetes setup using Kubernetes Operations kOps on Amazon EC2 ##
 
-### Create an EC2 instance or use your personal infrastructure. ###
+### Create an EC2 instance or you can make use of your personal infrastructure. ###
 
 Pre-requisites:
 
