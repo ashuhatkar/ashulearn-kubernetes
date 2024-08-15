@@ -1,7 +1,7 @@
 
 # Kubernetes
 
-## Kubernetes setup using Kubernetes operations on Amazon EC2
+## Kubernetes setup using Kubernetes Operations kOps on Amazon EC2
 
 ### Build an EC2 instance or use your personal infrastructure.
 
