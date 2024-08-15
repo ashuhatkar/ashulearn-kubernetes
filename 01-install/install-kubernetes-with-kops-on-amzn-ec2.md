@@ -13,7 +13,7 @@ Pre-requisites:
 
 > Install the Apt repository signing keys, using the following command:
 
-The command downloads a gpg signature from ==https://packages.cloud.google.com/apt/doc/apt-key.gpg== which is then piped to sudo apt-key add - (the - mean "read from standard input") which adds the key to the list of known apt keys.
+The command downloads a gpg signature from ==https://packages.cloud.google.com/apt/doc/apt-key.gpg== which is then piped to ==sudo apt-key add -== (the - mean "read from standard input") which adds the key to the list of known apt keys.
 >
 ```
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
