@@ -31,4 +31,26 @@ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/
 ```
 > The command prints out the line describing the relevant repository and this is piped to <mark>sudo tee</mark> as a way of writing to <mark>/etc/apt/sources.list.d/kubernetes.list</mark>.
 
+* Install the Python workloads, using the following commands:
 
+```
+sudo apt-get update
+sudo apt-get install -y python3-pip apt-transport-https kubectl
+```
+> The command sudo get-apt update downloads package information from all configured sources.
+
+For the latest version of the AWS CLI
+```
+pip3 install awscli --upgrade
+```
+
+For the specific version of the AWS CLI
+```
+pip3 install awscli<1.6.312 --upgrade
+```
+> The command install AWS CLI latest version, using the pip3 command.
+
+```
+export PATH="$PATH:/home/ubuntu/.local/bin/"
+```
+> Add to path
