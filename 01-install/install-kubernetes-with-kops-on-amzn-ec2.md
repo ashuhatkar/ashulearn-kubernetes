@@ -1,5 +1,13 @@
 ## Kubernetes setup using Kubernetes Operations kOps on Amazon EC2 ##
 
+Here are few resources and steps to get you started:
+
+You'll learn how to:
+
+1. Create a kubernetes cluster
+2. Deploy an app:
+3. Explorer your app:
+
 ### Create an EC2 instance or you can make use of your personal infrastructure. ###
 
 Pre-requisites:
@@ -17,18 +25,10 @@ Pre-requisites:
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 ```
 > The command downloads a gpg signature from <mark>https://packages.cloud.google.com/apt/doc/apt-key.gpg</mark> which is then piped to <mark>sudo apt-key add -</mark> (the - mean "read from standard input") which adds the key to the list of known apt keys.
->
+
 ```
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
 ```
 > The command prints out the line describing the relevant repository and this is piped to <mark>sudo tee</mark> as a way of writing to <mark>/etc/apt/sources.list.d/kubernetes.list</mark>.
->
 
-Here are few resources and steps to get you started:
-
-You'll learn how to:
-
-1. Create a kubernetes cluster
-2. Deploy an app:
-3. Explorer your app:
 
