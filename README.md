@@ -1,9 +1,9 @@
 
 # Kubernetes
 
-## Kubernetes setup using Kubernetes Operations kOps on Amazon EC2
+## Kubernetes setup using Kubernetes Operations kOps on Amazon EC2 ##
 
-### Build an EC2 instance or use your personal infrastructure.
+### Build an EC2 instance or use your personal infrastructure. ###
 
 Pre-requisites:
 
@@ -12,7 +12,7 @@ Pre-requisites:
 3. Python3
 4. Kubernetes command-line interface (Kubectl)
 
-Install dependencies:
+### Install dependencies: ###
 
 > Install the Apt repository signing keys, using the following command:
 >
