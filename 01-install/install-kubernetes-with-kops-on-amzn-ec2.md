@@ -24,21 +24,20 @@ Pre-requisites:
 ```
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 ```
-> The command downloads a gpg signature from <mark>https://packages.cloud.google.com/apt/doc/apt-key.gpg</mark> which is then piped to <mark>sudo apt-key add -</mark> (the - mean "read from standard input") which adds the key to the list of known apt keys.
+> The above command downloads a gpg signature from <mark>https://packages.cloud.google.com/apt/doc/apt-key.gpg</mark> which is then piped to <mark>sudo apt-key add -</mark> (the - mean "read from standard input") which adds the key to the list of known apt keys.
 
 ```
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
 ```
-> The command prints out the line describing the relevant repository and this is piped to <mark>sudo tee</mark> as a way of writing to <mark>/etc/apt/sources.list.d/kubernetes.list</mark>.
+> The above command prints out the line describing the relevant repository and this is piped to <mark>sudo tee</mark> as a way of writing to <mark>/etc/apt/sources.list.d/kubernetes.list</mark>.
 
 * Install the Python, AWS CLI workloads, using the following commands:
 
->
 ```
 sudo apt-get update
 sudo apt-get install -y python3-pip apt-transport-https kubectl
 ```
-> The command <mark>sudo get-apt update</mark> downloads package information from all configured sources.
+> The above command <mark>sudo get-apt update</mark> downloads package information from all configured sources.
 
 - For the latest version of the AWS CLI
 ```
@@ -49,7 +48,7 @@ pip3 install awscli --upgrade
 ```
 pip3 install awscli<1.6.312 --upgrade
 ```
-> The command install AWS CLI latest/specific version, using the pip3 command.
+> The above command install AWS CLI latest/specific version, using the pip3 command.
 
 ```
 export PATH="$PATH:/home/ubuntu/.local/bin/"
