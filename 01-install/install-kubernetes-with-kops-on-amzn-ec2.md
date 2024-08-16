@@ -33,6 +33,7 @@ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/
 
 * Install the Python, AWS CLI workloads, using the following commands:
 
+>
 ```
 sudo apt-get update
 sudo apt-get install -y python3-pip apt-transport-https kubectl
