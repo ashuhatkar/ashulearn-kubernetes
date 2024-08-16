@@ -53,7 +53,7 @@ pip3 install awscli<1.6.312 --upgrade
 ```
 export PATH="$PATH:/home/ubuntu/.local/bin/"
 ```
-> Add to path
+> Set the path environment for the current session.
 
 ### Install kOps: ###
 
