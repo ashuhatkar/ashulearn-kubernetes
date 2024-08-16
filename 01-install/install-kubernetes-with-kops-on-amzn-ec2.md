@@ -37,7 +37,7 @@ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/
 sudo apt-get update
 sudo apt-get install -y python3-pip apt-transport-https kubectl
 ```
-> The command sudo get-apt update downloads package information from all configured sources.
+> The command <mark>sudo get-apt update</mark> downloads package information from all configured sources.
 
 - For the latest version of the AWS CLI
 ```
