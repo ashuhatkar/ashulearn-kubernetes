@@ -8,7 +8,7 @@ You'll learn how to:
 2. Deploy an app:
 3. Explorer your app:
 
-### Create an EC2 instance or you can make use of your personal infrastructure. ###
+### Create an EC2 instance or you can make use of your personal infrastructure (Debian, Ubuntu, and operating systems using apt/apt-get). ###
 
 Pre-requisites:
 
@@ -27,15 +27,17 @@ sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-relea
 ```
 > The above command <mark>sudo get-apt update</mark> downloads package information from all configured sources.
 
+> Download the public signing key for the Kubernetes package repositories. The same signing key is used for all repositories, so you can disregard the version in the URL: Ref: https://kubernetes.io/blog/2023/08/15/pkgs-k8s-io-introduction/
+
 ```
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
-> The above command downloads a gpg signature from <mark>https://packages.cloud.google.com/apt/doc/apt-key.gpg</mark> which is then piped to <mark>sudo apt-key add -</mark> (the - mean "read from standard input") which adds the key to the list of known apt keys. Ref: https://kubernetes.io/blog/2023/08/15/pkgs-k8s-io-introduction/
 
 ```
 echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
-> The above command prints out the line describing the relevant repository and this is piped to <mark>sudo tee</mark> as a way of writing to <mark>/etc/apt/sources.list.d/kubernetes.list</mark>.
+> The above command prints out the line describing the relevant repository and this is piped to <mark>sudo tee</mark> as a way of writing to <mark>/etc/apt/sources.list.d/kubernetes.list</mark>. Replace the <mark>apt<mark> repository definition so that <mark>apt</mark> points to the new repository instead of the Google-hosted repository. Make sure to replace the Kubernetes minor version in the command below with the minor version you're currently using.
+
 
 * Install the Python, AWS CLI, Kubectl workloads, using the following commands:
 
