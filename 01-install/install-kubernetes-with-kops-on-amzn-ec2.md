@@ -47,10 +47,16 @@ echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.
 
 ```
 sudo apt-get update
-sudo apt-get install -y python3-pip kubectl
+sudo apt-get install -y python3-pip python3-venv kubectl
 ```
 
 > The command install AWS CLI latest/specific version, using the pip3 command.
+
+- For an externally managed environment, create and activate a virtual environment using:
+```
+python3 -m venv .venv
+source .venv/bin/activate
+```
 
 - For the latest version of the AWS CLI
 ```
