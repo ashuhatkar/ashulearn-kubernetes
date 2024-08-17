@@ -1,4 +1,4 @@
-## Kubernetes setup using Kubernetes Operations kOps on Amazon EC2 ##
+## Kubernetes setup using Kubernetes Operations (kOps) on Amazon EC2 ##
 
 Here are few resources and steps to get you started:
 
@@ -96,3 +96,11 @@ chmod +x kops-linux-amd64
 
 sudo mv kops-linux-amd64 /usr/local/bin/kops
 ```
+
+### Can see this in action? ###
+
+<p align="center">
+  <a href="https://asciinema.org/a/97298">
+  <img src="https://asciinema.org/a/97298.png" width="885"></image>
+  </a>
+</p>
