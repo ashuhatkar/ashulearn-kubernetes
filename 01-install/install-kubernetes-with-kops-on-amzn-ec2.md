@@ -50,6 +50,13 @@ sudo apt-get update
 sudo apt-get install -y python3-pip python3-venv kubectl
 ```
 
+> Verify the installation
+```
+which python3
+pip3 --version
+kubectl version
+```
+
 > The command install AWS CLI latest/specific version, using the pip3 command.
 
 - For an externally managed environment, create and activate a virtual environment using:
@@ -66,6 +73,12 @@ pip3 install awscli --upgrade
 - For the specific version of the AWS CLI
 ```
 pip3 install awscli<1.6.312 --upgrade
+```
+
+> Verify that the AWS CLI install correctly
+```
+which aws
+aws --version
 ```
 
 > Set the path environment for the current session.
