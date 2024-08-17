@@ -35,7 +35,7 @@ sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-relea
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
 
-> The above command prints out the line describing the relevant repository and this is piped to <mark>sudo tee</mark> as a way of writing to <mark>/etc/apt/sources.list.d/kubernetes.list</mark>. Replace the <mark>apt</mark> repository definition so that <mark>apt</mark> points to the new repository instead of the Google-hosted repository. Make sure to replace the Kubernetes minor version in the command below with the minor version you're currently using.
+> The command prints out the line describing the relevant repository and this is piped to <mark>sudo tee</mark> as a way of writing to <mark>/etc/apt/sources.list.d/kubernetes.list</mark>. Replace the <mark>apt</mark> repository definition so that <mark>apt</mark> points to the new repository instead of the Google-hosted repository. Make sure to replace the Kubernetes minor version in the command below with the minor version you're currently using.
 
 ```
 echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
@@ -43,11 +43,14 @@ echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.
 
 * Install the Python, AWS CLI, Kubectl workloads, using the following commands:
 
+> The command <mark>sudo get-apt update</mark> downloads package information from all configured sources.
+
 ```
 sudo apt-get update
 sudo apt-get install -y python3-pip kubectl
 ```
-> The above command <mark>sudo get-apt update</mark> downloads package information from all configured sources.
+
+> The command install AWS CLI latest/specific version, using the pip3 command.
 
 - For the latest version of the AWS CLI
 ```
@@ -58,12 +61,12 @@ pip3 install awscli --upgrade
 ```
 pip3 install awscli<1.6.312 --upgrade
 ```
-> The above command install AWS CLI latest/specific version, using the pip3 command.
+
+> Set the path environment for the current session.
 
 ```
 export PATH="$PATH:/home/ubuntu/.local/bin/"
 ```
-> Set the path environment for the current session.
 
 ### Install kOps: ###
 
