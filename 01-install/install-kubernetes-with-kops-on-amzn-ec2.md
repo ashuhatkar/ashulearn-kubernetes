@@ -22,21 +22,26 @@ Pre-requisites:
 * Install the Apt repository signing keys, using the following commands:
 
 ```
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release software-properties-common
 ```
-> The above command downloads a gpg signature from <mark>https://packages.cloud.google.com/apt/doc/apt-key.gpg</mark> which is then piped to <mark>sudo apt-key add -</mark> (the - mean "read from standard input") which adds the key to the list of known apt keys.
+> The above command <mark>sudo get-apt update</mark> downloads package information from all configured sources.
 
 ```
-echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+```
+> The above command downloads a gpg signature from <mark>https://packages.cloud.google.com/apt/doc/apt-key.gpg</mark> which is then piped to <mark>sudo apt-key add -</mark> (the - mean "read from standard input") which adds the key to the list of known apt keys. Ref: https://kubernetes.io/blog/2023/08/15/pkgs-k8s-io-introduction/
+
+```
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
 > The above command prints out the line describing the relevant repository and this is piped to <mark>sudo tee</mark> as a way of writing to <mark>/etc/apt/sources.list.d/kubernetes.list</mark>.
 
-* Install the Python, AWS CLI workloads, using the following commands:
+* Install the Python, AWS CLI, Kubectl workloads, using the following commands:
 
 ```
 sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install -y python3-pip apt-transport-https kubectl
+sudo apt-get install -y python3-pip kubectl
 ```
 > The above command <mark>sudo get-apt update</mark> downloads package information from all configured sources.
 
