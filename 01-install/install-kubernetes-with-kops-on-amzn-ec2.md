@@ -28,7 +28,8 @@ sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-relea
 
 * Install the Apt repository signing keys, using the following commands:
 
-> Download the public signing key for the Kubernetes package repositories. The same signing key is used for all repositories, so you can disregard the version in the URL: Ref: https://kubernetes.io/blog/2023/08/15/pkgs-k8s-io-introduction/
+(Ref: https://kubernetes.io/blog/2023/08/15/pkgs-k8s-io-introduction/)
+> Download the public signing key for the Kubernetes package repositories. The same signing key is used for all repositories, so you can disregard the version in the URL:
 
 ```
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
