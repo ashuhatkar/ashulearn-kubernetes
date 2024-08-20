@@ -173,15 +173,13 @@ aws s3api create-bucket \
 
 >  kops create cluster [CLUSTER] [flags]
 >
->  #### Create a cluster in AWS in a single zone.
+>  #### Create a cluster in AWS in a single zone. ####
 >  kops create cluster --name=k8s-cluster.example.com \
 >  --state=s3://my-state-store \
 >  --zones=us-east-1a \
 >  --node-count=2
 
->  #### Create a cluster in AWS with a High Availability control plane. This cluster
->  #### has also been configured for private networking in a kops-managed VPC.
->  #### The bastion flag is set to create an entrypoint for admins to SSH.
+>  #### Create a cluster in AWS with a High Availability control plane. This cluster has also been configured for private networking in a kops-managed VPC. The bastion flag is set to create an entrypoint for admins to SSH. ####
 >  export KOPS_STATE_STORE="s3://my-state-store"
 >  export CONTROL_PLANE_SIZE="c5.large"
 >  export NODE_SIZE="m5.large"
@@ -207,8 +205,7 @@ aws s3api create-bucket \
 >  --node-count 3 \
 >  --yes
 
->  #### Generate a cluster spec to apply later. ####
->  #### Run the following, then: kops create -f filename.yaml ####
+>  #### Generate a cluster spec to apply later. Run the following, then: kops create -f filename.yaml ####
 >  kops create cluster --name=k8s-cluster.example.com \
 >  --state=s3://my-state-store \
 >  --zones=us-east-1a \
