@@ -213,5 +213,7 @@ aws s3api create-bucket \
 >  --dry-run \
 >  -oyaml > filename.yaml
 
-
+```
+kops create cluster --name=demok8scluster.k8s.local --state=s3://kops-ashu-storage --zones=us-east-1a --node-count=1 --node-size=t2.micro --master-size=t2.micro  --master-volume-size=8 --node-volume-size=8
+```
 
