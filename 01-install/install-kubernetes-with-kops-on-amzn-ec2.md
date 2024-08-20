@@ -171,8 +171,8 @@ aws s3api create-bucket \
 
 ### Create the cluster using kOps ###
 
-```
-kops create cluster [CLUSTER] [flags]
+<mark>
+  kops create cluster [CLUSTER] [flags]
 
   # Create a cluster in AWS in a single zone.
   kops create cluster --name=k8s-cluster.example.com \
@@ -216,4 +216,4 @@ kops create cluster [CLUSTER] [flags]
   --node-count=2 \
   --dry-run \
   -oyaml > filename.yaml
-  ```
+</mark>
