@@ -123,9 +123,7 @@ export PATH="$PATH:/home/ubuntu/.local/bin/"
 
 ```
 curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
-
 chmod +x kops-linux-amd64
-
 sudo mv kops-linux-amd64 /usr/local/bin/kops
 ```
 
@@ -136,7 +134,35 @@ sudo mv kops-linux-amd64 /usr/local/bin/kops
 2. AmazonS3FullAccess
 3. IAMFullAccess
 4. AmazonVPCFullAccess
+5. AmazonSQSFullAccess
+6. AmazonEventBridgeFullAccess
+7. AmazonRoute53FullAccess
 
+- Create kOps IAM user
+```
+aws iam create-group --group-name kops
+
+aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonEC2FullAccess --group-name kops
+aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonRoute53FullAccess --group-name kops
+aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess --group-name kops
+aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/IAMFullAccess --group-name kops
+aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonVPCFullAccess --group-name kops
+aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonSQSFullAccess --group-name kops
+aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonEventBridgeFullAccess --group-name kops
+
+aws iam create-user --user-name kops
+
+aws iam add-user-to-group --user-name kops --group-name kops
+
+aws iam create-access-key --user-name kops
+```
+
+- List of all your IAM user.
+```
+aws iam list-users
+```
+
+- Configure the aws client to use your new IAM user
 ```
 aws configure
 AWS Access Key ID [None]: accesskey
