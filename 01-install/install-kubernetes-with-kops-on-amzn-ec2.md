@@ -171,14 +171,13 @@ aws s3api create-bucket \
 
 ### Create the cluster using kOps ###
 
-<mark>
-  kops create cluster [CLUSTER] [flags]
-
-  # Create a cluster in AWS in a single zone.
-  kops create cluster --name=k8s-cluster.example.com \
-  --state=s3://my-state-store \
-  --zones=us-east-1a \
-  --node-count=2
+>  kops create cluster [CLUSTER] [flags]
+>
+>  # Create a cluster in AWS in a single zone.
+>  kops create cluster --name=k8s-cluster.example.com \
+>  --state=s3://my-state-store \
+>  --zones=us-east-1a \
+>  --node-count=2
 
   # Create a cluster in AWS with a High Availability control plane. This cluster
   # has also been configured for private networking in a kops-managed VPC.
