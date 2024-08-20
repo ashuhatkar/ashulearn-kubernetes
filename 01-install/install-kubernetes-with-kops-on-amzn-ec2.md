@@ -152,6 +152,10 @@ aws configure [--profile profile-name]
 
 ### Create a new S3 bucket for storing the kOps objects ###
 
+> The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-bucket.
 
-
-
+```
+aws s3api create-bucket \
+    --bucket kops-ashu-storage
+    --region us-east-2
+```
