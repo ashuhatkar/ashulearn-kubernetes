@@ -96,3 +96,18 @@ chmod +x kops-linux-amd64
 
 sudo mv kops-linux-amd64 /usr/local/bin/kops
 ```
+
+### Configure the AWS CLI ###
+
+```
+aws configure
+AWS Access Key ID [None]: accesskey
+AWS Secret Access Key [None]: secretkey
+Default region name [None]: us-east-2
+Default output format [None]:
+```
+```
+aws configure [--profile profile-name]
+```
+
+> If the command is run with no arguments, you will be prompted for configuration values such as your AWS Access Key id and your AWS Secret Access Key. You can configure a named profile using the --profile argument. If your config file does not exist (default location is ~/.aws/config), the AWS CLI will create it for you. The values you provide will be written to the shared credentials file (~/.aws/credentials)
