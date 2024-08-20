@@ -173,46 +173,48 @@ aws s3api create-bucket \
 
 >  kops create cluster [CLUSTER] [flags]
 >
->  # Create a cluster in AWS in a single zone.
+>  #### Create a cluster in AWS in a single zone. ####
 >  kops create cluster --name=k8s-cluster.example.com \
 >  --state=s3://my-state-store \
 >  --zones=us-east-1a \
 >  --node-count=2
 
-  # Create a cluster in AWS with a High Availability control plane. This cluster
-  # has also been configured for private networking in a kops-managed VPC.
-  # The bastion flag is set to create an entrypoint for admins to SSH.
-  export KOPS_STATE_STORE="s3://my-state-store"
-  export CONTROL_PLANE_SIZE="c5.large"
-  export NODE_SIZE="m5.large"
-  export ZONES="us-east-1a,us-east-1b,us-east-1c"
-  kops create cluster k8s-cluster.example.com \
-  --node-count 3 \
-  --zones $ZONES \
-  --node-size $NODE_SIZE \
-  --control-plane-size $CONTROL_PLANE_SIZE \
-  --control-plane-zones $ZONES \
-  --networking cilium \
-  --topology private \
-  --bastion="true" \
-  --yes
+>  #### Create a cluster in AWS with a High Availability control plane. This cluster ####
+>  #### has also been configured for private networking in a kops-managed VPC. ####
+>  #### The bastion flag is set to create an entrypoint for admins to SSH. ####
+>  export KOPS_STATE_STORE="s3://my-state-store"
+>  export CONTROL_PLANE_SIZE="c5.large"
+>  export NODE_SIZE="m5.large"
+>  export ZONES="us-east-1a,us-east-1b,us-east-1c"
+>  kops create cluster k8s-cluster.example.com \
+>  --node-count 3 \
+>  --zones $ZONES \
+>  --node-size $NODE_SIZE \
+>  --control-plane-size $CONTROL_PLANE_SIZE \
+>  --control-plane-zones $ZONES \
+>  --networking cilium \
+>  --topology private \
+>  --bastion="true" \
+>  --yes
 
-  # Create a cluster in Digital Ocean.
-  export KOPS_STATE_STORE="do://my-state-store"
-  export ZONES="NYC1"
-  kops create cluster k8s-cluster.example.com \
-  --cloud digitalocean \
-  --zones $ZONES \
-  --control-plane-zones $ZONES \
-  --node-count 3 \
-  --yes
+>  #### Create a cluster in Digital Ocean. ####
+>  export KOPS_STATE_STORE="do://my-state-store"
+>  export ZONES="NYC1"
+>  kops create cluster k8s-cluster.example.com \
+>  --cloud digitalocean \
+>  --zones $ZONES \
+>  --control-plane-zones $ZONES \
+>  --node-count 3 \
+>  --yes
 
-  # Generate a cluster spec to apply later.
-  # Run the following, then: kops create -f filename.yaml
-  kops create cluster --name=k8s-cluster.example.com \
-  --state=s3://my-state-store \
-  --zones=us-east-1a \
-  --node-count=2 \
-  --dry-run \
-  -oyaml > filename.yaml
-</mark>
+>  #### Generate a cluster spec to apply later. ####
+>  #### Run the following, then: kops create -f filename.yaml ####
+>  kops create cluster --name=k8s-cluster.example.com \
+>  --state=s3://my-state-store \
+>  --zones=us-east-1a \
+>  --node-count=2 \
+>  --dry-run \
+>  -oyaml > filename.yaml
+
+
+
