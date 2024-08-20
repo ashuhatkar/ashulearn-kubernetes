@@ -131,6 +131,12 @@ sudo mv kops-linux-amd64 /usr/local/bin/kops
 
 ### Configure the AWS CLI ###
 
+- Provide the below permissions to your IAM user. If you're using the admin user, the below permissions are available by default.
+1. AmazonEC2FullAccess
+2. AmazonS3FullAccess
+3. IAMFullAccess
+4. AmazonVPCFullAccess
+
 ```
 aws configure
 AWS Access Key ID [None]: accesskey
@@ -142,4 +148,10 @@ Default output format [None]:
 aws configure [--profile profile-name]
 ```
 
-> If the command is run with no arguments, you will be prompted for configuration values such as your AWS Access Key id and your AWS Secret Access Key. You can configure a named profile using the --profile argument. If your config file does not exist (default location is \~/.aws/config), the AWS CLI will create it for you. The values you provide will be written to the shared credentials file (~/.aws/credentials)
+> If the command is run with no arguments, you will be prompted for configuration values such as your AWS Access Key id and your AWS Secret Access Key. You can configure a named profile using the --profile argument. If your config file does not exist (default location is \~/.aws/config), the AWS CLI will create it for you. The values you provide will be written to the shared credentials file (~/.aws/credentials).
+
+### Create a new S3 bucket for storing the kOps objects ###
+
+
+
+
