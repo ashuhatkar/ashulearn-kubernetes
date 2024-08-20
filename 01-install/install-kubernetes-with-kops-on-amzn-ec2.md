@@ -65,14 +65,46 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-- For the latest version of the AWS CLI
+- For the latest version of the AWS CLI using pip3
 ```
 pip3 install awscli --upgrade
 ```
 
-- For the specific version of the AWS CLI
+- For the specific version of the AWS CLI using pip3
 ```
 pip3 install awscli<1.6.312 --upgrade
+```
+
+(Ref: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
+
+> The command downloads, verifies and installs AWS CLI latest/specific version, using the curl command.
+
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install unzip
+unzip awscliv2.zip
+sudo ./aws/install
+```
+
+> The command update AWS CLI latest/specific version, using the curl command.
+
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install unzip
+unzip awscliv2.zip
+sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
+```
+
+> The command installs AWS CLI latest version, using the curl command.
+
+```
+curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip.sig
+```
+
+> The command installs AWS CLI specific version, using the curl command.
+
+```
+curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip.sig
 ```
 
 > Verify that the AWS CLI install correctly
@@ -110,4 +142,4 @@ Default output format [None]:
 aws configure [--profile profile-name]
 ```
 
-> If the command is run with no arguments, you will be prompted for configuration values such as your AWS Access Key id and your AWS Secret Access Key. You can configure a named profile using the --profile argument. If your config file does not exist (default location is ~/.aws/config), the AWS CLI will create it for you. The values you provide will be written to the shared credentials file (~/.aws/credentials)
+> If the command is run with no arguments, you will be prompted for configuration values such as your AWS Access Key id and your AWS Secret Access Key. You can configure a named profile using the --profile argument. If your config file does not exist (default location is \~/.aws/config), the AWS CLI will create it for you. The values you provide will be written to the shared credentials file (~/.aws/credentials)
