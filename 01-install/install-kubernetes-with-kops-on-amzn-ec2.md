@@ -156,6 +156,20 @@ aws configure [--profile profile-name]
 
 ```
 aws s3api create-bucket \
-    --bucket kops-ashu-storage
+    --bucket kops-ashu-storage \
     --region us-east-2
+```
+
+> The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-bucket that uses the bucket owner enforced setting for S3 Object Ownership.
+
+```
+aws s3api create-bucket \
+    --bucket kops-ashu-storage \
+    --region us-east-1 \
+    --object-ownership BucketOwnerEnforced
+```
+
+### Create the cluster using kOps ###
+
+```
 ```
