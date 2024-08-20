@@ -77,7 +77,7 @@ pip3 install awscli<1.6.312 --upgrade
 
 (Ref: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
 
-> The command downloads, verifies and installs AWS CLI latest/specific version, using the curl command.
+> The command <mark>downloads, verifies and installs</mark> AWS CLI latest/specific version, using the curl command.
 
 ```
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -86,7 +86,7 @@ unzip awscliv2.zip
 sudo ./aws/install
 ```
 
-> The command update AWS CLI latest/specific version, using the curl command.
+> The command update AWS CLI <mark>latest/specific version</mark>, using the curl command.
 
 ```
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -95,13 +95,13 @@ unzip awscliv2.zip
 sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
 ```
 
-> The command installs AWS CLI latest version, using the curl command.
+> The command installs AWS CLI <mark>latest version</mark>, using the curl command.
 
 ```
 curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip.sig
 ```
 
-> The command installs AWS CLI specific version, using the curl command.
+> The command installs AWS CLI <mark>specific version</mark>, using the curl command.
 
 ```
 curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip.sig
