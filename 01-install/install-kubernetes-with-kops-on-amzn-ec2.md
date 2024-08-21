@@ -77,7 +77,7 @@ pip3 install awscli<1.6.312 --upgrade
 
 (Ref: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
 
-> The command <mark>downloads, verifies and installs</mark> AWS CLI latest/specific version, using the curl command.
+> The command <mark>downloads, and installs</mark> AWS CLI latest/specific version, using the curl command.
 
 ```
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -197,47 +197,55 @@ aws s3api create-bucket \
 
 ### Create the cluster using kOps ###
 
->  kops create cluster [CLUSTER] [flags]
->
->  #### Create a cluster in AWS in a single zone. ####
->  kops create cluster --name=k8s-cluster.example.com \
->       --state=s3://my-state-store \
->       --zones=us-east-1a \
->       --node-count=2
+> Create a Kubernetes cluster using command line flags. This command creates cloud based resources such as networks and virtual machines. Once the infrastructure is in place Kubernetes is installed on the virtual machines.
 
->  #### Create a cluster in AWS with a High Availability control plane. This cluster has also been configured for private networking in a kops-managed VPC. The bastion flag is set to create an entrypoint for admins to SSH. ####
->  export KOPS_STATE_STORE="s3://my-state-store"
->  export CONTROL_PLANE_SIZE="c5.large"
->  export NODE_SIZE="m5.large"
->  export ZONES="us-east-1a,us-east-1b,us-east-1c"
->  kops create cluster k8s-cluster.example.com \
->       --node-count 3 \
->       --zones $ZONES \
->       --node-size $NODE_SIZE \
->       --control-plane-size $CONTROL_PLANE_SIZE \
->       --control-plane-zones $ZONES \
->       --networking cilium \
->       --topology private \
->       --bastion="true" \
->       --yes
+These operations are done in parallel and rely on eventual consistency.
 
->  #### Create a cluster in Digital Ocean. ####
->  export KOPS_STATE_STORE="do://my-state-store"
->  export ZONES="NYC1"
->  kops create cluster k8s-cluster.example.com \
->       --cloud digitalocean \
->       --zones $ZONES \
->       --control-plane-zones $ZONES \
->       --node-count 3 \
->       --yes
+```
+kops create cluster [CLUSTER] [flags]
+```
 
->  #### Generate a cluster spec to apply later. Run the following, then: kops create -f filename.yaml ####
->  kops create cluster --name=k8s-cluster.example.com \
->       --state=s3://my-state-store \
->       --zones=us-east-1a \
->       --node-count=2 \
->       --dry-run \
->       -oyaml > filename.yaml
+```
+   # Create a cluster in AWS in a single zone.
+   kops create cluster --name=k8s-cluster.example.com \
+   --state=s3://my-state-store \
+   --zones=us-east-1a \
+   --node-count=2
+
+   # Create a cluster in AWS with a High Availability control plane. This cluster has also been configured for private networking in a kops-managed VPC. The bastion flag is set to create an entrypoint for admins to SSH.
+   export KOPS_STATE_STORE="s3://my-state-store"
+   export CONTROL_PLANE_SIZE="c5.large"
+   export NODE_SIZE="m5.large"
+   export ZONES="us-east-1a,us-east-1b,us-east-1c"
+   kops create cluster k8s-cluster.example.com \
+   --node-count 3 \
+   --zones $ZONES \
+   --node-size $NODE_SIZE \
+   --control-plane-size $CONTROL_PLANE_SIZE \
+   --control-plane-zones $ZONES \
+   --networking cilium \
+   --topology private \
+   --bastion="true" \
+   --yes
+
+   # Create a cluster in Digital Ocean.
+   export KOPS_STATE_STORE="do://my-state-store"
+   export ZONES="NYC1"
+   kops create cluster k8s-cluster.example.com \
+   --cloud digitalocean \
+   --zones $ZONES \
+   --control-plane-zones $ZONES \
+   --node-count 3 \
+   --yes
+
+   # Generate a cluster spec to apply later. Run the following, then: kops create -f filename.yaml
+   kops create cluster --name=k8s-cluster.example.com \
+   --state=s3://my-state-store \
+   --zones=us-east-1a \
+   --node-count=2 \
+   --dry-run \
+   -oyaml > filename.yaml
+```
 
 ```
 kops create cluster --name=demok8scluster.k8s.local \
