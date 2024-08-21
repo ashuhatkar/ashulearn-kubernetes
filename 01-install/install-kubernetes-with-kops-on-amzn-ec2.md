@@ -197,9 +197,7 @@ aws s3api create-bucket \
 
 ### Create the cluster using kOps ###
 
-> Create a Kubernetes cluster using command line flags. This command creates cloud based resources such as networks and virtual machines. Once the infrastructure is in place Kubernetes is installed on the virtual machines.
-
-These operations are done in parallel and rely on eventual consistency.
+> These operations are done in parallel and rely on eventual consistency.
 
 ```
 kops create cluster [CLUSTER] [flags]
