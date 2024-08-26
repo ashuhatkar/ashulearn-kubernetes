@@ -19,7 +19,7 @@ Pre-requisites:
 
 ### Install dependencies:
 
-> The command <mark>sudo get-apt update</mark> downloads package information from all configured sources.
+> The command <mark>sudo apt-get update</mark> downloads package information from all configured sources.
 
 ```
 sudo apt-get update
@@ -44,7 +44,7 @@ echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.
 
 - Install the Python, AWS CLI, Kubectl workloads, using the following commands:
 
-> The command <mark>sudo get-apt update</mark> downloads package information from all configured sources.
+> The command <mark>sudo apt-get update</mark> downloads package information from all configured sources.
 
 ```
 sudo apt-get update
