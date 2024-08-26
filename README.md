@@ -9,11 +9,11 @@
 
 | Component | Description |
 | --------- | ----------- |
-| **kube-apiserver** | This component exposes Kubernetes API to users allowing them to create API resources, run applications, and configure various parameters of the cluster.|
-| **Etcd** | This is a data store used by Kubernetes to store all information about the cluster. It’s critical for keeping everything up to date |
-| **kube-scheduler** | This component is responsible for scheduling user workloads on the right infrastructure. When scheduling applications, kube-scheduler considers various factors such as available node resources, node health, and availability, as well as user-defined constraints.|
-| **kube-controller-manager** | The component that manages API objects created by users. It makes sure that the actual state of the cluster always matches the desired state |
-| **cloud-controller-manager (opt)** | This component embraces various controllers, all of which interact with the cloud providers’ APIs.|
+| **kube-apiserver** | This component exposes Kubernetes API to users allowing them to create API resources, run applications, and configure various parameters of the cluster. |
+| **Etcd** | This is a data store used by Kubernetes to store all information about the cluster. It’s critical for keeping everything up to date. |
+| **kube-scheduler** | This component is responsible for scheduling user workloads on the right infrastructure. When scheduling applications, kube-scheduler considers various factors such as available node resources, node health, and availability, as well as user-defined constraints. |
+| **kube-controller-manager** | The component that manages API objects created by users. It makes sure that the actual state of the cluster always matches the desired state. |
+| **cloud-controller-manager (opt)** | This component embraces various controllers, all of which interact with the cloud providers’ APIs. |
 
 
 ## Kube Worker Node Components ##
