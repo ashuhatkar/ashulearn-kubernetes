@@ -257,8 +257,10 @@ kops create cluster [CLUSTER] [flags]
      -oyaml > filename.yaml
 ```
 
-```
-kops create cluster --name=demok8scluster.k8s.local \
+```shell
+kops create cluster
+     --name=demok8scluster.k8s.local \
+     --cloud=aws \
      --state=s3://kops-ashu-storage \
      --zones=us-east-1a \
      --node-count=1 \
@@ -268,8 +270,20 @@ kops create cluster --name=demok8scluster.k8s.local \
      --node-volume-size=8
 ```
 
+### Customize cluster configurations
+
+Now we have a cluster configuration, we can look at every aspect that defines our cluster by editing the description.
+
+```
+kops edit cluster --name demok8scluster.k8s.local
+```
+
+This opens your editor (as defined by $EDITOR) and allows you to edit the configuration. The configuration is loaded from the S3 bucket we created earlier, and automatically updated when we save and exit the editor.
+
 ### Build the cluster
 
 ```shell
 kops update cluster demok8scluster.k8s.local --yes --state=s3://kops-ashu-storage
 ```
+
+This'll take a while. Once it finishes you'll have to wait longer while the booted instances finish downloading Kubernetes components and reach a "ready" state.
