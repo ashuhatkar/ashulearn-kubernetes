@@ -267,3 +267,9 @@ kops create cluster --name=demok8scluster.k8s.local \
      --master-volume-size=8 \
      --node-volume-size=8
 ```
+
+### Build the cluster
+
+```shell
+kops update cluster demok8scluster.k8s.local --yes --state=s3://kops-ashu-storage
+```
