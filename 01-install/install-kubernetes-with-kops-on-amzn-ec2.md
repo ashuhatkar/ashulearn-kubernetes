@@ -278,7 +278,7 @@ Now we have a cluster configuration, we can look at every aspect that defines ou
 kops edit cluster --name demok8scluster.k8s.local
 ```
 
-This opens your editor (as defined by $EDITOR) and allows you to edit the configuration. The configuration is loaded from the S3 bucket we created earlier, and automatically updated when we save and exit the editor.
+This opens your editor (as defined) and allows you to edit the configuration. The configuration is loaded from the S3 bucket we created earlier, and automatically updated when we save and exit the editor.
 
 ### Build the cluster
 
