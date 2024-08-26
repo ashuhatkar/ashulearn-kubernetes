@@ -147,7 +147,7 @@ sudo mv kops-linux-amd64 /usr/local/bin/kops
 
 - Create kOps IAM user
 
-```
+```shell
 aws iam create-group --group-name kops
 
 aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonEC2FullAccess --group-name kops
@@ -165,15 +165,15 @@ aws iam add-user-to-group --user-name kops --group-name kops
 aws iam create-access-key --user-name kops
 ```
 
-- List of all your IAM user.
+- List of all your IAM users.
 
-```
+```shell
 aws iam list-users
 ```
 
-- Configure the aws client to use your new IAM user
+- Configure the aws client to use your new IAM user.
 
-```
+```shell
 aws configure
 AWS Access Key ID [None]: accesskey
 AWS Secret Access Key [None]: secretkey
@@ -181,7 +181,7 @@ Default region name [None]: us-east-2
 Default output format [None]:
 ```
 
-```
+```shell
 aws configure [--profile profile-name]
 ```
 
@@ -189,12 +189,12 @@ aws configure [--profile profile-name]
 
 ### Create a new S3 bucket for storing the kOps objects
 
-> The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-bucket.
+> In order to store the state of your cluster, and the representation of your cluster, we need to create a dedicated S3 bucket for <mark>kOps</mark> to use. The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-bucket.
 
 ```
 aws s3api create-bucket \
     --bucket kops-ashu-storage \
-    --region us-east-2
+    --region us-east-1
 ```
 
 > The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-bucket that uses the bucket owner enforced setting for S3 Object Ownership.
@@ -216,7 +216,8 @@ kops create cluster [CLUSTER] [flags]
 
 ```
    # Create a cluster in AWS in a single zone.
-   kops create cluster --name=k8s-cluster.example.com \
+   kops create cluster
+     --name=k8s-cluster.example.com \
      --state=s3://my-state-store \
      --zones=us-east-1a \
      --node-count=2
