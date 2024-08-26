@@ -272,13 +272,13 @@ kops create cluster
 
 ### Customize cluster configurations
 
-Now we have a cluster configuration, we can look at every aspect that defines our cluster by editing the description.
+> Now we have a cluster configuration, we can look at every aspect that defines our cluster by editing the description.
 
 ```
 kops edit cluster --name demok8scluster.k8s.local
 ```
 
-This opens your editor (as defined) and allows you to edit the configuration. The configuration is loaded from the S3 bucket we created earlier, and automatically updated when we save and exit the editor.
+> This opens your editor (as defined) and allows you to edit the configuration. The configuration is loaded from the S3 bucket we created earlier, and automatically updated when we save and exit the editor.
 
 ### Build the cluster
 
@@ -286,11 +286,11 @@ This opens your editor (as defined) and allows you to edit the configuration. Th
 kops update cluster demok8scluster.k8s.local --yes --state=s3://kops-ashu-storage
 ```
 
-This'll take a while. Once it finishes you'll have to wait longer while the booted instances finish downloading Kubernetes components and reach a "ready" state.
+> This'll take a while. Once it finishes you'll have to wait longer while the booted instances finish downloading Kubernetes components and reach a "ready" state.
 
 ### Use the cluster
 
-Let's use kubectl to check the nodes.
+> Let's use kubectl to check the nodes.
 
 ```shell
 kubectl get nodes
@@ -298,7 +298,7 @@ kubectl get nodes
 
 ### Destroy the cluster
 
-Running a kubernetes cluser within AWS obviously costs money, and so you may want to delete your cluster if you are finished running experiments.
+> Running a kubernetes cluser within AWS obviously costs money, and so you may want to delete your cluster if you are finished running experiments.
 
 ```shell
 kops delete cluster --name ${NAME} --yes
