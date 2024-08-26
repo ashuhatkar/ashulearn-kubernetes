@@ -287,3 +287,19 @@ kops update cluster demok8scluster.k8s.local --yes --state=s3://kops-ashu-storag
 ```
 
 This'll take a while. Once it finishes you'll have to wait longer while the booted instances finish downloading Kubernetes components and reach a "ready" state.
+
+### Use the cluster
+
+Let's use kubectl to check the nodes.
+
+```shell
+kubectl get nodes
+```
+
+### Destroy the cluster
+
+Running a kubernetes cluser within AWS obviously costs money, and so you may want to delete your cluster if you are finished running experiments.
+
+```shell
+kops delete cluster --name ${NAME} --yes
+```
