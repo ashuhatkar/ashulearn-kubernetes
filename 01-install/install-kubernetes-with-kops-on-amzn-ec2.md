@@ -100,13 +100,13 @@ unzip awscliv2.zip
 sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
 ```
 
-> The command installs AWS CLI v2 <mark>latest version</mark>, using the curl command.
+- The command installs AWS CLI v2 <mark>latest version</mark>, using the curl command.
 
 ```
 curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip.sig
 ```
 
-> The command installs AWS CLI v2 <mark>specific version</mark>, using the curl command.
+- The command installs AWS CLI v2 <mark>specific version</mark>, using the curl command.
 
 ```
 curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip.sig
