@@ -8,7 +8,7 @@ You'll learn how to:
 2. Deploy an app:
 3. Explorer your app:
 
-### Create an EC2 instance or you can make use of your personal infrastructure (Debian, Ubuntu, and operating systems using apt/apt-get).
+### Create an EC2 instance or you can make use of your personal infrastructure.
 
 Pre-requisites:
 
