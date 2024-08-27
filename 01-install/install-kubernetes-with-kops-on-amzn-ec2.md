@@ -189,7 +189,7 @@ aws configure [--profile profile-name]
 
 ### Create a new S3 bucket for storing the kOps objects
 
-> In order to store the state of your cluster, and the representation of your cluster, we need to create a dedicated S3 bucket for <mark>kOps</mark> to use. The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-bucket.
+> In order to store the state of your cluster, and the representation of your cluster, we need to create a dedicated S3 bucket for <mark>kOps</mark> to use. The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-storage bucket.
 
 ```
 aws s3api create-bucket \
@@ -197,7 +197,7 @@ aws s3api create-bucket \
     --region us-east-1
 ```
 
-> The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-bucket that uses the bucket owner enforced setting for S3 Object Ownership.
+> The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-storage bucket that uses the bucket owner enforced setting for S3 Object Ownership.
 
 ```
 aws s3api create-bucket \
