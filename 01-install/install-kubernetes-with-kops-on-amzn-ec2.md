@@ -206,9 +206,9 @@ aws s3api create-bucket \
     --object-ownership BucketOwnerEnforced
 ```
 
-### Create the cluster using kOps
+### Create the kubernetes cluster using kOps
 
-> These operations are done in parallel and rely on eventual consistency.
+> Creates a Kubernetes cluster using command line flags. This command creates cloud based resources such as networks and cirtual machines. Once the infrastructure is in place Kubernetes is installed on the virtual machine. These operations are done in parallel and rely on eventual consistency.
 
 ```
 kops create cluster [CLUSTER] [flags]
@@ -255,6 +255,81 @@ kops create cluster [CLUSTER] [flags]
      --node-count=2 \
      --dry-run \
      -oyaml > filename.yaml
+```
+> Options
+
+```shell
+      --admin-access strings                    Restrict API access to this CIDR.  If not set, access will not be restricted by IP. (default [0.0.0.0/0,::/0])
+      --api-loadbalancer-type string            Type of load balancer for the Kubernetes API: public or internal
+      --api-public-name string                  Domain name of the public Kubernetes API
+      --api-ssl-certificate string              ARN of the SSL Certificate to use for the Kubernetes API load balancer (AWS only)
+      --associate-public-ip                     Specify --associate-public-ip=[true|false] to enable/disable association of public IP for control-plane ASG and nodes. Default is 'true'.
+      --authorization string                    Authorization mode: AlwaysAllow or RBAC (default "RBAC")
+      --bastion                                 Enable a bastion instance group. Only applies to private topology.
+      --bastion-image string                    Machine image for bastions. Takes precedence over --image
+      --channel string                          Channel for default versions and configuration to use (default "stable")
+      --cloud string                            Cloud provider to use - aws, digitalocean, gce, hetzner, openstack
+      --cloud-labels string                     A list of key/value pairs used to tag all instance groups (for example "Owner=John Doe,Team=Some Team").
+      --control-plane-count int32               Number of control-plane nodes. Defaults to one control-plane node per control-plane-zone
+      --control-plane-image string              Machine image for control-plane nodes. Takes precedence over --image
+      --control-plane-security-groups strings   Additional pre-created security groups to add to control-plane nodes.
+      --control-plane-size strings              Machine type(s) for control-plane nodes
+      --control-plane-tenancy string            Tenancy of the control-plane group (AWS only): default or dedicated
+      --control-plane-volume-size int32         Instance volume size (in GB) for control-plane nodes
+      --control-plane-zones strings             Zones in which to run control-plane nodes. (must be an odd number)
+      --disable-subnet-tags                     Disable automatic subnet tagging
+      --discovery-store string                  A public location where we publish OIDC-compatible discovery information under a cluster-specific directory. Enables IRSA in AWS.
+      --dns string                              DNS type to use: public, private, none
+      --dns-zone string                         DNS hosted zone (defaults to longest matching zone)
+      --dry-run                                 If true, only print the object that would be sent, without sending it. This flag can be used to create a cluster YAML or JSON manifest.
+      --encrypt-etcd-storage                    Generate key in AWS KMS and use it for encrypt etcd volumes
+      --etcd-clusters strings                   Names of the etcd clusters: main, events (default [main,events])
+      --etcd-storage-type string                The default storage type for etcd members
+      --gce-service-account string              Service account with which the GCE VM runs. Warning: if not set, VMs will run as default compute service account.
+  -h, --help                                    help for cluster
+      --image string                            Machine image for all instances
+      --instance-manager string                 Instance manager to use (cloudgroups or karpenter. Default: cloudgroups) (default "cloudgroups")
+      --ipv6                                    Use IPv6 for the pod network (AWS only)
+      --kubernetes-feature-gates strings        List of Kubernetes feature gates to enable/disable
+      --kubernetes-version string               Version of Kubernetes to run (defaults to version in channel)
+      --network-cidr strings                    Network CIDR(s) to use
+      --network-id string                       Shared Network or VPC to use
+      --networking string                       Networking mode.  kubenet, external, flannel-vxlan (or flannel), flannel-udp, calico, canal, kube-router, amazonvpc, cilium, cilium-etcd, cni. (default "cilium")
+      --node-count int32                        Total number of worker nodes. Defaults to one node per zone
+      --node-image string                       Machine image for worker nodes. Takes precedence over --image
+      --node-security-groups strings            Additional pre-created security groups to add to worker nodes.
+      --node-size strings                       Machine type(s) for worker nodes
+      --node-tenancy string                     Tenancy of the node group (AWS only): default or dedicated
+      --node-volume-size int32                  Instance volume size (in GB) for worker nodes
+      --os-dns-servers string                   comma separated list of DNS Servers which is used in network
+      --os-ext-net string                       External network to use with the openstack router
+      --os-ext-subnet string                    External floating subnet to use with the openstack router
+      --os-kubelet-ignore-az                    Attach volumes across availability zones
+      --os-lb-floating-subnet string            External subnet to use with the Kubernetes API
+      --os-network string                       ID of the existing OpenStack network to use
+      --os-octavia                              Use octavia load balancer API
+      --os-octavia-provider string              Octavia provider to use
+      --out string                              Path to write any local output
+  -o, --output string                           Output format. One of json or yaml. Used with the --dry-run flag.
+      --project string                          Project to use (must be set on GCE)
+      --set strings                             Directly set values in the spec (default [])
+      --ssh-access strings                      Restrict SSH access to this CIDR.  If not set, uses the value of the admin-access flag.
+      --ssh-public-key string                   SSH public key to use
+      --subnets strings                         Shared subnets to use
+      --target string                           Valid targets: direct, terraform. Set this flag to terraform if you want kOps to generate terraform (default "direct")
+  -t, --topology string                         Network topology for the cluster: 'public' or 'private'. Defaults to 'public' for IPv4 clusters and 'private' for IPv6 clusters.
+      --unset strings                           Directly unset values in the spec
+      --utility-subnets strings                 Shared utility subnets to use
+  -y, --yes                                     Specify --yes to immediately create the cluster
+      --zones strings                           Zones in which to run the cluster
+```
+> Options inherited from parent commands:
+
+```shell
+      --config string   yaml config file (default is $HOME/.kops.yaml)
+      --name string     Name of cluster. Overrides KOPS_CLUSTER_NAME environment variable
+      --state string    Location of state storage (kops 'config' file). Overrides KOPS_STATE_STORE environment variable
+  -v, --v Level         number for the log level verbosity
 ```
 
 ```shell
