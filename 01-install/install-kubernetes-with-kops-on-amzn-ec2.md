@@ -224,7 +224,7 @@ aws s3api create-bucket \
 ```
 - Note: S3 requires <mark>--create-bucket-configuration LocationConstraint=<region></mark> for regions other than <mark>us-east-1</mark>.
 
-- Note: It is ***strongly*** recommended versioning your S3 bucket in case you ever need to revert or recover a previous state store.
+- Note: It is **strongly** recommended versioning your S3 bucket in case you ever need to revert or recover a previous state store.
 
 ```shell
 aws s3api put-bucket-versioning \
@@ -373,7 +373,7 @@ kops create cluster
 
 ### Customize cluster configurations
 
-> Now we have a cluster configuration, we can look at every aspect that defines our cluster by editing the description.
+> **Now we have a cluster configuration**, we can look at every aspect that defines our cluster by editing the description.
 
 ```
 kops edit cluster --name demok8scluster.k8s.local
