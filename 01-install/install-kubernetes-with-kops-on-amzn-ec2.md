@@ -132,7 +132,9 @@ curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://
 chmod +x kops-linux-amd64
 sudo mv kops-linux-amd64 /usr/local/bin/kops
 ```
+
 OR
+
 ```shell
 wget https://github.com/kubernetes/kops/releases/download/v1.30.0/kops-linux-amd64
 sudo mv kops-linux-amd64 /usr/local/bin/kops
