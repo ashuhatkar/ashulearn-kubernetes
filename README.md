@@ -23,3 +23,15 @@
 | **kubelet** | The kubelet is the primary “node agent” that runs on each node & manages the containers/pods running on each node |
 | **Container Runtime** | A container runtime is software that executes containers and manages container images on a node. |
 | **kube-proxy (opt)** | kube-proxy is a network proxy that runs on each node in your cluster. kube-proxy maintains network rules on nodes. These network rules allow network communication to your Pods from network sessions inside or outside of your cluster. |
+
+
+## Setup kubernetes cluster on EC2 instance using kOps ##
+> #### Note: sets up the latest kubernetes version
+>
+>> **[install-kubernetes-with-kops-on-amzn-ec2](https://github.com/ashuhatkar/ashulearn-kubernetes-setup-on-prod-systems/blob/develop/01-install/install-kubernetes-with-kops-on-amzn-ec2.md)**
+>
+>> **[upgrade-kubernetes-with-kops-on-amzn-ec2](https://github.com/ashuhatkar/ashulearn-kubernetes-setup-on-prod-systems/blob/develop/02-upgrade/upgrade-kubernetes-with-kops-on-amzn-ec2.md)**
+>
+>> **[scaling-kubernetes-with-kops-on-amzn-ec2](https://github.com/ashuhatkar/ashulearn-kubernetes-setup-on-prod-systems/blob/develop/03-scaling/scaling-kubernetes-with-kops-on-amzn-ec2.md)**
+>
+>> **[deleting-kubernetes-with-kops-on-amzn-ec2](https://github.com/ashuhatkar/ashulearn-kubernetes-setup-on-prod-systems/blob/develop/04-deleting/deleting-kubernetes-with-kops-on-amzn-ec2.md)**
