@@ -360,7 +360,7 @@ kops create cluster [CLUSTER] [flags]
 
 ```shell
 kops create cluster
-     --name=demok8scluster.k8s.local \
+     --name=demok8scluster.k8s.local \												
      --cloud=aws \
      --state=s3://kops-ashu-storage \
      --zones=us-east-1a \
@@ -395,12 +395,4 @@ kops update cluster demok8scluster.k8s.local --yes --state=s3://kops-ashu-storag
 
 ```shell
 kubectl get nodes
-```
-
-### Destroy the cluster
-
-> Running a kubernetes cluster within AWS obviously costs money, and so you may want to delete your cluster if you are finished running experiments.
-
-```shell
-kops delete cluster --name demok8scluster.k8s.local --yes
 ```
