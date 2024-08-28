@@ -37,6 +37,8 @@ kops get cluster
 
 ![Delete request use cases](https://docs.aws.amazon.com/images/AmazonS3/latest/userguide/images/versioning_DELETE_versioningEnabled2.png)
 
+- The following command deletes an object named test.txt from a bucket named kops-ashu-storage. To remove a specific version of an object, you must be the bucket owner and you must use the version Id subresource.
+
 ```shell
 aws s3api delete-object --bucket kops-ashu-storage --key test.txt --version-id versionID
 ```
