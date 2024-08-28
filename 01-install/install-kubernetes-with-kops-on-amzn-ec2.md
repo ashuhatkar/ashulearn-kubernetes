@@ -139,7 +139,7 @@ sudo mv kops-linux-amd64 /usr/local/bin/kops
 sudo chmod +x /usr/local/bin/kops
 ```
 
-### Verify kOps:
+### Verify kOps
 
 ```shell
 which kops
