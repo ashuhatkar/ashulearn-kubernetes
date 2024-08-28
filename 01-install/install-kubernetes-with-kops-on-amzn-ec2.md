@@ -208,7 +208,7 @@ aws s3api create-bucket \
 
 ### Create the kubernetes cluster using kOps
 
-> Creates a Kubernetes cluster using command line flags. This command creates cloud based resources such as networks and cirtual machines. Once the infrastructure is in place Kubernetes is installed on the virtual machine. These operations are done in parallel and rely on eventual consistency.
+> Creates a Kubernetes cluster using command line flags. This command creates cloud based resources such as networks and virtual machines. Once the infrastructure is in place Kubernetes is installed on the virtual machine. These operations are done in parallel and rely on eventual consistency.
 
 ```
 kops create cluster [CLUSTER] [flags]
@@ -256,7 +256,7 @@ kops create cluster [CLUSTER] [flags]
      --dry-run \
      -oyaml > filename.yaml
 ```
-> Options
+> Options:
 
 ```shell
       --admin-access strings                    Restrict API access to this CIDR.  If not set, access will not be restricted by IP. (default [0.0.0.0/0,::/0])
