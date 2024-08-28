@@ -114,23 +114,30 @@ curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30
 
 > Verify that the AWS CLI install correctly
 
-```
+```shell
 which aws
 aws --version
 ```
 
 > Set the path environment for the current session.
 
-```
+```shell
 export PATH="$PATH:/home/ubuntu/.local/bin/"
 ```
 
 ### Install kOps:
 
-```
+```shell
 curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
 chmod +x kops-linux-amd64
 sudo mv kops-linux-amd64 /usr/local/bin/kops
+```
+
+### Verify kOps
+
+```shell
+which kops
+kops version
 ```
 
 ### Configure the AWS CLI
@@ -189,21 +196,32 @@ aws configure [--profile profile-name]
 
 ### Create a new S3 bucket for storing the kOps objects
 
-> In order to store the state of your cluster, and the representation of your cluster, we need to create a dedicated S3 bucket for <mark>kOps</mark> to use. The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-storage bucket.
+> In order to store the state of your cluster, and the representation of your cluster, we need to create a dedicated S3 bucket for <mark>kOps</mark> to use. The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-storage
 
-```
+> It is recommended keeping the creation of this bucket confined to us-east-1, otherwise more work will be required.
+
+```shell
 aws s3api create-bucket \
     --bucket kops-ashu-storage \
     --region us-east-1
 ```
 
-> The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-storage bucket that uses the bucket owner enforced setting for S3 Object Ownership.
+> The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-storage that uses the bucket owner enforced setting for S3 Object Ownership.
 
 ```
 aws s3api create-bucket \
     --bucket kops-ashu-storage \
     --region us-east-1 \
     --object-ownership BucketOwnerEnforced
+```
+- Note: S3 requires <mark>--create-bucket-configuration LocationConstraint=<region></mark> for regions other than <mark>us-east-1</mark>.
+
+- Note: It is ***strongly*** recommended versioning your S3 bucket in case you ever need to revert or recover a previous state store.
+
+```shell
+aws s3api put-bucket-versioning \
+    --bucket kops-ashu-storage \
+    --versioning-configuration Status=Enabled
 ```
 
 ### Create the kubernetes cluster using kOps
