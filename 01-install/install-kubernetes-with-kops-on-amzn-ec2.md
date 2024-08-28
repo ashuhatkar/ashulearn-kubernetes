@@ -8,7 +8,7 @@ You'll learn how to:
 2. Deploy an app:
 3. Explorer your app:
 
-### Create an EC2 instance or you can make use of your personal infrastructure.
+### Create an EC2 instance or you can make use of your personal infrastructure:
 
 Pre-requisites:
 
@@ -125,15 +125,21 @@ aws --version
 export PATH="$PATH:/home/ubuntu/.local/bin/"
 ```
 
-### Install kOps:
+### Install kOps (using curl or wget):
 
 ```shell
 curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
 chmod +x kops-linux-amd64
 sudo mv kops-linux-amd64 /usr/local/bin/kops
 ```
+OR
+```shell
+wget https://github.com/kubernetes/kops/releases/download/v1.30.0/kops-linux-amd64
+sudo mv kops-linux-amd64 /usr/local/bin/kops
+sudo chmod +x /usr/local/bin/kops
+```
 
-### Verify kOps
+### Verify kOps:
 
 ```shell
 which kops
