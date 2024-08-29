@@ -1,7 +1,7 @@
 
-### Updates and Upgrades
+## Updates and Upgrades
 
-## Actual process
+### Actual process
 
 1. First it goes to the Master node, and upgrades the Master node to the specified Kubernetes version.
 2. Then it goes to the Worker nodes and does the upgrade. It upgrades the worker nodes one by one.
