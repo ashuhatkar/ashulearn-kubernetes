@@ -423,3 +423,9 @@ kubectl port-forward nginx-xxxxxx-xxxxx 8080:80 -n <Namespace>
 `https://localhost:8080/`
 
 `https://127.0.0.1:8080/`
+
+### Delete the sample deploy
+
+```shell
+kubectl delete deploy nginx
+```
