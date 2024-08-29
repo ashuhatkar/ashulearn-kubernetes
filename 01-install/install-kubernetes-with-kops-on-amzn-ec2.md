@@ -406,19 +406,19 @@ kubectl get nodes
 kubectl run nginx --image nginx
 ```
 
-## Verify your deploy
+### Verify your deploy
 
 ```shell
 kubectl get all
 ```
 
-## Access your application via port-forward
+### Access your application via port-forward
 
 ```shell
 kubectl port-forward nginx-xxxxxx-xxxxx 8080:80 -n <Namespace>
 ```
 
-## Verify in browser
+### Verify in browser
 
 `https://localhost:8080/`
 `https://127.0.0.1:8080/`
