@@ -9,3 +9,15 @@
    2. It waits for the pods to be evicted, and then it disables that node, so that no new pods get scheduled to that node.
    3. Takes the node offline, upgrades the node, and brings the node back online.
    4. Once it has verified that the node has come-up and is back in service, it will then go to the next node and upgrade the node.
+
+### Upgrading Kubernetes
+
+The cluster spec contains a `kubernetesVersion`, so you can simply edit it with `kops edit`, and apply the updated configuration to your cluster.
+
+It is recommended to run the latest version of kOps to ensure compatibility with the target kubernetesVersion. When applying a Kubernetes minor version upgrade (e.g. `v1.5.3` to `v1.6.0`), you should confirm that the target kubernetesVersion is compatible with the current [kOps release](https://github.com/kubernetes/kops/releases).
+
+#### Manual update
+
+
+#### Automated update
+
