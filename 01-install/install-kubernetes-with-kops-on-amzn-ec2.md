@@ -5,19 +5,21 @@ Here are few resources and steps to get you started:
 You'll learn how to:
 
 1. Create a kubernetes cluster
-2. Deploy an app:
-3. Explorer your app:
+2. Upgrade cluster
+3. Scaling cluster
+4. Destroying cluster
 
-### Create an EC2 instance or you can make use of your personal infrastructure:
+### Create an EC2 instance or you can make use of your personal infrastructure
 
 Pre-requisites:
 
 1. AWS subscription
 2. AWS command-line interface (CLI)
 3. Python3
-4. Kube command-line interface (Kubectl)
+4. kOps
+5. Kube command-line interface (Kubectl)
 
-### Install dependencies:
+### Install dependencies
 
 > The command <mark>sudo apt-get update</mark> downloads package information from all configured sources.
 
@@ -216,7 +218,7 @@ aws s3api create-bucket \
 
 > The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-storage that uses the bucket owner enforced setting for S3 Object Ownership.
 
-```
+```shell
 aws s3api create-bucket \
     --bucket kops-ashu-storage \
     --region us-east-1 \
@@ -224,7 +226,7 @@ aws s3api create-bucket \
 ```
 - Note: S3 requires <mark>--create-bucket-configuration LocationConstraint=<region></mark> for regions other than <mark>us-east-1</mark>.
 
-- Note: It is **strongly** recommended versioning your S3 bucket in case you ever need to revert or recover a previous state store.
+- Note: It is **`strongly`** recommended versioning your S3 bucket in case you ever need to revert or recover a previous state store.
 
 ```shell
 aws s3api put-bucket-versioning \
@@ -236,9 +238,7 @@ aws s3api put-bucket-versioning \
 
 > Creates a Kubernetes cluster using command line flags. This command creates cloud based resources such as networks and virtual machines. Once the infrastructure is in place Kubernetes is installed on the virtual machine. These operations are done in parallel and rely on eventual consistency.
 
-```
-kops create cluster [CLUSTER] [flags]
-```
+`kops create cluster [CLUSTER] [flags]`
 
 ```
    # Create a cluster in AWS in a single zone.
