@@ -7,7 +7,9 @@ You'll learn how to:
 1. Create a kubernetes cluster
 2. Upgrade cluster
 3. Scaling cluster
-4. Destroying cluster
+4. Deploy your app
+5. Explore your app
+6. Destroying cluster
 
 ### Create an EC2 instance or you can make use of your personal infrastructure
 
@@ -397,3 +399,26 @@ kops update cluster demok8scluster.k8s.local --yes --state=s3://kops-ashu-storag
 ```shell
 kubectl get nodes
 ```
+
+### Deploy a sample nginx application
+
+```shell
+kubectl run nginx --image nginx
+```
+
+## Verify your deploy
+
+```shell
+kubectl get all
+```
+
+## Access your application via port-forward
+
+```shell
+kubectl port-forward nginx-xxxxxx-xxxxx 8080:80 -n <Namespace>
+```
+
+## Verify in browser
+
+`https://localhost:8080/`
+`https://127.0.0.1:8080/`
