@@ -284,7 +284,7 @@ aws s3api put-bucket-versioning \
 ```
 > Options:
 
-`
+```shell
       --admin-access strings                    Restrict API access to this CIDR.  If not set, access will not be restricted by IP. (default [0.0.0.0/0,::/0])
       --api-loadbalancer-type string            Type of load balancer for the Kubernetes API: public or internal
       --api-public-name string                  Domain name of the public Kubernetes API
@@ -348,7 +348,7 @@ aws s3api put-bucket-versioning \
       --utility-subnets strings                 Shared utility subnets to use
   -y, --yes                                     Specify --yes to immediately create the cluster
       --zones strings                           Zones in which to run the cluster
-`
+```
 
 > Options inherited from parent commands:
 
