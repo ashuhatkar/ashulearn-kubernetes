@@ -1,8 +1,8 @@
 ## Kubernetes setup using Kubernetes Operations (kOps) on Amazon EC2
 
-Here are few resources and steps to get you started:
+`Here are few resources and steps to get you started`:
 
-You'll learn how to:
+`You'll learn how to`:
 
 1. Create a kubernetes cluster
 2. Upgrade cluster
@@ -13,7 +13,7 @@ You'll learn how to:
 
 ### Create an EC2 instance or you can make use of your personal infrastructure
 
-Pre-requisites:
+`Pre-requisites`:
 
 1. AWS subscription
 2. AWS command-line interface (CLI)
