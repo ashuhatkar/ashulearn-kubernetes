@@ -7,7 +7,7 @@ The cluster spec contains a `kubernetesVersion`, so you can simply edit it with 
 
 It is recommended to run the latest version of kOps to ensure compatibility with the target kubernetesVersion. When applying a Kubernetes minor version upgrade (e.g. `v1.16.0` to `v1.16.3`), you should confirm that the target kubernetesVersion is compatible with the current [kOps release](https://github.com/kubernetes/kops/releases).
 
-### Manual update
+### `Manual update`
 
 `Steps`:
 
@@ -67,5 +67,5 @@ kubectl version --short
 
 We have successfully upgraded kubernetes cluster from `1.16.0` to `1.16.3`.
 
-### Automated update
+### `Automated update`
 
