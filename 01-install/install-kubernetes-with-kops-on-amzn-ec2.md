@@ -394,7 +394,7 @@ kops edit cluster --name demok8scluster.k8s.local
 
 > This opens your editor (as defined) and allows you to edit the configuration. The configuration is loaded from the S3 bucket we created earlier, and automatically updated when we save and exit the editor.
 
-### Create the kubernetes cluster
+### Create kubernetes cluster
 
 ```shell
 kops update cluster demok8scluster.k8s.local --yes --state=s3://kops-ashu-storage
@@ -402,7 +402,7 @@ kops update cluster demok8scluster.k8s.local --yes --state=s3://kops-ashu-storag
 
 > This'll take a while. Once it finishes you'll have to wait longer while the booted instances finish downloading Kubernetes components and reach a "ready" state.
 
-### Validate the cluster
+### Validate cluster
 
 > Let's use kubectl to check the nodes.
 
@@ -430,7 +430,7 @@ kubectl create namespace ns-prod-alpha01
 kubectl get namespaces
 ```
 
-### Let's deploy an Nginx web server inside the Namespace
+### Let's deploy an Nginx web server named "mynginx" inside the Namespace
 
 ```shell
 #kubectl run mynginx --image=nginx --replicas=2 -n ns-prod-alpha01
