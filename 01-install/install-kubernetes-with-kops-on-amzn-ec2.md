@@ -5,10 +5,10 @@
 `You'll learn how to`:
 
 1. Create a kubernetes cluster
-2. Upgrade cluster
-3. Scaling cluster
-4. Deploy your app
-5. Explore your app
+2. Deploy app
+3. Explore app
+4. Upgrade cluster
+5. Scaling cluster
 6. Destroying cluster
 
 ### Create an Ubuntu EC2 instance or you can make use of your personal infrastructure
