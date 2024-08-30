@@ -7,14 +7,14 @@ The cluster spec contains a `kubernetesVersion`, so you can simply edit it with 
 
 It is recommended to run the latest version of kOps to ensure compatibility with the target kubernetesVersion. When applying a Kubernetes minor version upgrade (e.g. `v1.16.0` to `v1.16.3`), you should confirm that the target kubernetesVersion is compatible with the current [kOps release](https://github.com/kubernetes/kops/releases).
 
-#### Manual update
+### Manual update
 
 `Steps`:
 
 1. kops edit cluster - edit the cluster configuration, and specify what kubernetes version to be upgrade.
 2. kops update cluster - update the cluster state.
 3. kops rolling-update - 
-   ### Process
+   #### Process
    1. First it goes to the Master node, and upgrades the Master node to the specified Kubernetes version.
    2. Then it goes to the Worker nodes and does the upgrade. It upgrades the worker nodes one by one.
       1. Drains all the pods that are currently running on that node.
