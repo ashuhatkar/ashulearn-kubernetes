@@ -34,7 +34,7 @@ kops get cluster
 kops edit cluster --name demok8scluster.k8s.local
 ```
 
-`Change attribute KubernetesVersion: 1.16.3`
+Set the KubernetesVersion to the target version (e.g. `1.16.3`)
 
 ### Check kubernetes server version
 
@@ -44,6 +44,8 @@ kubectl get nodes
 ```
 
 ### Step 2: Update cluster
+
+**Note the verb used below is `update` not `upgrade`**
 
 ```sh
 kops update cluster --name demok8scluster.k8s.local --yes
