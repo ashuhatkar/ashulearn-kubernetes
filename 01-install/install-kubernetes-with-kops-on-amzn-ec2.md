@@ -11,7 +11,7 @@
 5. Explore your app
 6. Destroying cluster
 
-### Create an EC2 instance or you can make use of your personal infrastructure
+### Create an Ubuntu EC2 instance or you can make use of your personal infrastructure
 
 `Pre-requisites`:
 
@@ -129,29 +129,6 @@ aws --version
 export PATH="$PATH:/home/ubuntu/.local/bin/"
 ```
 
-### Install kOps (using curl or wget):
-
-```shell
-curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
-chmod +x kops-linux-amd64
-sudo mv kops-linux-amd64 /usr/local/bin/kops
-```
-
-OR
-
-```shell
-wget https://github.com/kubernetes/kops/releases/download/v1.30.0/kops-linux-amd64
-sudo mv kops-linux-amd64 /usr/local/bin/kops
-sudo chmod +x /usr/local/bin/kops
-```
-
-### Verify kOps
-
-```shell
-which kops
-kops version
-```
-
 ### Configure the AWS CLI
 
 - Provide the below permissions to your IAM user. If you're using the admin user, the below permissions are available by default.
@@ -164,7 +141,7 @@ kops version
 6. AmazonEventBridgeFullAccess
 7. AmazonRoute53FullAccess
 
-- Create kOps IAM user
+- Create an IAM user/role  with Route53, EC2, IAM and S3 full access
 
 ```shell
 aws iam create-group --group-name kops
@@ -194,10 +171,10 @@ aws iam list-users
 
 ```shell
 aws configure
-AWS Access Key ID [None]: accesskey
-AWS Secret Access Key [None]: secretkey
-Default region name [None]: us-east-2
-Default output format [None]:
+#AWS Access Key ID [None]: accesskey
+#AWS Secret Access Key [None]: secretkey
+#Default region name [None]: us-east-2
+#Default output format [None]:
 ```
 
 ```shell
@@ -205,6 +182,31 @@ aws configure [--profile profile-name]
 ```
 
 > If the command is run with no arguments, you will be prompted for configuration values such as your AWS Access Key id and your AWS Secret Access Key. You can configure a named profile using the --profile argument. If your config file does not exist (default location is \~/.aws/config), the AWS CLI will create it for you. The values you provide will be written to the shared credentials file (~/.aws/credentials).
+
+### Install kOps (using curl or wget)
+
+```shell
+curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+chmod +x kops-linux-amd64
+sudo mv kops-linux-amd64 /usr/local/bin/kops
+```
+
+OR
+
+```shell
+wget https://github.com/kubernetes/kops/releases/download/v1.30.0/kops-linux-amd64
+sudo mv kops-linux-amd64 /usr/local/bin/kops
+sudo chmod +x /usr/local/bin/kops
+```
+
+### Verify kOps
+
+```shell
+which kops
+kops version
+```
+
+### Create a Route53 private hosted zone (you can create Public hosted zone if you have a domain)
 
 ### Create a new S3 bucket for storing the kOps objects
 
@@ -234,6 +236,12 @@ aws s3api create-bucket \
 aws s3api put-bucket-versioning \
     --bucket kops-ashu-storage \
     --versioning-configuration Status=Enabled
+```
+
+### Expose environment variable
+
+```shell
+export KOPS_STATE_STORE=s3://kops-ashu-storage
 ```
 
 ### Create the kubernetes cluster using kOps
@@ -361,9 +369,11 @@ aws s3api put-bucket-versioning \
   -v, --v Level         number for the log level verbosity
 ```
 
+> Create kubernetes cluster definitions on S3 bucket
+
 ```shell
 kops create cluster
-     --name=demok8scluster.k8s.local \												
+     --name=demok8scluster.k8s.local \
      --cloud=aws \
      --state=s3://kops-ashu-storage \
      --zones=us-east-1a \
@@ -384,7 +394,7 @@ kops edit cluster --name demok8scluster.k8s.local
 
 > This opens your editor (as defined) and allows you to edit the configuration. The configuration is loaded from the S3 bucket we created earlier, and automatically updated when we save and exit the editor.
 
-### Build the cluster
+### Create the kubernetes cluster
 
 ```shell
 kops update cluster demok8scluster.k8s.local --yes --state=s3://kops-ashu-storage
@@ -392,12 +402,13 @@ kops update cluster demok8scluster.k8s.local --yes --state=s3://kops-ashu-storag
 
 > This'll take a while. Once it finishes you'll have to wait longer while the booted instances finish downloading Kubernetes components and reach a "ready" state.
 
-### Verify and use the cluster
+### Validate the cluster
 
 > Let's use kubectl to check the nodes.
 
 ```shell
 kops get cluster
+kops validate cluster
 kubectl version --short
 kubectl get nodes
 kubectl get sc
@@ -405,7 +416,9 @@ kubectl get ns
 kubectl -n kube-system get all
 ```
 
-### Create a custom Namespace 
+### Deploying Nginx container on Kubernetes
+
+### Create a custom Namespace
 
 ```shell
 kubectl create namespace ns-prod-alpha01
@@ -415,14 +428,13 @@ kubectl create namespace ns-prod-alpha01
 
 ```shell
 kubectl get namespaces
-
 ```
 
-### Let's create a Deployment that runs an "nginx" web server inside this Namespace
+### Let's deploy an Nginx web server inside the Namespace
 
 ```shell
-#kubectl run nginx --image nginx -n ns-prod-alpha01
-kubectl create deployment mynginx --image nginx -n ns-prod-alpha01
+#kubectl run mynginx --image=nginx --replicas=2 -n ns-prod-alpha01
+kubectl create deployment mynginx --image=nginx -n ns-prod-alpha01
 ```
 
 ### Now, let's verify that the "mynginx" Deployment has been created inside the "ns-prod-alpha01" Namespace.
@@ -432,7 +444,7 @@ kubectl create deployment mynginx --image nginx -n ns-prod-alpha01
 kubectl get deployments -n ns-prod-alpha01
 ```
 
-### Access your application via kubernetes feature "port-forward" 8080 on my local machine
+### Access your application via kubernetes feature "port-forward" 8080 on local machine
 
 ```shell
 kubectl port-forward mynginx-XXXXXXXXXX-z9pp6 8080:80 -n ns-prod-alpha01

@@ -10,7 +10,7 @@
    3. Takes the node offline, upgrades the node, and brings the node back online.
    4. Once it has verified that the node has come-up and is back in service, it will then go to the next node and upgrade the node.
 
-### Upgrading Kubernetes
+### Upgrading Kubernetes to a specific version
 
 The cluster spec contains a `kubernetesVersion`, so you can simply edit it with `kops edit`, and apply the updated configuration to your cluster.
 
