@@ -392,40 +392,59 @@ kops update cluster demok8scluster.k8s.local --yes --state=s3://kops-ashu-storag
 
 > This'll take a while. Once it finishes you'll have to wait longer while the booted instances finish downloading Kubernetes components and reach a "ready" state.
 
-### Use the cluster
+### Verify and use the cluster
 
 > Let's use kubectl to check the nodes.
 
 ```shell
+kops get cluster
+kubectl version --short
 kubectl get nodes
+kubectl get sc
+kubectl get ns
+kubectl -n kube-system get all
 ```
 
-### Deploy a sample nginx application
+### Create a custom Namespace 
 
 ```shell
-kubectl run nginx --image nginx
+kubectl create namespace ns-prod-alpha01
 ```
 
-### Verify your deploy
+### Verify the created namespace
 
 ```shell
-kubectl get all
+kubectl get namespaces
+
 ```
 
-### Access your application via port-forward
+### Let's create a Deployment that runs an "nginx" web server inside this Namespace
 
 ```shell
-kubectl port-forward nginx-xxxxxx-xxxxx 8080:80 -n <Namespace>
+#kubectl run nginx --image nginx
+kubectl create deployment mynginx --image nginx -n ns-prod-alpha01
+```
+
+### Now, let's verify that the "mynginx" Deployment has been created inside the "production" Namespace.
+
+```shell
+#kubectl get all
+kubectl get deployments -n ns-prod-alpha01
+```
+
+### Access your application via kubernetes feature "port-forward" 8080 on my local machine
+
+```shell
+kubectl port-forward nginx-xxxxxx-xxxxx 8080:80 -n ns-prod-alpha01
 ```
 
 ### Verify in browser
 
 `https://localhost:8080/`
-
 `https://127.0.0.1:8080/`
 
-### Delete the sample deploy
+### Delete the sample deployment
 
 ```shell
-kubectl delete deploy nginx
+kubectl delete deploy mynginx
 ```
