@@ -65,7 +65,7 @@ kubectl get nodes
 kubectl version --short
 ```
 
-We have successfully upgraded our kubernetes cluster from `1.16.0` to `1.16.3`.
+We have successfully upgraded kubernetes cluster from `1.16.0` to `1.16.3`.
 
 #### Automated update
 
