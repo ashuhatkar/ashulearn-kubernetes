@@ -446,5 +446,5 @@ kubectl port-forward mynginx-XXXXXXXXXX-z9pp6 8080:80 -n ns-prod-alpha01
 ### Delete the sample deployment
 
 ```shell
-kubectl delete deploy mynginx
+kubectl delete deployment mynginx -n ns-prod-alpha01
 ```
