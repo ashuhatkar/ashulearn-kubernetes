@@ -421,21 +421,21 @@ kubectl get namespaces
 ### Let's create a Deployment that runs an "nginx" web server inside this Namespace
 
 ```shell
-#kubectl run nginx --image nginx
+#kubectl run nginx --image nginx -n ns-prod-alpha01
 kubectl create deployment mynginx --image nginx -n ns-prod-alpha01
 ```
 
 ### Now, let's verify that the "mynginx" Deployment has been created inside the "ns-prod-alpha01" Namespace.
 
 ```shell
-#kubectl get all
+#kubectl get all -n ns-prod-alpha01
 kubectl get deployments -n ns-prod-alpha01
 ```
 
 ### Access your application via kubernetes feature "port-forward" 8080 on my local machine
 
 ```shell
-kubectl port-forward nginx-xxxxxx-xxxxx 8080:80 -n ns-prod-alpha01
+kubectl port-forward mynginx-XXXXXXXXXX-z9pp6 8080:80 -n ns-prod-alpha01
 ```
 
 ### Verify in browser
