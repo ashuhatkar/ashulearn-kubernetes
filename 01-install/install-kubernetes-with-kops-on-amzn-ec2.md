@@ -425,7 +425,7 @@ kubectl get namespaces
 kubectl create deployment mynginx --image nginx -n ns-prod-alpha01
 ```
 
-### Now, let's verify that the "mynginx" Deployment has been created inside the "production" Namespace.
+### Now, let's verify that the "mynginx" Deployment has been created inside the "ns-prod-alpha01" Namespace.
 
 ```shell
 #kubectl get all
