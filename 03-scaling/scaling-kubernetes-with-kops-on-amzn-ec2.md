@@ -48,7 +48,7 @@ kops get instancegroups --name demok8scluster.k8s.local -o yaml > instancegroups
 
 The above command list the instance groups details.
 
-`***Note:*** We're not editing the cluster configuration but we're editing the instance groups configuration`.
+`Note: We're not editing the cluster configuration but we're editing the instance groups configuration`.
 
 ### Edit an instance group desired configuration.
 
