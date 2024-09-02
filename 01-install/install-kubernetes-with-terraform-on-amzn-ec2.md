@@ -5,7 +5,7 @@
 `You'll learn how to`:
 
 1. Create a kubernetes cluster
-2. Managing cluster
+2. Manage cluster
 
 `Pre-requisites`:
 
