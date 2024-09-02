@@ -35,3 +35,9 @@
 >> **[scaling-kubernetes-with-kops-on-amzn-ec2](https://github.com/ashuhatkar/ashulearn-kubernetes-setup-on-prod-systems/blob/develop/03-scaling/scaling-kubernetes-with-kops-on-amzn-ec2.md)**
 >
 >> **[deleting-kubernetes-with-kops-on-amzn-ec2](https://github.com/ashuhatkar/ashulearn-kubernetes-setup-on-prod-systems/blob/develop/04-deleting/deleting-kubernetes-with-kops-on-amzn-ec2.md)**
+
+## Manage kubernetes cluster using Terraform ##
+> #### Note: sets up the latest kubernetes version
+>
+>> **[install-kubernetes-with-terraform-on-amzn-ec2](https://github.com/ashuhatkar/ashulearn-kubernetes-setup-on-prod-systems/blob/develop/01-install/install-kubernetes-with-terraform-on-amzn-ec2.md)**
+>
