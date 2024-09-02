@@ -3,7 +3,7 @@
 
 As the number of pods and nodes grow, you will want to add more or remove node/s to handle the load. The process is going to remain the same for both master or worker nodes.
 
-### `Decommissioning worker node`
+### **`Decommissioning worker node`**
 
 `Steps:`
 
@@ -56,7 +56,7 @@ The above command list the instance groups details.
 # Usage
 # kops edit instancegroup INSTANCE_GROUP [flags]
 
-# kops edit instancegroup --name <CLUSTER_NAME> <INSTANCE_GROUP_NAME>
+# kops edit instancegroup --name <CLUSTER_NAME> <INSTANCE_GROUP_NAME> <STATE_STORE>
 kops edit instancegroup --name demok8scluster.k8s.local nodes --state=s3://kops-ashu-storage
 
 # Global Flags:
@@ -89,3 +89,49 @@ kubectl get nodes
 ```
 
 We've successfully decommissioned the worker node.
+
+### **`Upscaling Master node`**
+
+`Steps:`
+
+### Get instance groups (alias instancegroups/ig)
+
+```sh
+# kops get ig --name demok8scluster.k8s.local
+kops get instancegroups --name demok8scluster.k8s.local
+```
+
+### Edit instancegroup
+
+```sh
+# kops edit instancegroup --name <CLUSTER_NAME> <INSTANCE_GROUP_NAME> <STATE_STORE>
+kops edit instancegroup --name demok8scluster.k8s.local <master_instance_group>
+```
+
+> This opens your editor (as defined) and allows you to edit the configuration minSize: maxSize:, and automatically updated when we save and exit the editor.
+
+### Update the cluster
+
+```sh
+kops update cluster --name demok8scluster.k8s.local --yes
+```
+
+### Validate cluster
+
+```sh
+kops validate cluster --name demok8scluster.k8s.local
+```
+
+### List available nodes
+
+```sh
+kubectl get nodes
+```
+
+### Get cluster
+
+```sh
+kops get cluster
+```
+
+We've successfully upscalled the master node.
