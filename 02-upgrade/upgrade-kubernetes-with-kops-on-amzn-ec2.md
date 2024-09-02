@@ -68,7 +68,7 @@ kubectl version --short
 
 We have successfully upgraded kubernetes cluster from `1.16.0` to `1.16.3`.
 
-### Upgrading Kubernetes to latest version
+### `**Upgrading Kubernetes to latest version**`
 
 ### `Automated update`
 
