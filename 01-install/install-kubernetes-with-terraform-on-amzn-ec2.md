@@ -1,24 +1,17 @@
-## Kubernetes setup using Terraform on Amazon EC2
+## Kubernetes setup using Terraform
 
 `Here are few resources and steps to get you started`:
 
 `You'll learn how to`:
 
 1. Create a kubernetes cluster
-2. Deploy app
-3. Explore app
-4. Upgrade cluster
-5. Scaling cluster
-6. Destroying cluster
-
-### Create an Ubuntu EC2 instance or you can make use of your personal infrastructure
+2. Managing cluster
 
 `Pre-requisites`:
 
 1. AWS subscription
 2. Eksctl command-line interface (CLI)
 3. Terraform
-4. 
 
 ### Install dependencies (LINUX - Ubuntu/Debian)
 
