@@ -14,6 +14,8 @@
 3. Eksctl command-line interface (CLI)
 4. Terraform
 
+### `Setup your environment`
+
 ### Install dependencies (LINUX - Ubuntu/Debian)
 
 [Setup](https://docs.aws.amazon.com/eks/latest/userguide/setting-up.html)
@@ -59,9 +61,23 @@ Eksctl uses the credentials from the AWS CLI to connect to your account.
 ### Spin up a cluster
 
 ```sh
-eksctl create cluster
+eksctl create cluster \
+  --name demok8scluster.k8s.local \
+  # default node-type if not specified - m5-large \
+  --node-type t2.micro \
+  --nodes 3 \
+  --nodes-min 3 \
+  --nodes-max 5 \
+  --region eu-central-1
 ```
 
+### Verify cluster
+
+```sh
+eksctl get cluster \
+   --name demok8scluster.k8s.local \
+   --region eu-central-1
+```
 
 ### Install Terraform
 

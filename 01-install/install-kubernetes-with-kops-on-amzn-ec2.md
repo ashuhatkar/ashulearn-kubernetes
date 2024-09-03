@@ -21,6 +21,8 @@
 4. kOps
 5. Kube command-line interface (Kubectl)
 
+### `Setup your environment`
+
 ### Install dependencies
 
 > The command <mark>sudo apt-get update</mark> downloads package information from all configured sources.
