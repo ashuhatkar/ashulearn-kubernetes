@@ -24,7 +24,7 @@
 aws configure
 ```
 
-### Setup kubectl and eksctl
+### Setup kubectl and eksctl binary
 
 ```sh
 curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.30.2/2024-07-12/bin/linux/arm64/kubectl
@@ -46,6 +46,22 @@ tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
 
 sudo mv /tmp/eksctl /usr/local/bin
 ```
+
+### Verify the installs
+
+```sh
+kubectl version
+eksctl version
+```
+
+Eksctl uses the credentials from the AWS CLI to connect to your account.
+
+### Spin up a cluster
+
+```sh
+eksctl create cluster
+```
+
 
 ### Install Terraform
 
