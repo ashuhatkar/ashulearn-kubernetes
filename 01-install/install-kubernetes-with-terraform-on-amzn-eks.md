@@ -1,26 +1,27 @@
-## Kubernetes setup using Terraform
+## Kubernetes setup using Terraform and EKS
 
 `Here are few resources and steps to get you started`:
 
 `You'll learn how to`:
 
-1. Create a kubernetes cluster
+1. Create a EKS cluster
 2. Manage cluster
 
 `Pre-requisites`:
 
 1. AWS subscription
-2. Eksctl command-line interface (CLI)
-3. Terraform
+2. AWS command-line interface (awscli)
+3. Eksctl command-line interface (CLI)
+4. Terraform
 
 ### Install dependencies (LINUX - Ubuntu/Debian)
 
-### Install Terraform
+[Setup](https://docs.aws.amazon.com/eks/latest/userguide/setting-up.html)
 
-```shell
-wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-sudo apt update && sudo apt install terraform
+### Configure AWS CLI
+
+```sh
+aws configure
 ```
 
 ### Setup kubectl and eksctl
@@ -44,4 +45,12 @@ curl -sL "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_ch
 tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
 
 sudo mv /tmp/eksctl /usr/local/bin
+```
+
+### Install Terraform
+
+```shell
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install terraform
 ```
