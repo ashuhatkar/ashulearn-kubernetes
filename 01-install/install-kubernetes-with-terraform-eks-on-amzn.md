@@ -63,7 +63,7 @@ Eksctl uses the credentials from the AWS CLI to connect to your account.
 ```sh
 eksctl create cluster \
   --name demok8scluster.k8s.local \
-  # default node-type if not specified - m5-large \
+  # default node-type if not specified - m5-large instance \
   --node-type t2.micro \
   --nodes 3 \
   --nodes-min 3 \
@@ -79,10 +79,31 @@ eksctl get cluster \
    --region eu-central-1
 ```
 
+### Delete cluster
+
+```sh
+eksctl delete cluster \
+   --name demok8scluster.k8s.local \
+   --region eu-central-1
+```
+
+### `Provision an EKS cluster with Terraform`
+
 ### Install Terraform
+
+```sh
+sudo apt-get update
+sudo apt-get install -y curl gnupg lsb-release software-properties-common
+```
 
 ```shell
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update && sudo apt install terraform
+```
+
+### Verify the install
+
+```sh
+terraform -help
 ```
