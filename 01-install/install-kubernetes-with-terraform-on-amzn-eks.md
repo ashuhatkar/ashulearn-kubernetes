@@ -54,6 +54,15 @@ kubectl version
 eksctl version
 ```
 
+Eksctl uses the credentials from the AWS CLI to connect to your account.
+
+### Spin up a cluster
+
+```sh
+eksctl create cluster
+```
+
+
 ### Install Terraform
 
 ```shell
