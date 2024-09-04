@@ -4,13 +4,13 @@
 
 `You'll learn how to`:
 
-1. Create a EKS cluster
+1. Create cluster
 2. Manage cluster
 
 `Pre-requisites`:
 
 1. AWS subscription
-2. AWS command-line interface (awscli)
+2. AWS command-line interface (AWS CLI)
 3. Eksctl command-line interface (CLI)
 4. Terraform
 
