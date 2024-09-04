@@ -41,7 +41,7 @@ Set the KubernetesVersion to the target version (e.g. `1.16.3`)
 
 ```sh
 kubectl version --short
-kubectl get nodes
+kubectl get nodes -o wide
 ```
 
 ### Step 2: Update cluster
@@ -62,7 +62,7 @@ kops rolling-update cluster --name demok8scluster.k8s.local --yes
 
 ```sh
 kops validate cluster --name demok8scluster.k8s.local
-kubectl get nodes
+kubectl get nodes -o wide
 kubectl version --short
 ```
 
@@ -109,7 +109,7 @@ kops rolling-update cluster --name demok8scluster.k8s.local --yes
 
 ```sh
 kops validate cluster --name demok8scluster.k8s.local
-kubectl get nodes
+kubectl get nodes -o wide
 kubectl version --short
 ```
 

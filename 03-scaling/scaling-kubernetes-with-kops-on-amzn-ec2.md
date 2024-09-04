@@ -16,7 +16,7 @@ kops validate cluster --name=demok8scluster.k8s.local
 ### List available nodes
 
 ```sh
-kubectl get nodes
+kubectl get nodes -o wide
 ```
 
 ### Get cluster
@@ -85,7 +85,7 @@ kops validate cluster --name demok8scluster.k8s.local
 ```
 
 ```sh
-kubectl get nodes
+kubectl get nodes -o wide
 ```
 
 We've successfully decommissioned the worker node.
@@ -125,7 +125,7 @@ kops validate cluster --name demok8scluster.k8s.local
 ### List available nodes
 
 ```sh
-kubectl get nodes
+kubectl get nodes -o wide
 ```
 
 ### Get cluster
