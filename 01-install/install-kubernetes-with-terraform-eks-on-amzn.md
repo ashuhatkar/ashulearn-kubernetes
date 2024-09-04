@@ -28,11 +28,35 @@ aws configure
 
 ### Setup kubectl and eksctl binary
 
+## Install or update kubectl
+
+kubectl is a command line tool that you use to communicate with the Kubernetes API server.
+
+***Note***
+You must use a kubectl version that is within one minor version difference of your Amazon EKS cluster control plane. For example, a `1.29 kubectl client` works with Kubernetes `1.28`, `1.29`, and `1.30` clusters.
+
 ```sh
 curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.30.2/2024-07-12/bin/linux/arm64/kubectl
 chmod +x ./kubectl
 mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH
 ```
+
+eksctl
+
+***Prerequisite***:
+
+You will need to have AWS API credentials configured. What works for AWS CLI or any other tools (kops, Terraform, etc.) should be sufficient. You can use `~/.aws/credentials file` or `environment variables`.
+
+You will also need AWS IAM Authenticator for Kubernetes command (either `aws-iam-authenticator` or `aws eks get-token` (available in version 1.16.156 or greater of AWS CLI) in your `PATH`.
+
+The IAM account used for EKS cluster creation should have these minimal access levels.
+
+1) Cloud formation - Full access.
+2) EC2 - ***Full***: Tagging ***Limited***: List, Read, Write
+3) EC2 Auto Scaling - ***Limited***: List, Write
+4) EKS - Full Access
+5) IAM - ***Limited***: List, Read, Write, Permissions Management
+6) Systems Manager - ***Limited***: List, Read
 
 ```sh
 # for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
