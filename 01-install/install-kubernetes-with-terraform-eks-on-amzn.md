@@ -77,6 +77,8 @@ eksctl create cluster \
 eksctl get cluster \
    --name demok8scluster.k8s.local \
    --region eu-central-1
+
+kubectl get nodes -o wide
 ```
 
 ### Delete cluster
