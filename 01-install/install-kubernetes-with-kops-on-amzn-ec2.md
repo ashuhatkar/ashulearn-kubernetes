@@ -27,14 +27,14 @@
 
 > The command <mark>sudo apt-get update</mark> downloads package information from all configured sources.
 
-```
+```sh
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release software-properties-common
 ```
 
 - Install the Apt repository signing keys, using the following commands:
 
-(Ref: https://kubernetes.io/blog/2023/08/15/pkgs-k8s-io-introduction/)
+[Kubernetes](https://kubernetes.io/blog/2023/08/15/pkgs-k8s-io-introduction/)
 
 > Download the public signing key for the Kubernetes package repositories. The same signing key is used for all repositories, so you can disregard the version in the URL:
 
@@ -57,7 +57,7 @@ sudo apt-get update
 sudo apt-get install -y python3-pip python3-venv kubectl
 ```
 
-> Verify the installation
+### Verify the installation
 
 ```
 which python3
@@ -65,7 +65,7 @@ pip3 --version
 kubectl version
 ```
 
-> The command install AWS CLI latest/specific version, using the pip3 command.
+The command install AWS CLI latest/specific version, using the pip3 command.
 
 - For an externally managed environment, create and activate a virtual environment using:
 
@@ -86,9 +86,9 @@ pip3 install awscli --upgrade
 pip3 install awscli<1.6.312 --upgrade
 ```
 
-(Ref: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
+[AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
 
-> The command <mark>downloads, and installs</mark> AWS CLI latest/specific version, using the curl command.
+The command <mark>downloads, and installs</mark> AWS CLI latest/specific version, using the curl command.
 
 ```
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -96,7 +96,7 @@ unzip awscliv2.zip
 sudo ./aws/install
 ```
 
-> The command update AWS CLI <mark>latest/specific version</mark>, using the curl command.
+The command update AWS CLI <mark>latest/specific version</mark>, using the curl command.
 
 ```
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -117,14 +117,14 @@ curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip.si
 curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip.sig
 ```
 
-> Verify that the AWS CLI install correctly
+`Verify that the AWS CLI install correctly`
 
 ```shell
 which aws
 aws --version
 ```
 
-> Set the path environment for the current session.
+`Set the path environment for the current session`.
 
 ```shell
 export PATH="$PATH:/home/ubuntu/.local/bin/"
@@ -217,7 +217,7 @@ kops version
 
 ### Setup AWS S3 bucket for kOps to store cluster state objects
 
-> In order to store the state of your cluster, and the representation of your cluster, we need to create a dedicated S3 bucket for <mark>kOps</mark> to use. The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-storage
+In order to store the state of your cluster, and the representation of your cluster, we need to create a dedicated S3 bucket for <mark>kOps</mark> to use. The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-storage
 
 > It is recommended keeping the creation of this bucket confined to us-east-1, otherwise more work will be required.
 
@@ -227,7 +227,7 @@ aws s3api create-bucket \
     --region us-east-1
 ```
 
-> The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-storage that uses the bucket owner enforced setting for S3 Object Ownership.
+The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-storage that uses the bucket owner enforced setting for S3 Object Ownership.
 
 ```shell
 aws s3api create-bucket \
@@ -253,7 +253,7 @@ export KOPS_STATE_STORE=s3://kops-ashu-storage
 
 ### Create the kubernetes cluster using kOps
 
-> Creates a Kubernetes cluster using command line flags. This command creates cloud based resources such as networks and virtual machines. Once the infrastructure is in place Kubernetes is installed on the virtual machine. These operations are done in parallel and rely on eventual consistency.
+Creates a Kubernetes cluster using command line flags. This command creates cloud based resources such as networks and virtual machines. Once the infrastructure is in place Kubernetes is installed on the virtual machine. These operations are done in parallel and rely on eventual consistency.
 
 `kops create cluster [CLUSTER] [flags]`
 
@@ -367,7 +367,7 @@ export KOPS_STATE_STORE=s3://kops-ashu-storage
       --zones strings                           Zones in which to run the cluster
 ```
 
-> Options inherited from parent commands:
+Options inherited from parent commands:
 
 ```shell
       --config string   yaml config file (default is $HOME/.kops.yaml)
@@ -376,7 +376,7 @@ export KOPS_STATE_STORE=s3://kops-ashu-storage
   -v, --v Level         number for the log level verbosity
 ```
 
-> Create kubernetes cluster definitions on S3 bucket
+Create kubernetes cluster definitions on S3 bucket
 
 ```shell
 kops create cluster
@@ -393,13 +393,13 @@ kops create cluster
 
 ### Review/customize cluster configuration
 
-> **Now we have a cluster configuration**, we can look at every aspect that defines our cluster by editing the description.
+**Now we have a cluster configuration**, we can look at every aspect that defines our cluster by editing the description.
 
 ```
 kops edit cluster --name demok8scluster.k8s.local
 ```
 
-> This opens your editor (as defined) and allows you to edit the configuration. The configuration is loaded from the S3 bucket we created earlier, and automatically updated when we save and exit the editor.
+This opens your editor (as defined) and allows you to edit the configuration. The configuration is loaded from the S3 bucket we created earlier, and automatically updated when we save and exit the editor.
 
 ### Build/run kubernetes cluster
 
@@ -412,7 +412,7 @@ kops update cluster demok8scluster.k8s.local --yes --state=s3://kops-ashu-storag
 
 ### Validate cluster
 
-> Kubernetes usage
+Kubernetes usage
 
 ```shell
 kops get cluster
