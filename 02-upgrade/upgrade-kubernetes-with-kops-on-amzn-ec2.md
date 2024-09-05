@@ -1,7 +1,7 @@
 
 ## Updates and Upgrades
 
-#### PROCESS
+#### **PROCESS**
 1. It always takes the Master node\s first, and upgrades the Master node to the specified Kubernetes version.
 2. Then it goes to the Worker nodes and does the upgrade. It upgrades the worker nodes one by one.
    1. Drains all the pods that are currently running on that node.
