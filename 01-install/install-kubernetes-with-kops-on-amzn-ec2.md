@@ -145,6 +145,7 @@ export PATH="$PATH:/home/ubuntu/.local/bin/"
 - Create an IAM user/role  with Route53, EC2, IAM and S3 full access
 
 ```shell
+# create setup dedicated user and group
 aws iam create-group --group-name kops
 
 aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonEC2FullAccess --group-name kops
@@ -162,10 +163,15 @@ aws iam add-user-to-group --user-name kops --group-name kops
 aws iam create-access-key --user-name kops
 ```
 
-- List of all your IAM users.
+- Verify that user and group exists.
 
 ```shell
 aws iam list-users
+
+aws iam list-groups-for-user --user-name=kops --query='Groups[].GroupName'
+[
+    "kops"
+]
 ```
 
 - Configure the aws client to use your new IAM user.
@@ -209,7 +215,7 @@ kops version
 
 ### Create a Route53 private hosted zone (you can create Public hosted zone if you have a domain)
 
-### Create a new S3 bucket for storing the kOps objects
+### Setup AWS S3 bucket for kOps to store cluster state objects
 
 > In order to store the state of your cluster, and the representation of your cluster, we need to create a dedicated S3 bucket for <mark>kOps</mark> to use. The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-storage
 
@@ -385,7 +391,7 @@ kops create cluster
      --node-volume-size=8
 ```
 
-### Customize cluster configurations
+### Review/customize cluster configuration
 
 > **Now we have a cluster configuration**, we can look at every aspect that defines our cluster by editing the description.
 
@@ -395,9 +401,10 @@ kops edit cluster --name demok8scluster.k8s.local
 
 > This opens your editor (as defined) and allows you to edit the configuration. The configuration is loaded from the S3 bucket we created earlier, and automatically updated when we save and exit the editor.
 
-### Create kubernetes cluster
+### Build/run kubernetes cluster
 
 ```shell
+# This start an actual provisioning process; be ready to start paying for the resources
 kops update cluster demok8scluster.k8s.local --yes --state=s3://kops-ashu-storage
 ```
 
@@ -405,15 +412,19 @@ kops update cluster demok8scluster.k8s.local --yes --state=s3://kops-ashu-storag
 
 ### Validate cluster
 
-> Let's use kubectl to check the nodes.
+> Kubernetes usage
 
 ```shell
 kops get cluster
 kops validate cluster
 kubectl version --short
+
+# Review nodes; they are just EC2 instance
 kubectl get nodes
 kubectl get sc
 kubectl get ns
+
+# Review system pods; pod is a group of tightly coupled Docker containers
 kubectl -n kube-system get all
 ```
 
@@ -460,4 +471,14 @@ kubectl port-forward mynginx-XXXXXXXXXX-z9pp6 8080:80 -n ns-prod-alpha01
 
 ```shell
 kubectl delete deployment mynginx -n ns-prod-alpha01
+```
+
+### Terminate cluster
+
+```sh
+# Preview AWS resources that will be terminated with cluster
+kops delete cluster --name demok8scluster.k8s.local
+
+# Execute an actual termination
+kops delete cluster --name demok8scluster.k8s.local --yes
 ```
