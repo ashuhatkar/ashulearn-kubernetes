@@ -456,7 +456,7 @@ kubectl create deployment mynginx --image=nginx -n ns-prod-alpha01
 kubectl get deployments -n ns-prod-alpha01
 ```
 
-### Access your application via kubernetes feature "port-forward" 8080 on local machine
+### Access your application via kubernetes feature "port-forward" 8080 locally
 
 ```shell
 kubectl port-forward mynginx-XXXXXXXXXX-z9pp6 8080:80 -n ns-prod-alpha01
