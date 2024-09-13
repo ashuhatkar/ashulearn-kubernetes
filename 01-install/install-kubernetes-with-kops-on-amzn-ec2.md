@@ -385,7 +385,7 @@ kops create cluster \
      --name=demok8scluster.k8s.local \
      --cloud=aws \
      --state=s3://kops-ashu-storage \
-     --zones=eu-west-1a \
+     --zones=us-east-1a \
      --node-count=1 \
      --node-size=t2.micro \
      --control-plane-size=t2.micro \
