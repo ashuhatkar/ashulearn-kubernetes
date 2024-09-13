@@ -142,7 +142,7 @@ export PATH="$PATH:/home/ubuntu/.local/bin/"
 6. AmazonEventBridgeFullAccess
 7. AmazonRoute53FullAccess
 
-- Create an IAM user/role  with Route53, EC2, IAM and S3 full access
+- Create an IAM user/role with Route53, EC2, IAM and S3 full access
 
 ```shell
 # create setup dedicated user and group
@@ -235,9 +235,10 @@ aws s3api create-bucket \
     --region us-east-1 \
     --object-ownership BucketOwnerEnforced
 ```
+
 - Note: S3 requires <mark>--create-bucket-configuration LocationConstraint=<region></mark> for regions other than <mark>us-east-1</mark>.
 
-- Note: It is ***`strongly`*** recommended ***versioning*** your S3 bucket in case you ever need to revert or recover a previous state store.
+- Note: It is **_`strongly`_** recommended **_versioning_** your S3 bucket in case you ever need to revert or recover a previous state store.
 
 ```shell
 aws s3api put-bucket-versioning \
@@ -299,6 +300,7 @@ Creates a Kubernetes cluster using command line flags. This command creates clou
      --dry-run \
      -oyaml > filename.yaml
 ```
+
 > Options:
 
 ```shell
@@ -379,7 +381,7 @@ Options inherited from parent commands:
 Create kubernetes cluster definitions on S3 bucket
 
 ```shell
-kops create cluster
+kops create cluster \
      --name=demok8scluster.k8s.local \
      --cloud=aws \
      --state=s3://kops-ashu-storage \
