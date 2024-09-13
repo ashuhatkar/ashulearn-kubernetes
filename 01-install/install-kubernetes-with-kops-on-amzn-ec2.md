@@ -388,8 +388,8 @@ kops create cluster \
      --zones=us-east-1a \
      --node-count=1 \
      --node-size=t2.micro \
-     --master-size=t2.micro \
-     --master-volume-size=8 \
+     --control-plane-size=t2.micro \
+     --control-plane-volume-size=8 \
      --node-volume-size=8
 ```
 
