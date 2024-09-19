@@ -270,409 +270,409 @@ I0919 08:19:30.321448   17924 executor.go:113] Tasks: 117 done / 117 total; 0 ca
 > - SpotPrice
 > - Tags                    {k8s.io/role/master: 1, k8s.io/role/control-plane: 1, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, aws-node-termination-handler/managed: , k8s.io/cluster-autoscaler/node-template/label/kops.k8s.io/kops-controller-pki: , Name: control-plane-us-east-1a.masters.demok8scluster.k8s.local, k8s.io/cluster-autoscaler/node-template/label/node-role.kubernetes.io/control-plane: , k8s.io/cluster-autoscaler/node-template/label/node.kubernetes.io/exclude-from-external-load-balancers: , kops.k8s.io/instancegroup: control-plane-us-east-1a}
 
-  LaunchTemplate/nodes-us-east-1a.demok8scluster.k8s.local
-        AssociatePublicIP       true
-        CPUCredits
-        HTTPPutResponseHopLimit 1
-        HTTPTokens              required
-        HTTPProtocolIPv6        disabled
-        IAMInstanceProfile      name:nodes.demok8scluster.k8s.local id:nodes.demok8scluster.k8s.local
-        ImageID                 099720109477/ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20240607
-        InstanceMonitoring      false
-        InstanceType            t2.micro
-        IPv6AddressCount        0
-        RootVolumeIops          3000
-        RootVolumeSize          8
-        RootVolumeThroughput    125
-        RootVolumeType          gp3
-        RootVolumeEncryption    true
-        RootVolumeKmsKey
-        SecurityGroups          [name:nodes.demok8scluster.k8s.local]
-        SpotPrice
-        Tags                    {kops.k8s.io/instancegroup: nodes-us-east-1a, Name: nodes-us-east-1a.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, aws-node-termination-handler/managed: , k8s.io/cluster-autoscaler/node-template/label/node-role.kubernetes.io/node: , k8s.io/role/node: 1}
-
-  ManagedFile/cluster-completed.spec
-        Base                    s3://kops-ashu-storage/demok8scluster.k8s.local
-        Location                cluster-completed.spec
-
-  ManagedFile/demok8scluster.k8s.local-addons-aws-cloud-controller.addons.k8s.io-k8s-1.18
-        Location                addons/aws-cloud-controller.addons.k8s.io/k8s-1.18.yaml
-
-  ManagedFile/demok8scluster.k8s.local-addons-aws-ebs-csi-driver.addons.k8s.io-k8s-1.17
-        Location                addons/aws-ebs-csi-driver.addons.k8s.io/k8s-1.17.yaml
-
-  ManagedFile/demok8scluster.k8s.local-addons-bootstrap
-        Location                addons/bootstrap-channel.yaml
-
-  ManagedFile/demok8scluster.k8s.local-addons-coredns.addons.k8s.io-k8s-1.12
-        Location                addons/coredns.addons.k8s.io/k8s-1.12.yaml
-
-  ManagedFile/demok8scluster.k8s.local-addons-kops-controller.addons.k8s.io-k8s-1.16
-        Location                addons/kops-controller.addons.k8s.io/k8s-1.16.yaml
-
-  ManagedFile/demok8scluster.k8s.local-addons-kubelet-api.rbac.addons.k8s.io-k8s-1.9
-        Location                addons/kubelet-api.rbac.addons.k8s.io/k8s-1.9.yaml
-
-  ManagedFile/demok8scluster.k8s.local-addons-limit-range.addons.k8s.io
-        Location                addons/limit-range.addons.k8s.io/v1.5.0.yaml
-
-  ManagedFile/demok8scluster.k8s.local-addons-networking.cilium.io-k8s-1.16
-        Location                addons/networking.cilium.io/k8s-1.16-v1.15.yaml
-
-  ManagedFile/demok8scluster.k8s.local-addons-node-termination-handler.aws-k8s-1.11
-        Location                addons/node-termination-handler.aws/k8s-1.11.yaml
-
-  ManagedFile/demok8scluster.k8s.local-addons-storage-aws.addons.k8s.io-v1.15.0
-        Location                addons/storage-aws.addons.k8s.io/v1.15.0.yaml
-
-  ManagedFile/etcd-cluster-spec-events
-        Base                    s3://kops-ashu-storage/demok8scluster.k8s.local/backups/etcd/events
-        Location                /control/etcd-cluster-spec
-
-  ManagedFile/etcd-cluster-spec-main
-        Base                    s3://kops-ashu-storage/demok8scluster.k8s.local/backups/etcd/main
-        Location                /control/etcd-cluster-spec
-
-  ManagedFile/kops-version.txt
-        Base                    s3://kops-ashu-storage/demok8scluster.k8s.local
-        Location                kops-version.txt
-
-  ManagedFile/manifests-etcdmanager-events-control-plane-us-east-1a
-        Location                manifests/etcd/events-control-plane-us-east-1a.yaml
-
-  ManagedFile/manifests-etcdmanager-main-control-plane-us-east-1a
-        Location                manifests/etcd/main-control-plane-us-east-1a.yaml
-
-  ManagedFile/manifests-static-kube-apiserver-healthcheck
-        Location                manifests/static/kube-apiserver-healthcheck.yaml
-
-  ManagedFile/nodeupconfig-control-plane-us-east-1a
-        Location                igconfig/control-plane/control-plane-us-east-1a/nodeupconfig.yaml
-
-  ManagedFile/nodeupconfig-nodes-us-east-1a
-        Location                igconfig/node/nodes-us-east-1a/nodeupconfig.yaml
-
-  NetworkLoadBalancer/api.demok8scluster.k8s.local
-        LoadBalancerBaseName    api-demok8scluster-k8s-lo-e44l8v
-        CLBName                 api.demok8scluster.k8s.local
-        SubnetMappings          [{"Subnet":{"Name":"us-east-1a.demok8scluster.k8s.local","ShortName":"us-east-1a","Lifecycle":"Sync","ID":null,"VPC":{"Name":"demok8scluster.k8s.local","Lifecycle":"Sync","ID":null,"CIDR":"172.20.0.0/16","AmazonIPv6":true,"IPv6CIDR":null,"EnableDNSHostnames":true,"EnableDNSSupport":true,"Shared":false,"Tags":{"KubernetesCluster":"demok8scluster.k8s.local","Name":"demok8scluster.k8s.local","kubernetes.io/cluster/demok8scluster.k8s.local":"owned"},"AssociateExtraCIDRBlocks":null},"VPCCIDRBlock":null,"AmazonIPv6CIDR":null,"AvailabilityZone":"us-east-1a","CIDR":"172.20.0.0/16","IPv6CIDR":null,"ResourceBasedNaming":true,"AssignIPv6AddressOnCreation":false,"Shared":false,"Tags":{"KubernetesCluster":"demok8scluster.k8s.local","Name":"us-east-1a.demok8scluster.k8s.local","SubnetType":"Public","kubernetes.io/cluster/demok8scluster.k8s.local":"owned","kubernetes.io/role/elb":"1","kubernetes.io/role/internal-elb":"1"}},"PrivateIPv4Address":null,"AllocationID":null}]
-        SecurityGroups          [name:api-elb.demok8scluster.k8s.local]
-        Scheme                  internet-facing
-        CrossZoneLoadBalancing  true
-        IpAddressType           ipv4
-        Tags                    {KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: api.demok8scluster.k8s.local}
-        Type                    network
-        VPC                     name:demok8scluster.k8s.local
-        AccessLog               {"Enabled":false,"S3BucketName":null,"S3BucketPrefix":null}
-        WellKnownServices       [kube-apiserver, kops-controller]
-
-  NetworkLoadBalancerListener/api.demok8scluster.k8s.local-3988
-        NetworkLoadBalancer     name:api.demok8scluster.k8s.local id:api.demok8scluster.k8s.local
-        Port                    3988
-        TargetGroup             name:kops-controller-demok8scl-aprcdq id:kops-controller-demok8scl-aprcdq
-        SSLCertificateID
-        SSLPolicy
-
-  NetworkLoadBalancerListener/api.demok8scluster.k8s.local-443
-        NetworkLoadBalancer     name:api.demok8scluster.k8s.local id:api.demok8scluster.k8s.local
-        Port                    443
-        TargetGroup             name:tcp-demok8scluster-k8s-lo-aoh168 id:tcp-demok8scluster-k8s-lo-aoh168
-        SSLCertificateID
-        SSLPolicy
-
-  Route/0.0.0.0/0
-        RouteTable              name:demok8scluster.k8s.local
-        CIDR                    0.0.0.0/0
-        InternetGateway         name:demok8scluster.k8s.local
-
-  Route/::/0
-        RouteTable              name:demok8scluster.k8s.local
-        IPv6CIDR                ::/0
-        InternetGateway         name:demok8scluster.k8s.local
-
-  RouteTable/demok8scluster.k8s.local
-        VPC                     name:demok8scluster.k8s.local
-        Shared                  false
-        Tags                    {Name: demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, kubernetes.io/kops/role: public}
-
-  RouteTableAssociation/us-east-1a.demok8scluster.k8s.local
-        RouteTable              name:demok8scluster.k8s.local
-        Subnet                  name:us-east-1a.demok8scluster.k8s.local
-
-  SQS/demok8scluster-k8s-local-nth
-        MessageRetentionPeriod  300
-        Tags                    {Name: demok8scluster-k8s-local-nth, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-
-  Secret/admin
-
-  Secret/kube
-
-  Secret/kube-proxy
-
-  Secret/kubelet
-
-  Secret/system:controller_manager
-
-  Secret/system:dns
-
-  Secret/system:logging
-
-  Secret/system:monitoring
-
-  Secret/system:scheduler
-
-  SecurityGroup/api-elb.demok8scluster.k8s.local
-        Description             Security group for api ELB
-        VPC                     name:demok8scluster.k8s.local
-        RemoveExtraRules        [port=443]
-        Tags                    {Name: api-elb.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-
-  SecurityGroup/masters.demok8scluster.k8s.local
-        Description             Security group for masters
-        VPC                     name:demok8scluster.k8s.local
-        RemoveExtraRules        [port=22, port=443, port=2380, port=2381, port=3988, port=4001, port=4002, port=4789, port=179, port=8443, port=3:4, port=-1]
-        Tags                    {Name: masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-
-  SecurityGroup/nodes.demok8scluster.k8s.local
-        Description             Security group for nodes
-        VPC                     name:demok8scluster.k8s.local
-        RemoveExtraRules        [port=22]
-        Tags                    {Name: nodes.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-
-  SecurityGroupRule/from-0.0.0.0/0-ingress-tcp-22to22-masters.demok8scluster.k8s.local
-        SecurityGroup           name:masters.demok8scluster.k8s.local
-        CIDR                    0.0.0.0/0
-        Protocol                tcp
-        FromPort                22
-        ToPort                  22
-        Tags                    {kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-0.0.0.0/0-ingress-tcp-22to22-masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local}
-
-  SecurityGroupRule/from-0.0.0.0/0-ingress-tcp-22to22-nodes.demok8scluster.k8s.local
-        SecurityGroup           name:nodes.demok8scluster.k8s.local
-        CIDR                    0.0.0.0/0
-        Protocol                tcp
-        FromPort                22
-        ToPort                  22
-        Tags                    {Name: from-0.0.0.0/0-ingress-tcp-22to22-nodes.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-
-  SecurityGroupRule/from-0.0.0.0/0-ingress-tcp-443to443-api-elb.demok8scluster.k8s.local
-        SecurityGroup           name:api-elb.demok8scluster.k8s.local
-        CIDR                    0.0.0.0/0
-        Protocol                tcp
-        FromPort                443
-        ToPort                  443
-        Tags                    {kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-0.0.0.0/0-ingress-tcp-443to443-api-elb.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local}
-
-  SecurityGroupRule/from-::/0-ingress-tcp-22to22-masters.demok8scluster.k8s.local
-        SecurityGroup           name:masters.demok8scluster.k8s.local
-        IPv6CIDR                ::/0
-        Protocol                tcp
-        FromPort                22
-        ToPort                  22
-        Tags                    {Name: from-::/0-ingress-tcp-22to22-masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-
-  SecurityGroupRule/from-::/0-ingress-tcp-22to22-nodes.demok8scluster.k8s.local
-        SecurityGroup           name:nodes.demok8scluster.k8s.local
-        IPv6CIDR                ::/0
-        Protocol                tcp
-        FromPort                22
-        ToPort                  22
-        Tags                    {kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-::/0-ingress-tcp-22to22-nodes.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local}
-
-  SecurityGroupRule/from-::/0-ingress-tcp-443to443-api-elb.demok8scluster.k8s.local
-        SecurityGroup           name:api-elb.demok8scluster.k8s.local
-        IPv6CIDR                ::/0
-        Protocol                tcp
-        FromPort                443
-        ToPort                  443
-        Tags                    {kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-::/0-ingress-tcp-443to443-api-elb.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local}
-
-  SecurityGroupRule/from-api-elb.demok8scluster.k8s.local-egress-all-0to0-0.0.0.0/0
-        SecurityGroup           name:api-elb.demok8scluster.k8s.local
-        CIDR                    0.0.0.0/0
-        Egress                  true
-        Tags                    {Name: from-api-elb.demok8scluster.k8s.local-egress-all-0to0-0.0.0.0/0, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-
-  SecurityGroupRule/from-api-elb.demok8scluster.k8s.local-egress-all-0to0-::/0
-        SecurityGroup           name:api-elb.demok8scluster.k8s.local
-        IPv6CIDR                ::/0
-        Egress                  true
-        Tags                    {Name: from-api-elb.demok8scluster.k8s.local-egress-all-0to0-::/0, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-
-  SecurityGroupRule/from-masters.demok8scluster.k8s.local-egress-all-0to0-0.0.0.0/0
-        SecurityGroup           name:masters.demok8scluster.k8s.local
-        CIDR                    0.0.0.0/0
-        Egress                  true
-        Tags                    {Name: from-masters.demok8scluster.k8s.local-egress-all-0to0-0.0.0.0/0, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-
-  SecurityGroupRule/from-masters.demok8scluster.k8s.local-egress-all-0to0-::/0
-        SecurityGroup           name:masters.demok8scluster.k8s.local
-        IPv6CIDR                ::/0
-        Egress                  true
-        Tags                    {kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-masters.demok8scluster.k8s.local-egress-all-0to0-::/0, KubernetesCluster: demok8scluster.k8s.local}
-
-  SecurityGroupRule/from-masters.demok8scluster.k8s.local-ingress-all-0to0-masters.demok8scluster.k8s.local
-        SecurityGroup           name:masters.demok8scluster.k8s.local
-        SourceGroup             name:masters.demok8scluster.k8s.local
-        Tags                    {Name: from-masters.demok8scluster.k8s.local-ingress-all-0to0-masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-
-  SecurityGroupRule/from-masters.demok8scluster.k8s.local-ingress-all-0to0-nodes.demok8scluster.k8s.local
-        SecurityGroup           name:nodes.demok8scluster.k8s.local
-        SourceGroup             name:masters.demok8scluster.k8s.local
-        Tags                    {KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-masters.demok8scluster.k8s.local-ingress-all-0to0-nodes.demok8scluster.k8s.local}
-
-  SecurityGroupRule/from-nodes.demok8scluster.k8s.local-egress-all-0to0-0.0.0.0/0
-        SecurityGroup           name:nodes.demok8scluster.k8s.local
-        CIDR                    0.0.0.0/0
-        Egress                  true
-        Tags                    {Name: from-nodes.demok8scluster.k8s.local-egress-all-0to0-0.0.0.0/0, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-
-  SecurityGroupRule/from-nodes.demok8scluster.k8s.local-egress-all-0to0-::/0
-        SecurityGroup           name:nodes.demok8scluster.k8s.local
-        IPv6CIDR                ::/0
-        Egress                  true
-        Tags                    {Name: from-nodes.demok8scluster.k8s.local-egress-all-0to0-::/0, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-
-  SecurityGroupRule/from-nodes.demok8scluster.k8s.local-ingress-all-0to0-nodes.demok8scluster.k8s.local
-        SecurityGroup           name:nodes.demok8scluster.k8s.local
-        SourceGroup             name:nodes.demok8scluster.k8s.local
-        Tags                    {kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-nodes.demok8scluster.k8s.local-ingress-all-0to0-nodes.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local}
-
-  SecurityGroupRule/from-nodes.demok8scluster.k8s.local-ingress-tcp-1to2379-masters.demok8scluster.k8s.local
-        SecurityGroup           name:masters.demok8scluster.k8s.local
-        Protocol                tcp
-        FromPort                1
-        ToPort                  2379
-        SourceGroup             name:nodes.demok8scluster.k8s.local
-        Tags                    {Name: from-nodes.demok8scluster.k8s.local-ingress-tcp-1to2379-masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-
-  SecurityGroupRule/from-nodes.demok8scluster.k8s.local-ingress-tcp-2382to4000-masters.demok8scluster.k8s.local
-        SecurityGroup           name:masters.demok8scluster.k8s.local
-        Protocol                tcp
-        FromPort                2382
-        ToPort                  4000
-        SourceGroup             name:nodes.demok8scluster.k8s.local
-        Tags                    {kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-nodes.demok8scluster.k8s.local-ingress-tcp-2382to4000-masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local}
-
-  SecurityGroupRule/from-nodes.demok8scluster.k8s.local-ingress-tcp-4003to65535-masters.demok8scluster.k8s.local
-        SecurityGroup           name:masters.demok8scluster.k8s.local
-        Protocol                tcp
-        FromPort                4003
-        ToPort                  65535
-        SourceGroup             name:nodes.demok8scluster.k8s.local
-        Tags                    {kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-nodes.demok8scluster.k8s.local-ingress-tcp-4003to65535-masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local}
-
-  SecurityGroupRule/from-nodes.demok8scluster.k8s.local-ingress-udp-1to65535-masters.demok8scluster.k8s.local
-        SecurityGroup           name:masters.demok8scluster.k8s.local
-        Protocol                udp
-        FromPort                1
-        ToPort                  65535
-        SourceGroup             name:nodes.demok8scluster.k8s.local
-        Tags                    {Name: from-nodes.demok8scluster.k8s.local-ingress-udp-1to65535-masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-
-  SecurityGroupRule/https-elb-to-master
-        SecurityGroup           name:masters.demok8scluster.k8s.local
-        Protocol                tcp
-        FromPort                443
-        ToPort                  443
-        SourceGroup             name:api-elb.demok8scluster.k8s.local
-
-  SecurityGroupRule/icmp-pmtu-api-elb-0.0.0.0/0
-        SecurityGroup           name:api-elb.demok8scluster.k8s.local
-        CIDR                    0.0.0.0/0
-        Protocol                icmp
-        FromPort                3
-        ToPort                  4
-
-  SecurityGroupRule/icmp-pmtu-cp-to-elb
-        SecurityGroup           name:api-elb.demok8scluster.k8s.local
-        Protocol                icmp
-        FromPort                3
-        ToPort                  4
-        SourceGroup             name:masters.demok8scluster.k8s.local
-
-  SecurityGroupRule/icmp-pmtu-elb-to-cp
-        SecurityGroup           name:masters.demok8scluster.k8s.local
-        Protocol                icmp
-        FromPort                3
-        ToPort                  4
-        SourceGroup             name:api-elb.demok8scluster.k8s.local
-
-  SecurityGroupRule/icmpv6-pmtu-api-elb-::/0
-        SecurityGroup           name:api-elb.demok8scluster.k8s.local
-        IPv6CIDR                ::/0
-        Protocol                icmpv6
-        FromPort                -1
-        ToPort                  -1
-
-  SecurityGroupRule/kops-controller-elb-to-cp
-        SecurityGroup           name:masters.demok8scluster.k8s.local
-        Protocol                tcp
-        FromPort                3988
-        ToPort                  3988
-        SourceGroup             name:api-elb.demok8scluster.k8s.local
-
-  SecurityGroupRule/node-to-elb
-        SecurityGroup           name:api-elb.demok8scluster.k8s.local
-        SourceGroup             name:nodes.demok8scluster.k8s.local
-
-  Subnet/us-east-1a.demok8scluster.k8s.local
-        ShortName               us-east-1a
-        VPC                     name:demok8scluster.k8s.local
-        AvailabilityZone        us-east-1a
-        CIDR                    172.20.0.0/16
-        ResourceBasedNaming     true
-        AssignIPv6AddressOnCreation     false
-        Shared                  false
-        Tags                    {Name: us-east-1a.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, SubnetType: Public, kubernetes.io/role/elb: 1, kubernetes.io/role/internal-elb: 1}
-
-  TargetGroup/kops-controller-demok8scl-aprcdq
-        VPC                     name:demok8scluster.k8s.local
-        Tags                    {Name: kops-controller-demok8scl-aprcdq, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-        Port                    3988
-        Protocol                TCP
-        Shared                  false
-        Attributes              {deregistration_delay.timeout_seconds: 30, deregistration_delay.connection_termination.enabled: true}
-        Interval                10
-        HealthyThreshold        2
-        UnhealthyThreshold      2
-
-  TargetGroup/tcp-demok8scluster-k8s-lo-aoh168
-        VPC                     name:demok8scluster.k8s.local
-        Tags                    {KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: tcp-demok8scluster-k8s-lo-aoh168}
-        Port                    443
-        Protocol                TCP
-        Shared                  false
-        Attributes              {deregistration_delay.connection_termination.enabled: true, deregistration_delay.timeout_seconds: 30}
-        Interval                10
-        HealthyThreshold        2
-        UnhealthyThreshold      2
-
-  VPC/demok8scluster.k8s.local
-        CIDR                    172.20.0.0/16
-        AmazonIPv6              true
-        EnableDNSHostnames      true
-        EnableDNSSupport        true
-        Shared                  false
-        Tags                    {KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: demok8scluster.k8s.local}
-
-  VPCAmazonIPv6CIDRBlock/AmazonIPv6
-        VPC                     name:demok8scluster.k8s.local
-        Shared                  false
-
-  VPCDHCPOptionsAssociation/demok8scluster.k8s.local
-        VPC                     name:demok8scluster.k8s.local
-        DHCPOptions             name:demok8scluster.k8s.local
-
-  WarmPool/control-plane-us-east-1a.masters.demok8scluster.k8s.local
-        Enabled                 false
-        MinSize                 0
-        AutoscalingGroup        name:control-plane-us-east-1a.masters.demok8scluster.k8s.local id:control-plane-us-east-1a.masters.demok8scluster.k8s.local
-
-  WarmPool/nodes-us-east-1a.demok8scluster.k8s.local
-        Enabled                 false
-        MinSize                 0
-        AutoscalingGroup        name:nodes-us-east-1a.demok8scluster.k8s.local id:nodes-us-east-1a.demok8scluster.k8s.local
+> LaunchTemplate/nodes-us-east-1a.demok8scluster.k8s.local
+> - AssociatePublicIP       true
+> - CPUCredits
+> - HTTPPutResponseHopLimit 1
+> - HTTPTokens              required
+> - HTTPProtocolIPv6        disabled
+> - IAMInstanceProfile      name:nodes.demok8scluster.k8s.local id:nodes.demok8scluster.k8s.local
+> - ImageID                 099720109477/ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20240607
+> - InstanceMonitoring      false
+> - InstanceType            t2.micro
+> - IPv6AddressCount        0
+> - RootVolumeIops          3000
+> - RootVolumeSize          8
+> - RootVolumeThroughput    125
+> - RootVolumeType          gp3
+> - RootVolumeEncryption    true
+> - RootVolumeKmsKey
+> - SecurityGroups          [name:nodes.demok8scluster.k8s.local]
+> - SpotPrice
+> - Tags                    {kops.k8s.io/instancegroup: nodes-us-east-1a, Name: nodes-us-east-1a.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, aws-node-termination-handler/managed: , k8s.io/cluster-autoscaler/node-template/label/node-role.kubernetes.io/node: , k8s.io/role/node: 1}
+
+> ManagedFile/cluster-completed.spec
+> - Base                    s3://kops-ashu-storage/demok8scluster.k8s.local
+> - Location                cluster-completed.spec
+
+> ManagedFile/demok8scluster.k8s.local-addons-aws-cloud-controller.addons.k8s.io-k8s-1.18
+> - Location                addons/aws-cloud-controller.addons.k8s.io/k8s-1.18.yaml
+
+> ManagedFile/demok8scluster.k8s.local-addons-aws-ebs-csi-driver.addons.k8s.io-k8s-1.17
+> - Location                addons/aws-ebs-csi-driver.addons.k8s.io/k8s-1.17.yaml
+
+> ManagedFile/demok8scluster.k8s.local-addons-bootstrap
+> - Location                addons/bootstrap-channel.yaml
+
+> ManagedFile/demok8scluster.k8s.local-addons-coredns.addons.k8s.io-k8s-1.12
+> - Location                addons/coredns.addons.k8s.io/k8s-1.12.yaml
+
+> ManagedFile/demok8scluster.k8s.local-addons-kops-controller.addons.k8s.io-k8s-1.16
+> - Location                addons/kops-controller.addons.k8s.io/k8s-1.16.yaml
+
+> ManagedFile/demok8scluster.k8s.local-addons-kubelet-api.rbac.addons.k8s.io-k8s-1.9
+> - Location                addons/kubelet-api.rbac.addons.k8s.io/k8s-1.9.yaml
+
+> ManagedFile/demok8scluster.k8s.local-addons-limit-range.addons.k8s.io
+> - Location                addons/limit-range.addons.k8s.io/v1.5.0.yaml
+
+> ManagedFile/demok8scluster.k8s.local-addons-networking.cilium.io-k8s-1.16
+> - Location                addons/networking.cilium.io/k8s-1.16-v1.15.yaml
+
+> ManagedFile/demok8scluster.k8s.local-addons-node-termination-handler.aws-k8s-1.11
+> - Location                addons/node-termination-handler.aws/k8s-1.11.yaml
+
+> ManagedFile/demok8scluster.k8s.local-addons-storage-aws.addons.k8s.io-v1.15.0
+> - Location                addons/storage-aws.addons.k8s.io/v1.15.0.yaml
+
+> ManagedFile/etcd-cluster-spec-events
+> - Base                    s3://kops-ashu-storage/demok8scluster.k8s.local/backups/etcd/events
+> - Location                /control/etcd-cluster-spec
+
+> ManagedFile/etcd-cluster-spec-main
+> - Base                    s3://kops-ashu-storage/demok8scluster.k8s.local/backups/etcd/main
+> - Location                /control/etcd-cluster-spec
+
+> ManagedFile/kops-version.txt
+> - Base                    s3://kops-ashu-storage/demok8scluster.k8s.local
+> - Location                kops-version.txt
+
+> ManagedFile/manifests-etcdmanager-events-control-plane-us-east-1a
+> - Location                manifests/etcd/events-control-plane-us-east-1a.yaml
+
+> ManagedFile/manifests-etcdmanager-main-control-plane-us-east-1a
+> - Location                manifests/etcd/main-control-plane-us-east-1a.yaml
+
+> ManagedFile/manifests-static-kube-apiserver-healthcheck
+> - Location                manifests/static/kube-apiserver-healthcheck.yaml
+
+> ManagedFile/nodeupconfig-control-plane-us-east-1a
+> - Location                igconfig/control-plane/control-plane-us-east-1a/nodeupconfig.yaml
+
+> ManagedFile/nodeupconfig-nodes-us-east-1a
+> - Location                igconfig/node/nodes-us-east-1a/nodeupconfig.yaml
+
+> NetworkLoadBalancer/api.demok8scluster.k8s.local
+> - LoadBalancerBaseName    api-demok8scluster-k8s-lo-e44l8v
+> - CLBName                 api.demok8scluster.k8s.local
+> - SubnetMappings          [{"Subnet":{"Name":"us-east-1a.demok8scluster.k8s.local","ShortName":"us-east-1a","Lifecycle":"Sync","ID":null,"VPC":{"Name":"demok8scluster.k8s.local","Lifecycle":"Sync","ID":null,"CIDR":"172.20.0.0/16","AmazonIPv6":true,"IPv6CIDR":null,"EnableDNSHostnames":true,"EnableDNSSupport":true,"Shared":false,"Tags":{"KubernetesCluster":"demok8scluster.k8s.local","Name":"demok8scluster.k8s.local","kubernetes.io/cluster/demok8scluster.k8s.local":"owned"},"AssociateExtraCIDRBlocks":null},"VPCCIDRBlock":null,"AmazonIPv6CIDR":null,"AvailabilityZone":"us-east-1a","CIDR":"172.20.0.0/16","IPv6CIDR":null,"ResourceBasedNaming":true,"AssignIPv6AddressOnCreation":false,"Shared":false,"Tags":{"KubernetesCluster":"demok8scluster.k8s.local","Name":"us-east-1a.demok8scluster.k8s.local","SubnetType":"Public","kubernetes.io/cluster/demok8scluster.k8s.local":"owned","kubernetes.io/role/elb":"1","kubernetes.io/role/internal-elb":"1"}},"PrivateIPv4Address":null,"AllocationID":null}]
+> - SecurityGroups          [name:api-elb.demok8scluster.k8s.local]
+> - Scheme                  internet-facing
+> - CrossZoneLoadBalancing  true
+> - IpAddressType           ipv4
+> - Tags                    {KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: api.demok8scluster.k8s.local}
+> - Type                    network
+> - VPC                     name:demok8scluster.k8s.local
+> - AccessLog               {"Enabled":false,"S3BucketName":null,"S3BucketPrefix":null}
+> - WellKnownServices       [kube-apiserver, kops-controller]
+
+> NetworkLoadBalancerListener/api.demok8scluster.k8s.local-3988
+> - NetworkLoadBalancer     name:api.demok8scluster.k8s.local id:api.demok8scluster.k8s.local
+> - Port                    3988
+> - TargetGroup             name:kops-controller-demok8scl-aprcdq id:kops-controller-demok8scl-aprcdq
+> - SSLCertificateID
+> - SSLPolicy
+
+> NetworkLoadBalancerListener/api.demok8scluster.k8s.local-443
+> - NetworkLoadBalancer     name:api.demok8scluster.k8s.local id:api.demok8scluster.k8s.local
+> - Port                    443
+> - TargetGroup             name:tcp-demok8scluster-k8s-lo-aoh168 id:tcp-demok8scluster-k8s-lo-aoh168
+> - SSLCertificateID
+> - SSLPolicy
+
+> Route/0.0.0.0/0
+> - RouteTable              name:demok8scluster.k8s.local
+> - CIDR                    0.0.0.0/0
+> - InternetGateway         name:demok8scluster.k8s.local
+
+> Route/::/0
+> - RouteTable              name:demok8scluster.k8s.local
+> - IPv6CIDR                ::/0
+> - InternetGateway         name:demok8scluster.k8s.local
+
+> RouteTable/demok8scluster.k8s.local
+> - VPC                     name:demok8scluster.k8s.local
+> - Shared                  false
+> - Tags                    {Name: demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, kubernetes.io/kops/role: public}
+
+> RouteTableAssociation/us-east-1a.demok8scluster.k8s.local
+> - RouteTable              name:demok8scluster.k8s.local
+> - Subnet                  name:us-east-1a.demok8scluster.k8s.local
+
+> SQS/demok8scluster-k8s-local-nth
+> - MessageRetentionPeriod  300
+> - Tags                    {Name: demok8scluster-k8s-local-nth, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+
+Secret/admin
+
+Secret/kube
+
+Secret/kube-proxy
+
+Secret/kubelet
+
+Secret/system:controller_manager
+
+Secret/system:dns
+
+Secret/system:logging
+
+Secret/system:monitoring
+
+Secret/system:scheduler
+
+> SecurityGroup/api-elb.demok8scluster.k8s.local
+> - Description             Security group for api ELB
+> - VPC                     name:demok8scluster.k8s.local
+> - RemoveExtraRules        [port=443]
+> - Tags                    {Name: api-elb.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+
+> SecurityGroup/masters.demok8scluster.k8s.local
+> - Description             Security group for masters
+> - VPC                     name:demok8scluster.k8s.local
+> - RemoveExtraRules        [port=22, port=443, port=2380, port=2381, port=3988, port=4001, port=4002, port=4789, port=179, port=8443, port=3:4, port=-1]
+> - Tags                    {Name: masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+
+> SecurityGroup/nodes.demok8scluster.k8s.local
+> - Description             Security group for nodes
+> - VPC                     name:demok8scluster.k8s.local
+> - RemoveExtraRules        [port=22]
+> - Tags                    {Name: nodes.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+
+> SecurityGroupRule/from-0.0.0.0/0-ingress-tcp-22to22-masters.demok8scluster.k8s.local
+> - SecurityGroup           name:masters.demok8scluster.k8s.local
+> - CIDR                    0.0.0.0/0
+> - Protocol                tcp
+> - FromPort                22
+> - ToPort                  22
+> - Tags                    {kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-0.0.0.0/0-ingress-tcp-22to22-masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local}
+
+> SecurityGroupRule/from-0.0.0.0/0-ingress-tcp-22to22-nodes.demok8scluster.k8s.local
+> - SecurityGroup           name:nodes.demok8scluster.k8s.local
+> - CIDR                    0.0.0.0/0
+> - Protocol                tcp
+> - FromPort                22
+> - ToPort                  22
+> - Tags                    {Name: from-0.0.0.0/0-ingress-tcp-22to22-nodes.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+
+> SecurityGroupRule/from-0.0.0.0/0-ingress-tcp-443to443-api-elb.demok8scluster.k8s.local
+> - SecurityGroup           name:api-elb.demok8scluster.k8s.local
+> - CIDR                    0.0.0.0/0
+> - Protocol                tcp
+> - FromPort                443
+> - ToPort                  443
+> - Tags                    {kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-0.0.0.0/0-ingress-tcp-443to443-api-elb.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local}
+
+> SecurityGroupRule/from-::/0-ingress-tcp-22to22-masters.demok8scluster.k8s.local
+> - SecurityGroup           name:masters.demok8scluster.k8s.local
+> - IPv6CIDR                ::/0
+> - Protocol                tcp
+> - FromPort                22
+> - ToPort                  22
+> - Tags                    {Name: from-::/0-ingress-tcp-22to22-masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+
+> SecurityGroupRule/from-::/0-ingress-tcp-22to22-nodes.demok8scluster.k8s.local
+> - SecurityGroup           name:nodes.demok8scluster.k8s.local
+> - IPv6CIDR                ::/0
+> - Protocol                tcp
+> - FromPort                22
+> - ToPort                  22
+> - Tags                    {kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-::/0-ingress-tcp-22to22-nodes.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local}
+
+> SecurityGroupRule/from-::/0-ingress-tcp-443to443-api-elb.demok8scluster.k8s.local
+> - SecurityGroup           name:api-elb.demok8scluster.k8s.local
+> - IPv6CIDR                ::/0
+> - Protocol                tcp
+> - FromPort                443
+> - ToPort                  443
+> - Tags                    {kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-::/0-ingress-tcp-443to443-api-elb.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local}
+
+> SecurityGroupRule/from-api-elb.demok8scluster.k8s.local-egress-all-0to0-0.0.0.0/0
+> - SecurityGroup           name:api-elb.demok8scluster.k8s.local
+> - CIDR                    0.0.0.0/0
+> - Egress                  true
+> - Tags                    {Name: from-api-elb.demok8scluster.k8s.local-egress-all-0to0-0.0.0.0/0, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+
+> SecurityGroupRule/from-api-elb.demok8scluster.k8s.local-egress-all-0to0-::/0
+> - SecurityGroup           name:api-elb.demok8scluster.k8s.local
+> - IPv6CIDR                ::/0
+> - Egress                  true
+> - Tags                    {Name: from-api-elb.demok8scluster.k8s.local-egress-all-0to0-::/0, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+
+> SecurityGroupRule/from-masters.demok8scluster.k8s.local-egress-all-0to0-0.0.0.0/0
+> - SecurityGroup           name:masters.demok8scluster.k8s.local
+> - CIDR                    0.0.0.0/0
+> - Egress                  true
+> - Tags                    {Name: from-masters.demok8scluster.k8s.local-egress-all-0to0-0.0.0.0/0, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+
+> SecurityGroupRule/from-masters.demok8scluster.k8s.local-egress-all-0to0-::/0
+> - SecurityGroup           name:masters.demok8scluster.k8s.local
+> - IPv6CIDR                ::/0
+> - Egress                  true
+> - Tags                    {kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-masters.demok8scluster.k8s.local-egress-all-0to0-::/0, KubernetesCluster: demok8scluster.k8s.local}
+
+> SecurityGroupRule/from-masters.demok8scluster.k8s.local-ingress-all-0to0-masters.demok8scluster.k8s.local
+> - SecurityGroup           name:masters.demok8scluster.k8s.local
+> - SourceGroup             name:masters.demok8scluster.k8s.local
+> - Tags                    {Name: from-masters.demok8scluster.k8s.local-ingress-all-0to0-masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+
+> SecurityGroupRule/from-masters.demok8scluster.k8s.local-ingress-all-0to0-nodes.demok8scluster.k8s.local
+> - SecurityGroup           name:nodes.demok8scluster.k8s.local
+> - SourceGroup             name:masters.demok8scluster.k8s.local
+> - Tags                    {KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-masters.demok8scluster.k8s.local-ingress-all-0to0-nodes.demok8scluster.k8s.local}
+
+> SecurityGroupRule/from-nodes.demok8scluster.k8s.local-egress-all-0to0-0.0.0.0/0
+> - SecurityGroup           name:nodes.demok8scluster.k8s.local
+> - CIDR                    0.0.0.0/0
+> - Egress                  true
+> - Tags                    {Name: from-nodes.demok8scluster.k8s.local-egress-all-0to0-0.0.0.0/0, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+
+> SecurityGroupRule/from-nodes.demok8scluster.k8s.local-egress-all-0to0-::/0
+> - SecurityGroup           name:nodes.demok8scluster.k8s.local
+> - IPv6CIDR                ::/0
+> - Egress                  true
+> - Tags                    {Name: from-nodes.demok8scluster.k8s.local-egress-all-0to0-::/0, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+
+> SecurityGroupRule/from-nodes.demok8scluster.k8s.local-ingress-all-0to0-nodes.demok8scluster.k8s.local
+> - SecurityGroup           name:nodes.demok8scluster.k8s.local
+> - SourceGroup             name:nodes.demok8scluster.k8s.local
+> - Tags                    {kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-nodes.demok8scluster.k8s.local-ingress-all-0to0-nodes.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local}
+
+> SecurityGroupRule/from-nodes.demok8scluster.k8s.local-ingress-tcp-1to2379-masters.demok8scluster.k8s.local
+> - SecurityGroup           name:masters.demok8scluster.k8s.local
+> - Protocol                tcp
+> - FromPort                1
+> - ToPort                  2379
+> - SourceGroup             name:nodes.demok8scluster.k8s.local
+> - Tags                    {Name: from-nodes.demok8scluster.k8s.local-ingress-tcp-1to2379-masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+
+> SecurityGroupRule/from-nodes.demok8scluster.k8s.local-ingress-tcp-2382to4000-masters.demok8scluster.k8s.local
+> - SecurityGroup           name:masters.demok8scluster.k8s.local
+> - Protocol                tcp
+> - FromPort                2382
+> - ToPort                  4000
+> - SourceGroup             name:nodes.demok8scluster.k8s.local
+> - Tags                    {kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-nodes.demok8scluster.k8s.local-ingress-tcp-2382to4000-masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local}
+
+> SecurityGroupRule/from-nodes.demok8scluster.k8s.local-ingress-tcp-4003to65535-masters.demok8scluster.k8s.local
+> - SecurityGroup           name:masters.demok8scluster.k8s.local
+> - Protocol                tcp
+> - FromPort                4003
+> - ToPort                  65535
+> - SourceGroup             name:nodes.demok8scluster.k8s.local
+> - Tags                    {kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: from-nodes.demok8scluster.k8s.local-ingress-tcp-4003to65535-masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local}
+
+> SecurityGroupRule/from-nodes.demok8scluster.k8s.local-ingress-udp-1to65535-masters.demok8scluster.k8s.local
+> - SecurityGroup           name:masters.demok8scluster.k8s.local
+> - Protocol                udp
+> - FromPort                1
+> - ToPort                  65535
+> - SourceGroup             name:nodes.demok8scluster.k8s.local
+> - Tags                    {Name: from-nodes.demok8scluster.k8s.local-ingress-udp-1to65535-masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+
+> SecurityGroupRule/https-elb-to-master
+> - SecurityGroup           name:masters.demok8scluster.k8s.local
+> - Protocol                tcp
+> - FromPort                443
+> - ToPort                  443
+> - SourceGroup             name:api-elb.demok8scluster.k8s.local
+
+> SecurityGroupRule/icmp-pmtu-api-elb-0.0.0.0/0
+> - SecurityGroup           name:api-elb.demok8scluster.k8s.local
+> - CIDR                    0.0.0.0/0
+> - Protocol                icmp
+> - FromPort                3
+> - ToPort                  4
+
+> SecurityGroupRule/icmp-pmtu-cp-to-elb
+> - SecurityGroup           name:api-elb.demok8scluster.k8s.local
+> - Protocol                icmp
+> - FromPort                3
+> - ToPort                  4
+> - SourceGroup             name:masters.demok8scluster.k8s.local
+
+> SecurityGroupRule/icmp-pmtu-elb-to-cp
+> - SecurityGroup           name:masters.demok8scluster.k8s.local
+> - Protocol                icmp
+> - FromPort                3
+> - ToPort                  4
+> - SourceGroup             name:api-elb.demok8scluster.k8s.local
+
+> SecurityGroupRule/icmpv6-pmtu-api-elb-::/0
+> - SecurityGroup           name:api-elb.demok8scluster.k8s.local
+> - IPv6CIDR                ::/0
+> - Protocol                icmpv6
+> - FromPort                -1
+> - ToPort                  -1
+
+> SecurityGroupRule/kops-controller-elb-to-cp
+> - SecurityGroup           name:masters.demok8scluster.k8s.local
+> - Protocol                tcp
+> - FromPort                3988
+> - ToPort                  3988
+> - SourceGroup             name:api-elb.demok8scluster.k8s.local
+
+> SecurityGroupRule/node-to-elb
+> - SecurityGroup           name:api-elb.demok8scluster.k8s.local
+> - SourceGroup             name:nodes.demok8scluster.k8s.local
+
+> Subnet/us-east-1a.demok8scluster.k8s.local
+> - ShortName               us-east-1a
+> - VPC                     name:demok8scluster.k8s.local
+> - AvailabilityZone        us-east-1a
+> - CIDR                    172.20.0.0/16
+> - ResourceBasedNaming     true
+> - AssignIPv6AddressOnCreation     false
+> - Shared                  false
+> - Tags                    {Name: us-east-1a.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, SubnetType: Public, kubernetes.io/role/elb: 1, kubernetes.io/role/internal-elb: 1}
+
+> TargetGroup/kops-controller-demok8scl-aprcdq
+> - VPC                     name:demok8scluster.k8s.local
+> - Tags                    {Name: kops-controller-demok8scl-aprcdq, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+> - Port                    3988
+> - Protocol                TCP
+> - Shared                  false
+> - Attributes              {deregistration_delay.timeout_seconds: 30, deregistration_delay.connection_termination.enabled: true}
+> - Interval                10
+> - HealthyThreshold        2
+> - UnhealthyThreshold      2
+
+> TargetGroup/tcp-demok8scluster-k8s-lo-aoh168
+> - VPC                     name:demok8scluster.k8s.local
+> - Tags                    {KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: tcp-demok8scluster-k8s-lo-aoh168}
+> - Port                    443
+> - Protocol                TCP
+> - Shared                  false
+> - Attributes              {deregistration_delay.connection_termination.enabled: true, deregistration_delay.timeout_seconds: 30}
+> - Interval                10
+> - HealthyThreshold        2
+> - UnhealthyThreshold      2
+
+> VPC/demok8scluster.k8s.local
+> - CIDR                    172.20.0.0/16
+> - AmazonIPv6              true
+> - EnableDNSHostnames      true
+> - EnableDNSSupport        true
+> - Shared                  false
+> - Tags                    {KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: demok8scluster.k8s.local}
+
+> VPCAmazonIPv6CIDRBlock/AmazonIPv6
+> - VPC                     name:demok8scluster.k8s.local
+> - Shared                  false
+
+> VPCDHCPOptionsAssociation/demok8scluster.k8s.local
+> - VPC                     name:demok8scluster.k8s.local
+> - DHCPOptions             name:demok8scluster.k8s.local
+
+> WarmPool/control-plane-us-east-1a.masters.demok8scluster.k8s.local
+> - Enabled                 false
+> - MinSize                 0
+> - AutoscalingGroup        name:control-plane-us-east-1a.masters.demok8scluster.k8s.local id:control-plane-us-east-1a.masters.demok8scluster.k8s.local
+
+> WarmPool/nodes-us-east-1a.demok8scluster.k8s.local
+> - Enabled                 false
+> - MinSize                 0
+> - AutoscalingGroup        name:nodes-us-east-1a.demok8scluster.k8s.local id:nodes-us-east-1a.demok8scluster.k8s.local
 
 Must specify --yes to apply changes
 
