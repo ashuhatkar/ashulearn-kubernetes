@@ -4,7 +4,7 @@ I0919 08:17:55.859953   17924 new_cluster.go:1454] Cloud Provider ID: "aws"
 
 I0919 08:17:58.352923   17924 subnets.go:224] Assigned CIDR 172.20.0.0/16 to subnet us-east-1a
 
-### Previewing changes that will be made:###
+### Previewing changes that will be made: ###
 
 I0919 08:18:26.448600   17924 builder.go:312] asset "https://dl.k8s.io/release/v1.30.2/bin/linux/amd64/kubelet" is not well-known, downloading hash
 
@@ -35,27 +35,36 @@ I0919 08:19:19.822773   17924 executor.go:113] Tasks: 0 done / 117 total; 43 can
 W0919 08:19:23.816488   17924 vfs_keystorereader.go:143] CA private key was not found
 
 I0919 08:19:24.034958   17924 executor.go:113] Tasks: 43 done / 117 total; 22 can run
+
 I0919 08:19:24.892261   17924 executor.go:113] Tasks: 65 done / 117 total; 34 can run
+
 I0919 08:19:26.742171   17924 executor.go:113] Tasks: 99 done / 117 total; 4 can run
+
 I0919 08:19:27.719342   17924 executor.go:113] Tasks: 103 done / 117 total; 6 can run
+
 I0919 08:19:28.350285   17924 executor.go:113] Tasks: 109 done / 117 total; 2 can run
+
 I0919 08:19:29.348009   17924 executor.go:113] Tasks: 111 done / 117 total; 4 can run
+
 I0919 08:19:30.060231   17924 executor.go:113] Tasks: 115 done / 117 total; 2 can run
+
 I0919 08:19:30.321448   17924 executor.go:113] Tasks: 117 done / 117 total; 0 can run
-Will create resources:
-  AutoscalingGroup/control-plane-us-east-1a.masters.demok8scluster.k8s.local
-        Granularity             1Minute
-        InstanceProtection      false
-        LaunchTemplate          name:control-plane-us-east-1a.masters.demok8scluster.k8s.local
-        LoadBalancers           []
-        MaxInstanceLifetime     0
-        MaxSize                 1
-        Metrics                 [GroupDesiredCapacity, GroupInServiceInstances, GroupMaxSize, GroupMinSize, GroupPendingInstances, GroupStandbyInstances, GroupTerminatingInstances, GroupTotalInstances]
-        MinSize                 1
-        Subnets                 [name:us-east-1a.demok8scluster.k8s.local]
-        SuspendProcesses        []
-        Tags                    {Name: control-plane-us-east-1a.masters.demok8scluster.k8s.local, k8s.io/cluster-autoscaler/node-template/label/kops.k8s.io/kops-controller-pki: , k8s.io/cluster-autoscaler/node-template/label/node.kubernetes.io/exclude-from-external-load-balancers: , k8s.io/role/master: 1, k8s.io/role/control-plane: 1, kops.k8s.io/instancegroup: control-plane-us-east-1a, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, aws-node-termination-handler/managed: , k8s.io/cluster-autoscaler/node-template/label/node-role.kubernetes.io/control-plane: }
-        TargetGroups            [name:kops-controller-demok8scl-aprcdq id:kops-controller-demok8scl-aprcdq, name:tcp-demok8scluster-k8s-lo-aoh168 id:tcp-demok8scluster-k8s-lo-aoh168]
+
+### Will create resources: ###
+
+>  AutoscalingGroup/control-plane-us-east-1a.masters.demok8scluster.k8s.local
+>        Granularity             1Minute
+>        InstanceProtection      false
+>        LaunchTemplate          name:control-plane-us-east-1a.masters.demok8scluster.k8s.local
+>        LoadBalancers           []
+>        MaxInstanceLifetime     0
+>        MaxSize                 1
+>        Metrics                 [GroupDesiredCapacity, GroupInServiceInstances, GroupMaxSize, GroupMinSize, GroupPendingInstances, GroupStandbyInstances, GroupTerminatingInstances, GroupTotalInstances]
+>        MinSize                 1
+>        Subnets                 [name:us-east-1a.demok8scluster.k8s.local]
+>        SuspendProcesses        []
+>        Tags                    {Name: control-plane-us-east-1a.masters.demok8scluster.k8s.local, k8s.io/cluster-autoscaler/node-template/label/kops.k8s.io/kops-controller-pki: , k8s.io/cluster-autoscaler/node-template/label/node.kubernetes.io/exclude-from-external-load-balancers: , k8s.io/role/master: 1, k8s.io/role/control-plane: 1, kops.k8s.io/instancegroup: control-plane-us-east-1a, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, aws-node-termination-handler/managed: , k8s.io/cluster-autoscaler/node-template/label/node-role.kubernetes.io/control-plane: }
+>        TargetGroups            [name:kops-controller-demok8scl-aprcdq id:kops-controller-demok8scl-aprcdq, name:tcp-demok8scluster-k8s-lo-aoh168 id:tcp-demok8scluster-k8s-lo-aoh168]
 
   AutoscalingGroup/nodes-us-east-1a.demok8scluster.k8s.local
         Granularity             1Minute
