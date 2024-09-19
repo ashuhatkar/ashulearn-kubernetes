@@ -393,6 +393,8 @@ kops create cluster \
      --node-volume-size=8
 ```
 
+[List of installed resources](https://github.com/ashuhatkar/ashulearn-kubernetes-setup-on-prod-systems/blob/develop/01-install/kops-provision-resources.md)
+
 ### Review/customize cluster configuration
 
 **Now we have a cluster configuration**, we can look at every aspect that defines our cluster by editing the description.
