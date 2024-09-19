@@ -66,209 +66,209 @@ I0919 08:19:30.321448   17924 executor.go:113] Tasks: 117 done / 117 total; 0 ca
 > - Tags                    {Name: control-plane-us-east-1a.masters.demok8scluster.k8s.local, k8s.io/cluster-autoscaler/node-template/label/kops.k8s.io/kops-controller-pki: , k8s.io/cluster-autoscaler/node-template/label/node.kubernetes.io/exclude-from-external-load-balancers: , k8s.io/role/master: 1, k8s.io/role/control-plane: 1, kops.k8s.io/instancegroup: control-plane-us-east-1a, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, aws-node-termination-handler/managed: , k8s.io/cluster-autoscaler/node-template/label/node-role.kubernetes.io/control-plane: }
 > - TargetGroups            [name:kops-controller-demok8scl-aprcdq id:kops-controller-demok8scl-aprcdq, name:tcp-demok8scluster-k8s-lo-aoh168 id:tcp-demok8scluster-k8s-lo-aoh168]
 
-  AutoscalingGroup/nodes-us-east-1a.demok8scluster.k8s.local
-        Granularity             1Minute
-        InstanceProtection      false
-        LaunchTemplate          name:nodes-us-east-1a.demok8scluster.k8s.local
-        LoadBalancers           []
-        MaxInstanceLifetime     0
-        MaxSize                 1
-        Metrics                 [GroupDesiredCapacity, GroupInServiceInstances, GroupMaxSize, GroupMinSize, GroupPendingInstances, GroupStandbyInstances, GroupTerminatingInstances, GroupTotalInstances]
-        MinSize                 1
-        Subnets                 [name:us-east-1a.demok8scluster.k8s.local]
-        SuspendProcesses        []
-        Tags                    {k8s.io/role/node: 1, kops.k8s.io/instancegroup: nodes-us-east-1a, Name: nodes-us-east-1a.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, aws-node-termination-handler/managed: , k8s.io/cluster-autoscaler/node-template/label/node-role.kubernetes.io/node: }
-        TargetGroups            []
+> AutoscalingGroup/nodes-us-east-1a.demok8scluster.k8s.local
+> - Granularity             1Minute
+> - InstanceProtection      false
+> - LaunchTemplate          name:nodes-us-east-1a.demok8scluster.k8s.local
+> - LoadBalancers           []
+> - MaxInstanceLifetime     0
+> - MaxSize                 1
+> - Metrics                 [GroupDesiredCapacity, GroupInServiceInstances, GroupMaxSize, GroupMinSize, GroupPendingInstances, GroupStandbyInstances, GroupTerminatingInstances, GroupTotalInstances]
+> - MinSize                 1
+> - Subnets                 [name:us-east-1a.demok8scluster.k8s.local]
+> - SuspendProcesses        []
+> - Tags                    {k8s.io/role/node: 1, kops.k8s.io/instancegroup: nodes-us-east-1a, Name: nodes-us-east-1a.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, aws-node-termination-handler/managed: , k8s.io/cluster-autoscaler/node-template/label/node-role.kubernetes.io/node: }
+> - TargetGroups            []
 
-  AutoscalingLifecycleHook/control-plane-us-east-1a-NTHLifecycleHook
-        ID                      control-plane-us-east-1a-NTHLifecycleHook
-        AutoscalingGroup        name:control-plane-us-east-1a.masters.demok8scluster.k8s.local id:control-plane-us-east-1a.masters.demok8scluster.k8s.local
-        DefaultResult           CONTINUE
-        HeartbeatTimeout        300
-        LifecycleTransition     autoscaling:EC2_INSTANCE_TERMINATING
-        Enabled                 true
+> AutoscalingLifecycleHook/control-plane-us-east-1a-NTHLifecycleHook
+> - ID                      control-plane-us-east-1a-NTHLifecycleHook
+> - AutoscalingGroup        name:control-plane-us-east-1a.masters.demok8scluster.k8s.local id:control-plane-us-east-1a.masters.demok8scluster.k8s.local
+> - DefaultResult           CONTINUE
+> - HeartbeatTimeout        300
+> - LifecycleTransition     autoscaling:EC2_INSTANCE_TERMINATING
+> - Enabled                 true
 
-  AutoscalingLifecycleHook/nodes-us-east-1a-NTHLifecycleHook
-        ID                      nodes-us-east-1a-NTHLifecycleHook
-        AutoscalingGroup        name:nodes-us-east-1a.demok8scluster.k8s.local id:nodes-us-east-1a.demok8scluster.k8s.local
-        DefaultResult           CONTINUE
-        HeartbeatTimeout        300
-        LifecycleTransition     autoscaling:EC2_INSTANCE_TERMINATING
-        Enabled                 true
+> AutoscalingLifecycleHook/nodes-us-east-1a-NTHLifecycleHook
+> - ID                      nodes-us-east-1a-NTHLifecycleHook
+> - AutoscalingGroup        name:nodes-us-east-1a.demok8scluster.k8s.local id:nodes-us-east-1a.demok8scluster.k8s.local
+> - DefaultResult           CONTINUE
+> - HeartbeatTimeout        300
+> - LifecycleTransition     autoscaling:EC2_INSTANCE_TERMINATING
+> - Enabled                 true
 
-  DHCPOptions/demok8scluster.k8s.local
-        DomainName              ec2.internal
-        DomainNameServers       AmazonProvidedDNS
-        Shared                  false
-        Tags                    {Name: demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+> DHCPOptions/demok8scluster.k8s.local
+> - DomainName              ec2.internal
+> - DomainNameServers       AmazonProvidedDNS
+> - Shared                  false
+> - Tags                    {Name: demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
 
-  EBSVolume/a.etcd-events.demok8scluster.k8s.local
-        AvailabilityZone        us-east-1a
-        Encrypted               true
-        SizeGB                  20
-        Tags                    {k8s.io/role/master: 1, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: a.etcd-events.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, k8s.io/etcd/events: a/a, k8s.io/role/control-plane: 1}
-        VolumeIops              3000
-        VolumeThroughput        125
-        VolumeType              gp3
+> EBSVolume/a.etcd-events.demok8scluster.k8s.local
+> - AvailabilityZone        us-east-1a
+> - Encrypted               true
+> - SizeGB                  20
+> - Tags                    {k8s.io/role/master: 1, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: a.etcd-events.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, k8s.io/etcd/events: a/a, k8s.io/role/control-plane: 1}
+> - VolumeIops              3000
+> - VolumeThroughput        125
+> - VolumeType              gp3
 
-  EBSVolume/a.etcd-main.demok8scluster.k8s.local
-        AvailabilityZone        us-east-1a
-        Encrypted               true
-        SizeGB                  20
-        Tags                    {k8s.io/role/control-plane: 1, k8s.io/role/master: 1, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: a.etcd-main.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, k8s.io/etcd/main: a/a}
-        VolumeIops              3000
-        VolumeThroughput        125
-        VolumeType              gp3
+> EBSVolume/a.etcd-main.demok8scluster.k8s.local
+> - AvailabilityZone        us-east-1a
+> - Encrypted               true
+> - SizeGB                  20
+> - Tags                    {k8s.io/role/control-plane: 1, k8s.io/role/master: 1, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: a.etcd-main.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, k8s.io/etcd/main: a/a}
+> - VolumeIops              3000
+> - VolumeThroughput        125
+> - VolumeType              gp3
 
-  EventBridgeRule/demok8scluster.k8s.local-ASGLifecycle
-        EventPattern            {"source":["aws.autoscaling"],"detail-type":["EC2 Instance-terminate Lifecycle Action"]}
-        SQSQueue                name:demok8scluster-k8s-local-nth
-        Tags                    {Name: demok8scluster.k8s.local-ASGLifecycle, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+> EventBridgeRule/demok8scluster.k8s.local-ASGLifecycle
+> - EventPattern            {"source":["aws.autoscaling"],"detail-type":["EC2 Instance-terminate Lifecycle Action"]}
+> - SQSQueue                name:demok8scluster-k8s-local-nth
+> - Tags                    {Name: demok8scluster.k8s.local-ASGLifecycle, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
 
-  EventBridgeRule/demok8scluster.k8s.local-InstanceScheduledChange
-        EventPattern            {"source": ["aws.health"],"detail-type": ["AWS Health Event"],"detail": {"service": ["EC2"],"eventTypeCategory": ["scheduledChange"]}}
-        SQSQueue                name:demok8scluster-k8s-local-nth
-        Tags                    {Name: demok8scluster.k8s.local-InstanceScheduledChange, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+> EventBridgeRule/demok8scluster.k8s.local-InstanceScheduledChange
+> - EventPattern            {"source": ["aws.health"],"detail-type": ["AWS Health Event"],"detail": {"service": ["EC2"],"eventTypeCategory": ["scheduledChange"]}}
+> - SQSQueue                name:demok8scluster-k8s-local-nth
+> - Tags                    {Name: demok8scluster.k8s.local-InstanceScheduledChange, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
 
-  EventBridgeRule/demok8scluster.k8s.local-InstanceStateChange
-        EventPattern            {"source": ["aws.ec2"],"detail-type": ["EC2 Instance State-change Notification"]}
-        SQSQueue                name:demok8scluster-k8s-local-nth
-        Tags                    {KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: demok8scluster.k8s.local-InstanceStateChange}
+> EventBridgeRule/demok8scluster.k8s.local-InstanceStateChange
+> - EventPattern            {"source": ["aws.ec2"],"detail-type": ["EC2 Instance State-change Notification"]}
+> - SQSQueue                name:demok8scluster-k8s-local-nth
+> - Tags                    {KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: demok8scluster.k8s.local-InstanceStateChange}
 
-  EventBridgeRule/demok8scluster.k8s.local-SpotInterruption
-        EventPattern            {"source": ["aws.ec2"],"detail-type": ["EC2 Spot Instance Interruption Warning"]}
-        SQSQueue                name:demok8scluster-k8s-local-nth
-        Tags                    {Name: demok8scluster.k8s.local-SpotInterruption, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+> EventBridgeRule/demok8scluster.k8s.local-SpotInterruption
+> - EventPattern            {"source": ["aws.ec2"],"detail-type": ["EC2 Spot Instance Interruption Warning"]}
+> - SQSQueue                name:demok8scluster-k8s-local-nth
+> - Tags                    {Name: demok8scluster.k8s.local-SpotInterruption, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
 
-  EventBridgeTarget/demok8scluster.k8s.local-ASGLifecycle-Target
-        Rule                    name:demok8scluster.k8s.local-ASGLifecycle id:demok8scluster.k8s.local-ASGLifecycle
-        SQSQueue                name:demok8scluster-k8s-local-nth
+> EventBridgeTarget/demok8scluster.k8s.local-ASGLifecycle-Target
+> - Rule                    name:demok8scluster.k8s.local-ASGLifecycle id:demok8scluster.k8s.local-ASGLifecycle
+> - SQSQueue                name:demok8scluster-k8s-local-nth
 
-  EventBridgeTarget/demok8scluster.k8s.local-InstanceScheduledChange-Target
-        Rule                    name:demok8scluster.k8s.local-InstanceScheduledChange id:demok8scluster.k8s.local-InstanceScheduledChange
-        SQSQueue                name:demok8scluster-k8s-local-nth
+> EventBridgeTarget/demok8scluster.k8s.local-InstanceScheduledChange-Target
+> - Rule                    name:demok8scluster.k8s.local-InstanceScheduledChange id:demok8scluster.k8s.local-InstanceScheduledChange
+> - SQSQueue                name:demok8scluster-k8s-local-nth
 
-  EventBridgeTarget/demok8scluster.k8s.local-InstanceStateChange-Target
-        Rule                    name:demok8scluster.k8s.local-InstanceStateChange id:demok8scluster.k8s.local-InstanceStateChange
-        SQSQueue                name:demok8scluster-k8s-local-nth
+> EventBridgeTarget/demok8scluster.k8s.local-InstanceStateChange-Target
+> - Rule                    name:demok8scluster.k8s.local-InstanceStateChange id:demok8scluster.k8s.local-InstanceStateChange
+> - SQSQueue                name:demok8scluster-k8s-local-nth
 
-  EventBridgeTarget/demok8scluster.k8s.local-SpotInterruption-Target
-        Rule                    name:demok8scluster.k8s.local-SpotInterruption id:demok8scluster.k8s.local-SpotInterruption
-        SQSQueue                name:demok8scluster-k8s-local-nth
+> EventBridgeTarget/demok8scluster.k8s.local-SpotInterruption-Target
+> - Rule                    name:demok8scluster.k8s.local-SpotInterruption id:demok8scluster.k8s.local-SpotInterruption
+> - SQSQueue                name:demok8scluster-k8s-local-nth
 
-  IAMInstanceProfile/masters.demok8scluster.k8s.local
-        Tags                    {Name: masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-        Shared                  false
+> IAMInstanceProfile/masters.demok8scluster.k8s.local
+> - Tags                    {Name: masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+> - Shared                  false
 
-  IAMInstanceProfile/nodes.demok8scluster.k8s.local
-        Tags                    {Name: nodes.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-        Shared                  false
+> IAMInstanceProfile/nodes.demok8scluster.k8s.local
+> - Tags                    {Name: nodes.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+> - Shared                  false
 
-  IAMInstanceProfileRole/masters.demok8scluster.k8s.local
-        InstanceProfile         name:masters.demok8scluster.k8s.local id:masters.demok8scluster.k8s.local
-        Role                    name:masters.demok8scluster.k8s.local
+> IAMInstanceProfileRole/masters.demok8scluster.k8s.local
+> - InstanceProfile         name:masters.demok8scluster.k8s.local id:masters.demok8scluster.k8s.local
+> - Role                    name:masters.demok8scluster.k8s.local
 
-  IAMInstanceProfileRole/nodes.demok8scluster.k8s.local
-        InstanceProfile         name:nodes.demok8scluster.k8s.local id:nodes.demok8scluster.k8s.local
-        Role                    name:nodes.demok8scluster.k8s.local
+> IAMInstanceProfileRole/nodes.demok8scluster.k8s.local
+> - InstanceProfile         name:nodes.demok8scluster.k8s.local id:nodes.demok8scluster.k8s.local
+> - Role                    name:nodes.demok8scluster.k8s.local
 
-  IAMRole/masters.demok8scluster.k8s.local
-        Tags                    {Name: masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
-        ExportWithID            masters
+> IAMRole/masters.demok8scluster.k8s.local
+> - Tags                    {Name: masters.demok8scluster.k8s.local, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned}
+> - ExportWithID            masters
 
-  IAMRole/nodes.demok8scluster.k8s.local
-        Tags                    {KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: nodes.demok8scluster.k8s.local}
-        ExportWithID            nodes
+> IAMRole/nodes.demok8scluster.k8s.local
+> - Tags                    {KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: nodes.demok8scluster.k8s.local}
+> - ExportWithID            nodes
 
-  IAMRolePolicy/master-policyoverride
-        Role                    name:masters.demok8scluster.k8s.local
-        Managed                 true
+> IAMRolePolicy/master-policyoverride
+> - Role                    name:masters.demok8scluster.k8s.local
+> - Managed                 true
 
-  IAMRolePolicy/masters.demok8scluster.k8s.local
-        Role                    name:masters.demok8scluster.k8s.local
-        Managed                 false
+> IAMRolePolicy/masters.demok8scluster.k8s.local
+> - Role                    name:masters.demok8scluster.k8s.local
+> - Managed                 false
 
-  IAMRolePolicy/node-policyoverride
-        Role                    name:nodes.demok8scluster.k8s.local
-        Managed                 true
+> IAMRolePolicy/node-policyoverride
+> - Role                    name:nodes.demok8scluster.k8s.local
+> - Managed                 true
 
-  IAMRolePolicy/nodes.demok8scluster.k8s.local
-        Role                    name:nodes.demok8scluster.k8s.local
-        Managed                 false
+> IAMRolePolicy/nodes.demok8scluster.k8s.local
+> - Role                    name:nodes.demok8scluster.k8s.local
+> - Managed                 false
 
-  InternetGateway/demok8scluster.k8s.local
-        VPC                     name:demok8scluster.k8s.local
-        Shared                  false
-        Tags                    {KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: demok8scluster.k8s.local}
+> InternetGateway/demok8scluster.k8s.local
+> - VPC                     name:demok8scluster.k8s.local
+> - Shared                  false
+> - Tags                    {KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, Name: demok8scluster.k8s.local}
 
-  Keypair/apiserver-aggregator-ca
-        Subject                 cn=apiserver-aggregator-ca
-        Issuer
-        Type                    ca
-        LegacyFormat            false
+> Keypair/apiserver-aggregator-ca
+> - Subject                 cn=apiserver-aggregator-ca
+> - Issuer
+> - Type                    ca
+> - LegacyFormat            false
 
-  Keypair/etcd-clients-ca
-        Subject                 cn=etcd-clients-ca
-        Issuer
-        Type                    ca
-        LegacyFormat            false
+> Keypair/etcd-clients-ca
+> - Subject                 cn=etcd-clients-ca
+> - Issuer
+> - Type                    ca
+> - LegacyFormat            false
 
-  Keypair/etcd-manager-ca-events
-        Subject                 cn=etcd-manager-ca-events
-        Issuer
-        Type                    ca
-        LegacyFormat            false
+> Keypair/etcd-manager-ca-events
+> - Subject                 cn=etcd-manager-ca-events
+> - Issuer
+> - Type                    ca
+> - LegacyFormat            false
 
-  Keypair/etcd-manager-ca-main
-        Subject                 cn=etcd-manager-ca-main
-        Issuer
-        Type                    ca
-        LegacyFormat            false
+> Keypair/etcd-manager-ca-main
+> - Subject                 cn=etcd-manager-ca-main
+> - Issuer
+> - Type                    ca
+> - LegacyFormat            false
 
-  Keypair/etcd-peers-ca-events
-        Subject                 cn=etcd-peers-ca-events
-        Issuer
-        Type                    ca
-        LegacyFormat            false
+> Keypair/etcd-peers-ca-events
+> - Subject                 cn=etcd-peers-ca-events
+> - Issuer
+> - Type                    ca
+> - LegacyFormat            false
 
-  Keypair/etcd-peers-ca-main
-        Subject                 cn=etcd-peers-ca-main
-        Issuer
-        Type                    ca
-        LegacyFormat            false
+> Keypair/etcd-peers-ca-main
+> - Subject                 cn=etcd-peers-ca-main
+> - Issuer
+> - Type                    ca
+> - LegacyFormat            false
 
-  Keypair/kubernetes-ca
-        Subject                 cn=kubernetes-ca
-        Issuer
-        Type                    ca
-        LegacyFormat            false
+> Keypair/kubernetes-ca
+> - Subject                 cn=kubernetes-ca
+> - Issuer
+> - Type                    ca
+> - LegacyFormat            false
 
-  Keypair/service-account
-        Subject                 cn=service-account
-        Issuer
-        Type                    ca
-        LegacyFormat            false
+> Keypair/service-account
+> - Subject                 cn=service-account
+> - Issuer
+> - Type                    ca
+> - LegacyFormat            false
 
-  LaunchTemplate/control-plane-us-east-1a.masters.demok8scluster.k8s.local
-        AssociatePublicIP       true
-        CPUCredits
-        HTTPPutResponseHopLimit 1
-        HTTPTokens              required
-        HTTPProtocolIPv6        disabled
-        IAMInstanceProfile      name:masters.demok8scluster.k8s.local id:masters.demok8scluster.k8s.local
-        ImageID                 099720109477/ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20240607
-        InstanceMonitoring      false
-        InstanceType            t2.micro
-        IPv6AddressCount        0
-        RootVolumeIops          3000
-        RootVolumeSize          8
-        RootVolumeThroughput    125
-        RootVolumeType          gp3
-        RootVolumeEncryption    true
-        RootVolumeKmsKey
-        SecurityGroups          [name:masters.demok8scluster.k8s.local]
-        SpotPrice
-        Tags                    {k8s.io/role/master: 1, k8s.io/role/control-plane: 1, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, aws-node-termination-handler/managed: , k8s.io/cluster-autoscaler/node-template/label/kops.k8s.io/kops-controller-pki: , Name: control-plane-us-east-1a.masters.demok8scluster.k8s.local, k8s.io/cluster-autoscaler/node-template/label/node-role.kubernetes.io/control-plane: , k8s.io/cluster-autoscaler/node-template/label/node.kubernetes.io/exclude-from-external-load-balancers: , kops.k8s.io/instancegroup: control-plane-us-east-1a}
+> LaunchTemplate/control-plane-us-east-1a.masters.demok8scluster.k8s.local
+> - AssociatePublicIP       true
+> - CPUCredits
+> - HTTPPutResponseHopLimit 1
+> - HTTPTokens              required
+> - HTTPProtocolIPv6        disabled
+> - IAMInstanceProfile      name:masters.demok8scluster.k8s.local id:masters.demok8scluster.k8s.local
+> - ImageID                 099720109477/ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20240607
+> - InstanceMonitoring      false
+> - InstanceType            t2.micro
+> - IPv6AddressCount        0
+> - RootVolumeIops          3000
+> - RootVolumeSize          8
+> - RootVolumeThroughput    125
+> - RootVolumeType          gp3
+> - RootVolumeEncryption    true
+> - RootVolumeKmsKey
+> - SecurityGroups          [name:masters.demok8scluster.k8s.local]
+> - SpotPrice
+> - Tags                    {k8s.io/role/master: 1, k8s.io/role/control-plane: 1, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, aws-node-termination-handler/managed: , k8s.io/cluster-autoscaler/node-template/label/kops.k8s.io/kops-controller-pki: , Name: control-plane-us-east-1a.masters.demok8scluster.k8s.local, k8s.io/cluster-autoscaler/node-template/label/node-role.kubernetes.io/control-plane: , k8s.io/cluster-autoscaler/node-template/label/node.kubernetes.io/exclude-from-external-load-balancers: , kops.k8s.io/instancegroup: control-plane-us-east-1a}
 
   LaunchTemplate/nodes-us-east-1a.demok8scluster.k8s.local
         AssociatePublicIP       true
