@@ -52,19 +52,19 @@ I0919 08:19:30.321448   17924 executor.go:113] Tasks: 117 done / 117 total; 0 ca
 
 ### Will create resources: ###
 
->  AutoscalingGroup/control-plane-us-east-1a.masters.demok8scluster.k8s.local
->        Granularity             1Minute
->        InstanceProtection      false
->        LaunchTemplate          name:control-plane-us-east-1a.masters.demok8scluster.k8s.local
->        LoadBalancers           []
->        MaxInstanceLifetime     0
->        MaxSize                 1
->        Metrics                 [GroupDesiredCapacity, GroupInServiceInstances, GroupMaxSize, GroupMinSize, GroupPendingInstances, GroupStandbyInstances, GroupTerminatingInstances, GroupTotalInstances]
->        MinSize                 1
->        Subnets                 [name:us-east-1a.demok8scluster.k8s.local]
->        SuspendProcesses        []
->        Tags                    {Name: control-plane-us-east-1a.masters.demok8scluster.k8s.local, k8s.io/cluster-autoscaler/node-template/label/kops.k8s.io/kops-controller-pki: , k8s.io/cluster-autoscaler/node-template/label/node.kubernetes.io/exclude-from-external-load-balancers: , k8s.io/role/master: 1, k8s.io/role/control-plane: 1, kops.k8s.io/instancegroup: control-plane-us-east-1a, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, aws-node-termination-handler/managed: , k8s.io/cluster-autoscaler/node-template/label/node-role.kubernetes.io/control-plane: }
->        TargetGroups            [name:kops-controller-demok8scl-aprcdq id:kops-controller-demok8scl-aprcdq, name:tcp-demok8scluster-k8s-lo-aoh168 id:tcp-demok8scluster-k8s-lo-aoh168]
+> AutoscalingGroup/control-plane-us-east-1a.masters.demok8scluster.k8s.local
+> - Granularity             1Minute
+> - InstanceProtection      false
+> - LaunchTemplate          name:control-plane-us-east-1a.masters.demok8scluster.k8s.local
+> - LoadBalancers           []
+> - MaxInstanceLifetime     0
+> - MaxSize                 1
+> - Metrics                 [GroupDesiredCapacity, GroupInServiceInstances, GroupMaxSize, GroupMinSize, GroupPendingInstances, GroupStandbyInstances, GroupTerminatingInstances, GroupTotalInstances]
+> - MinSize                 1
+> - Subnets                 [name:us-east-1a.demok8scluster.k8s.local]
+> - SuspendProcesses        []
+> - Tags                    {Name: control-plane-us-east-1a.masters.demok8scluster.k8s.local, k8s.io/cluster-autoscaler/node-template/label/kops.k8s.io/kops-controller-pki: , k8s.io/cluster-autoscaler/node-template/label/node.kubernetes.io/exclude-from-external-load-balancers: , k8s.io/role/master: 1, k8s.io/role/control-plane: 1, kops.k8s.io/instancegroup: control-plane-us-east-1a, KubernetesCluster: demok8scluster.k8s.local, kubernetes.io/cluster/demok8scluster.k8s.local: owned, aws-node-termination-handler/managed: , k8s.io/cluster-autoscaler/node-template/label/node-role.kubernetes.io/control-plane: }
+> - TargetGroups            [name:kops-controller-demok8scl-aprcdq id:kops-controller-demok8scl-aprcdq, name:tcp-demok8scluster-k8s-lo-aoh168 id:tcp-demok8scluster-k8s-lo-aoh168]
 
   AutoscalingGroup/nodes-us-east-1a.demok8scluster.k8s.local
         Granularity             1Minute
