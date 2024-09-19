@@ -1,22 +1,39 @@
 W0919 08:17:55.859445   17924 new_cluster.go:1435] Gossip is deprecated, using None DNS instead
+
 I0919 08:17:55.859953   17924 new_cluster.go:1454] Cloud Provider ID: "aws"
+
 I0919 08:17:58.352923   17924 subnets.go:224] Assigned CIDR 172.20.0.0/16 to subnet us-east-1a
-Previewing changes that will be made:
+
+### Previewing changes that will be made:###
 
 I0919 08:18:26.448600   17924 builder.go:312] asset "https://dl.k8s.io/release/v1.30.2/bin/linux/amd64/kubelet" is not well-known, downloading hash
+
 I0919 08:18:40.171563   17924 builder.go:312] asset "https://dl.k8s.io/release/v1.30.2/bin/linux/amd64/kubectl" is not well-known, downloading hash
+
 I0919 08:18:40.545956   17924 builder.go:312] asset "https://github.com/containerd/containerd/releases/download/v1.7.16/containerd-1.7.16-linux-amd64.tar.gz" is not well-known, downloading hash
+
 I0919 08:18:42.477136   17924 builder.go:312] asset "https://artifacts.k8s.io/binaries/kops/1.30.0/linux/amd64/nodeup" is not well-known, downloading hash
+
 I0919 08:18:51.087832   17924 builder.go:312] asset "https://dl.k8s.io/release/v1.30.2/bin/linux/arm64/kubelet" is not well-known, downloading hash
+
 I0919 08:18:51.417568   17924 builder.go:312] asset "https://dl.k8s.io/release/v1.30.2/bin/linux/arm64/kubectl" is not well-known, downloading hash
+
 I0919 08:18:51.804166   17924 builder.go:312] asset "https://github.com/containerd/containerd/releases/download/v1.7.16/containerd-1.7.16-linux-arm64.tar.gz" is not well-known, downloading hash
+
 I0919 08:18:53.830175   17924 builder.go:312] asset "https://artifacts.k8s.io/binaries/kops/1.30.0/linux/arm64/nodeup" is not well-known, downloading hash
+
 I0919 08:18:58.744425   17924 builder.go:312] asset "https://artifacts.k8s.io/binaries/kops/1.30.0/linux/amd64/protokube" is not well-known, downloading hash
+
 I0919 08:18:59.110620   17924 builder.go:312] asset "https://artifacts.k8s.io/binaries/kops/1.30.0/linux/arm64/protokube" is not well-known, downloading hash
+
 I0919 08:18:59.512969   17924 builder.go:312] asset "https://artifacts.k8s.io/binaries/kops/1.30.0/linux/amd64/channels" is not well-known, downloading hash
+
 I0919 08:18:59.861459   17924 builder.go:312] asset "https://artifacts.k8s.io/binaries/kops/1.30.0/linux/arm64/channels" is not well-known, downloading hash
+
 I0919 08:19:19.822773   17924 executor.go:113] Tasks: 0 done / 117 total; 43 can run
+
 W0919 08:19:23.816488   17924 vfs_keystorereader.go:143] CA private key was not found
+
 I0919 08:19:24.034958   17924 executor.go:113] Tasks: 43 done / 117 total; 22 can run
 I0919 08:19:24.892261   17924 executor.go:113] Tasks: 65 done / 117 total; 34 can run
 I0919 08:19:26.742171   17924 executor.go:113] Tasks: 99 done / 117 total; 4 can run
