@@ -236,6 +236,15 @@ aws s3api create-bucket \
     --object-ownership BucketOwnerEnforced
 ```
 
+The following <mark>create-bucket</mark> creates a bucket outside the us-east-1 region:
+
+```shell
+aws s3api create-bucket \
+    --bucket kops-ashu-storage \
+    --region eu-west-1 \
+    --create-bucket-configuration LocationConstraint=eu-west-1
+```
+
 - Note: S3 requires <mark>--create-bucket-configuration LocationConstraint=<region></mark> for regions other than <mark>us-east-1</mark>.
 
 - Note: It is **_`strongly`_** recommended **_versioning_** your S3 bucket in case you ever need to revert or recover a previous state store.
