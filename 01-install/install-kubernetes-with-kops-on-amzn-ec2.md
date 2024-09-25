@@ -477,16 +477,23 @@ kubectl create deployment mynginx --image=nginx -n ns-prod-alpha01
 kubectl get deployments -n ns-prod-alpha01
 ```
 
+### Verify and get pod name.
+
+```shell
+kubectl get pods -n ns-prod-alpha01
+```
+
 ### Access your application via kubernetes feature "port-forward" 8080 locally
 
 ```shell
+#kubectl port-forward <pod_name> 8080:80 -n <namespace>
 kubectl port-forward mynginx-XXXXXXXXXX-z9pp6 8080:80 -n ns-prod-alpha01
 ```
 
 ### Verify in browser
 
-`https://localhost:8080/`
-`https://127.0.0.1:8080/`
+`http://localhost:8080/`
+`http://127.0.0.1:8080/`
 
 ### Delete the sample deployment
 
