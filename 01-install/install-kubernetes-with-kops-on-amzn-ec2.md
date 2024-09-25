@@ -391,15 +391,23 @@ Create kubernetes cluster definitions on S3 bucket
 
 ```shell
 kops create cluster \
-     --name=demok8scluster.k8s.local \
-     --cloud=aws \
-     --state=s3://kops-ashu-storage \
-     --zones=us-east-1a \
-     --node-count=1 \
-     --node-size=t2.micro \
-     --control-plane-size=t2.micro \
-     --control-plane-volume-size=8 \
-     --node-volume-size=8
+    --name=demok8scluster.k8s.local \
+    --cloud=aws \
+    --state=s3://kops-ashu-storage \
+    --zones=us-west-2a \
+    --node-count=1 \
+    --node-size=t2.micro \
+    --control-plane-size=t2.micro \
+    --control-plane-volume-size=8 \
+    --node-volume-size=8
+```
+
+```shell
+kops create cluster \
+    --name=demok8scluster.k8s.local \
+    --cloud=aws \
+    --state=s3://kops-ashu-storage \
+    --zones=us-west-2a
 ```
 
 [List of installed resources](https://github.com/ashuhatkar/ashulearn-kubernetes-setup-on-prod-systems/blob/develop/01-install/kops-provision-resources.md)
@@ -418,7 +426,7 @@ This opens your editor (as defined) and allows you to edit the configuration. Th
 
 ```shell
 # This start an actual provisioning process; be ready to start paying for the resources
-kops update cluster demok8scluster.k8s.local --yes --state=s3://kops-ashu-storage
+kops update cluster --name demok8scluster.k8s.local --yes --admin
 ```
 
 > This'll take a while. Once it finishes you'll have to wait longer while the booted instances finish downloading Kubernetes components and reach a "ready" state.
@@ -429,8 +437,8 @@ Kubernetes usage
 
 ```shell
 kops get cluster
-kops validate cluster
-kubectl version --short
+kops validate cluster --name demok8scluster.k8s.local
+kubectl version
 
 # Review nodes; they are just EC2 instance
 kubectl get nodes
@@ -438,7 +446,7 @@ kubectl get sc
 kubectl get ns
 
 # Review system pods; pod is a group of tightly coupled Docker containers
-kubectl -n kube-system get all
+kubectl get all -n kube-system
 ```
 
 ### Deploying Nginx container on Kubernetes
