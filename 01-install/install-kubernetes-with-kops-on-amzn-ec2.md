@@ -389,25 +389,29 @@ Options inherited from parent commands:
 
 Create kubernetes cluster definitions on S3 bucket
 
+- Create cluster (bare minimum configurations: recommended)
+
 ```shell
 kops create cluster \
     --name=demok8scluster.k8s.local \
     --cloud=aws \
-    --state=s3://kops-ashu-storage \
+    --state=s3://kops-ashu-storage \ #flag if environment variable KOPS_STATE_STORE not set for the current session.
+    --zones=us-west-2a
+```
+
+- Create cluster (pre-defined configurations)
+
+```shell
+kops create cluster \
+    --name=demok8scluster.k8s.local \
+    --cloud=aws \
+    --state=s3://kops-ashu-storage \ #flag if environment variable KOPS_STATE_STORE not set for the current session.
     --zones=us-west-2a \
     --node-count=1 \
     --node-size=t2.micro \
     --control-plane-size=t2.micro \
     --control-plane-volume-size=8 \
     --node-volume-size=8
-```
-
-```shell
-kops create cluster \
-    --name=demok8scluster.k8s.local \
-    --cloud=aws \
-    --state=s3://kops-ashu-storage \
-    --zones=us-west-2a
 ```
 
 [List of installed resources](https://github.com/ashuhatkar/ashulearn-kubernetes-setup-on-prod-systems/blob/develop/01-install/kops-provision-resources.md)
