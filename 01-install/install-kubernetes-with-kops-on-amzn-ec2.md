@@ -389,7 +389,7 @@ Options inherited from parent commands:
 
 Create kubernetes cluster definitions on S3 bucket
 
-- Create cluster (bare minimum configurations: recommended)
+- Create cluster (bare minimum configurations: ***recommended***)
 
 ```shell
 kops create cluster \

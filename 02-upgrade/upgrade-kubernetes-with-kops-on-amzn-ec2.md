@@ -62,8 +62,8 @@ kops rolling-update cluster --name demok8scluster.k8s.local --yes
 
 ```sh
 kops validate cluster --name demok8scluster.k8s.local
+kubectl version | less
 kubectl get nodes -o wide
-kubectl version --short
 ```
 
 We have successfully upgraded kubernetes cluster from `1.16.0` to `1.16.3`.
@@ -109,8 +109,8 @@ kops rolling-update cluster --name demok8scluster.k8s.local --yes
 
 ```sh
 kops validate cluster --name demok8scluster.k8s.local
+kubectl version | less
 kubectl get nodes -o wide
-kubectl version --short
 ```
 
 We have successfully upgraded kubernetes cluster from `1.16.3` to the ***latest version***.
