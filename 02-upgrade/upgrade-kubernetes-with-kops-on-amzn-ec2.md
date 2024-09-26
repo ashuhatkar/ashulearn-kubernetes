@@ -40,7 +40,7 @@ Set the KubernetesVersion to the target version (e.g. `1.16.3`)
 ### Check kubernetes server version
 
 ```sh
-kubectl version --short
+kubectl version | less
 kubectl get nodes -o wide
 ```
 
