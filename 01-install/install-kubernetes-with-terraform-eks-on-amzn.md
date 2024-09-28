@@ -11,7 +11,8 @@
 
 1. AWS subscription
 2. AWS command-line interface (AWS CLI)
-3. Eksctl command-line interface (CLI)
+3. eksctl command-line interface (CLI)
+4. kubectl
 4. Terraform
 
 ### `Setup your environment`
@@ -82,35 +83,40 @@ eksctl version
 
 Eksctl uses the credentials from the AWS CLI to connect to your account.
 
-### Spin up a cluster
+### Step 1. Spin up a Amazon EKS cluster and nodes
+
+Create your Amazon EKS cluster with the following command. You can replace my-cluster-name with your own value. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can't be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you're creating the cluster in. Replace region-code with any AWS Region that is supported by Amazon EKS.
 
 ```sh
 eksctl create cluster \
-  --name demok8scluster.k8s.local \
+  --name my-cluster-name \
   # default node-type if not specified - m5-large instance \
   --node-type t2.micro \
   --nodes 3 \
   --nodes-min 3 \
   --nodes-max 5 \
-  --region eu-central-1
+  --region region-code
+  --fargate
 ```
 
-### Verify cluster
+eksctl creates a `kubecl` `config` file in `~/.kube` or adds the new cluster's configuration within an existing config file in ~/.kube on your conputer.
+
+### Step 2. Verify cluster
 
 ```sh
 eksctl get cluster \
-   --name demok8scluster.k8s.local \
-   --region eu-central-1
+   --name my-cluster-name \
+   --region region-code
 
 kubectl get nodes -o wide
 ```
 
-### Delete cluster
+### Step 3. Delete cluster and nodes
 
 ```sh
 eksctl delete cluster \
-   --name demok8scluster.k8s.local \
-   --region eu-central-1
+   --name my-cluster-name \
+   --region region-code
 ```
 
 ### `Provision an EKS cluster with Terraform`
