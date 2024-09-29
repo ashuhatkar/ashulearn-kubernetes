@@ -1,4 +1,4 @@
-## Kubernetes setup using Terraform and EKS
+## Kubernetes setup using EKS and Terraform
 
 `Here are few resources and steps to get you started`:
 
@@ -83,30 +83,49 @@ eksctl version
 
 Eksctl uses the credentials from the AWS CLI to connect to your account.
 
-### Step 1. Spin up a Amazon EKS cluster and nodes
+### Step 1. Spin up a Amazon EKS cluster and nodes.
 
-Create your Amazon EKS cluster with the following command. You can replace my-cluster-name with your own value. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can't be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you're creating the cluster in. Replace region-code with any AWS Region that is supported by Amazon EKS.
+Create your Amazon EKS cluster with the following command. You can replace ***my-cluster-name*** with your own value. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can't be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you're creating the cluster in. Replace ***region-code*** with any AWS Region that is supported by Amazon EKS.
+
+- This example command creates a cluster named prod in your default region using aws cli.
+
+```sh
+aws eks create-cluster --name prod \
+  --role-arn arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-J7ONKE3BQ4PI \
+  --resources-vpc-config subnetIds=subnet-6782e71e,subnet-e7e761ac,securityGroupIds=sg-6979fe18
+```
+
+- To create a new cluster with private endpoint access and logging enabled using aws cli. This example command creates a cluster named example in your default region with public endpoint access disabled, private endpoint access enabled, and all logging types enabled.
+
+```sh
+aws eks create-cluster --name example --kubernetes-version 1.12 \
+  --role-arn arn:aws:iam::012345678910:role/example-cluster-ServiceRole-1XWBQWYSFRE2Q \
+  --resources-vpc-config subnetIds=subnet-0a188dccd2f9a632f,subnet-09290d93da4278664,subnet-0f21dd86e0e91134a,subnet-0173dead68481a583,subnet-051f70a57ed6fcab6,subnet-01322339c5c7de9b4,securityGroupIds=sg-0c5b580845a031c10,endpointPublicAccess=false,endpointPrivateAccess=true \
+  --logging '{"clusterLogging":[{"types":["api","audit","authenticator","controllerManager","scheduler"],"enabled":true}]}'
+```
+
+- To create a new cluster using eksctl tool.
 
 ```sh
 eksctl create cluster \
-  --name my-cluster-name \
+  --name <my-cluster-name> \
   # default node-type if not specified - m5-large instance \
   --node-type t2.micro \
   --nodes 3 \
   --nodes-min 3 \
   --nodes-max 5 \
-  --region region-code
+  --region <region-code>
   --fargate
 ```
 
-eksctl creates a `kubecl` `config` file in `~/.kube` or adds the new cluster's configuration within an existing config file in ~/.kube on your conputer.
+eksctl creates a `kubectl` `config` file in `~/.kube` or adds the new cluster's configuration within an existing config file in ~/.kube on your computer.
 
 ### Step 2. Verify cluster
 
 ```sh
 eksctl get cluster \
-   --name my-cluster-name \
-   --region region-code
+   --name <my-cluster-name> \
+   --region <region-code>
 
 kubectl get nodes -o wide
 ```
@@ -115,8 +134,8 @@ kubectl get nodes -o wide
 
 ```sh
 eksctl delete cluster \
-   --name my-cluster-name \
-   --region region-code
+   --name <my-cluster-name> \
+   --region <region-code>
 ```
 
 ### `Provision an EKS cluster with Terraform`

@@ -5,7 +5,7 @@
 
 ![Kubernetes cluster architecture definitions](https://kubernetes.io/images/docs/kubernetes-cluster-architecture.svg)
 
-## Kube Master Node Components ##
+## Kube Master Node Components (Control plane) ##
 
 | Component | Description |
 | --------- | ----------- |
