@@ -36,7 +36,7 @@
 >
 >> **[deleting-kubernetes-with-kops-on-amzn-ec2](https://github.com/ashuhatkar/ashulearn-provisioning-kubernetes-on-prod-systems/blob/develop/04-deleting/deleting-kubernetes-with-kops-on-amzn-ec2.md)**
 
-## Manage kubernetes cluster using Terraform ##
+## Manage kubernetes cluster using EKS and Terraform ##
 > #### Note: sets up the latest kubernetes version
 >
 >> **[install-kubernetes-with-terraform-and-eks](https://github.com/ashuhatkar/ashulearn-provisioning-kubernetes-on-prod-systems/blob/develop/01-install/install-kubernetes-with-terraform-eks-on-amzn.md)**
