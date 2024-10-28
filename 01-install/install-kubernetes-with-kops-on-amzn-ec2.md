@@ -246,12 +246,10 @@ aws s3api create-bucket \
 ```
 
 > [!NOTE]
-
-- S3 requires <mark>--create-bucket-configuration LocationConstraint=<region></mark> for regions other than <mark>us-east-1</mark>.
+> S3 requires <mark>--create-bucket-configuration LocationConstraint=<region></mark> for regions other than <mark>us-east-1</mark>.
 
 > [!NOTE]
-
-- It is **_`strongly`_** recommended **_versioning_** your S3 bucket in case you ever need to revert or recover a previous state store.
+> It is **_`strongly`_** recommended **_versioning_** your S3 bucket in case you ever need to revert or recover a previous state store.
 
 ```shell
 aws s3api put-bucket-versioning \
