@@ -13,7 +13,7 @@
 2. AWS command-line interface (AWS CLI)
 3. eksctl command-line interface (CLI)
 4. kubectl
-4. Terraform
+5. Terraform
 
 ### `Setup your environment`
 
@@ -33,8 +33,8 @@ aws configure
 
 kubectl is a command line tool that you use to communicate with the Kubernetes API server.
 
-***Note***
-You must use a kubectl version that is within one minor version difference of your Amazon EKS cluster control plane. For example, a `1.29 kubectl client` works with Kubernetes `1.28`, `1.29`, and `1.30` clusters.
+> [!NOTE]
+> You must use a kubectl version that is within one minor version difference of your Amazon EKS cluster control plane. For example, a `1.29 kubectl client` works with Kubernetes `1.28`, `1.29`, and `1.30` clusters.
 
 ```sh
 curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.30.2/2024-07-12/bin/linux/arm64/kubectl
@@ -42,9 +42,9 @@ chmod +x ./kubectl
 mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH
 ```
 
-eksctl
+**eksctl**
 
-***Prerequisite***:
+**Prerequisite**:
 
 You will need to have AWS API credentials configured. What works for AWS CLI or any other tools (kops, Terraform, etc.) should be sufficient. You can use `~/.aws/credentials file` or `environment variables`.
 
@@ -52,12 +52,12 @@ You will also need AWS IAM Authenticator for Kubernetes command (either `aws-iam
 
 The IAM account used for EKS cluster creation should have these minimal access levels.
 
-1) Cloud formation - Full access.
-2) EC2 - ***Full***: Tagging ***Limited***: List, Read, Write
-3) EC2 Auto Scaling - ***Limited***: List, Write
-4) EKS - Full Access
-5) IAM - ***Limited***: List, Read, Write, Permissions Management
-6) Systems Manager - ***Limited***: List, Read
+1. Cloud formation - Full access.
+2. EC2 - **_Full_**: Tagging **_Limited_**: List, Read, Write
+3. EC2 Auto Scaling - **_Limited_**: List, Write
+4. EKS - Full Access
+5. IAM - **_Limited_**: List, Read, Write, Permissions Management
+6. Systems Manager - **_Limited_**: List, Read
 
 ```sh
 # for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
@@ -85,7 +85,7 @@ Eksctl uses the credentials from the AWS CLI to connect to your account.
 
 ### Step 1. Spin up a Amazon EKS cluster and nodes.
 
-Create your Amazon EKS cluster with the following command. You can replace ***my-cluster-name*** with your own value. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can't be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you're creating the cluster in. Replace ***region-code*** with any AWS Region that is supported by Amazon EKS.
+Create your Amazon EKS cluster with the following command. You can replace **_my-cluster-name_** with your own value. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can't be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you're creating the cluster in. Replace **_region-code_** with any AWS Region that is supported by Amazon EKS.
 
 - This example command creates a cluster named prod in your default region using aws cli.
 
