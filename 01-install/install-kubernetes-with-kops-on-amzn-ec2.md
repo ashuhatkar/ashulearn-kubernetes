@@ -13,7 +13,7 @@
 
 ### Create an Ubuntu EC2 instance or you can make use of your personal infrastructure
 
-`Pre-requisites`:
+`Prerequisites`:
 
 1. AWS subscription
 2. AWS command-line interface (CLI)
@@ -245,9 +245,13 @@ aws s3api create-bucket \
   --create-bucket-configuration LocationConstraint=eu-west-1
 ```
 
-- Note: S3 requires <mark>--create-bucket-configuration LocationConstraint=<region></mark> for regions other than <mark>us-east-1</mark>.
+> [!NOTE]
 
-- Note: It is **_`strongly`_** recommended **_versioning_** your S3 bucket in case you ever need to revert or recover a previous state store.
+- S3 requires <mark>--create-bucket-configuration LocationConstraint=<region></mark> for regions other than <mark>us-east-1</mark>.
+
+> [!NOTE]
+
+- It is **_`strongly`_** recommended **_versioning_** your S3 bucket in case you ever need to revert or recover a previous state store.
 
 ```shell
 aws s3api put-bucket-versioning \
@@ -389,7 +393,7 @@ Options inherited from parent commands:
 
 Create kubernetes cluster definitions on S3 bucket
 
-- Create cluster (bare minimum configurations: ***recommended***)
+- Create cluster (bare minimum configurations: **_recommended_**)
 
 ```shell
 kops create cluster \
