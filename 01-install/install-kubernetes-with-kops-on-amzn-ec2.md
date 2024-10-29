@@ -1,4 +1,4 @@
-## Kubernetes setup using Kubernetes Operations (kOps) on Amazon EC2
+# Kubernetes setup using Kubernetes Operations (kOps) on Amazon EC2
 
 `Here are few resources and steps to get you started`:
 
@@ -11,7 +11,7 @@
 5. Scaling cluster
 6. Destroying cluster
 
-### Create an Ubuntu EC2 instance or you can make use of your personal infrastructure
+## Create an Ubuntu EC2 instance or you can make use of your personal infrastructure
 
 `Prerequisites`:
 
@@ -23,11 +23,11 @@
 
 ### `Setup your environment`
 
-### Install dependencies
+## Install dependencies
 
 > The command <mark>sudo apt-get update</mark> downloads package information from all configured sources.
 
-```sh
+```python
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release software-properties-common
 ```
@@ -52,14 +52,14 @@ echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.
 
 > The command <mark>sudo apt-get update</mark> downloads package information from all configured sources.
 
-```
+```python
 sudo apt-get update
 sudo apt-get install -y python3-pip python3-venv kubectl
 ```
 
 ### Verify the installation
 
-```
+```python
 which python3
 pip3 --version
 kubectl version
@@ -69,20 +69,20 @@ The command install AWS CLI latest/specific version, using the pip3 command.
 
 - For an externally managed environment, create and activate a virtual environment using:
 
-```
+```python
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
 - For the latest version of the AWS CLI using pip3
 
-```
+```python
 pip3 install awscli --upgrade
 ```
 
 - For the specific version of the AWS CLI using pip3
 
-```
+```python
 pip3 install awscli<1.6.312 --upgrade
 ```
 
@@ -117,20 +117,20 @@ curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip.si
 curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip.sig
 ```
 
-### Verify that the AWS CLI install correctly
+## Verify that the AWS CLI install correctly
 
 ```shell
 which aws
 aws --version
 ```
 
-### Set the path environment for the current session
+## Set the path environment for the current session
 
 ```shell
 export PATH="$PATH:/home/ubuntu/.local/bin/"
 ```
 
-### Configure the AWS CLI
+## Configure the AWS CLI
 
 - Provide the below permissions to your IAM user. If you're using the admin user, the below permissions are available by default.
 
@@ -190,7 +190,7 @@ aws configure [--profile profile-name]
 
 > If the command is run with no arguments, you will be prompted for configuration values such as your AWS Access Key id and your AWS Secret Access Key. You can configure a named profile using the --profile argument. If your config file does not exist (default location is \~/.aws/config), the AWS CLI will create it for you. The values you provide will be written to the shared credentials file (~/.aws/credentials).
 
-### Install kOps (using curl or wget)
+## Install kOps (using curl or wget)
 
 ```shell
 curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
@@ -206,16 +206,16 @@ sudo mv kops-linux-amd64 /usr/local/bin/kops
 sudo chmod +x /usr/local/bin/kops
 ```
 
-### Verify kOps
+## Verify kOps
 
 ```shell
 which kops
 kops version
 ```
 
-### Create a Route53 private hosted zone (you can create Public hosted zone if you have a domain)
+## Create a Route53 private hosted zone (you can create Public hosted zone if you have a domain)
 
-### Setup AWS S3 bucket for kOps to store cluster state objects
+## Setup AWS S3 bucket for kOps to store cluster state objects
 
 In order to store the state of your cluster, and the representation of your cluster, we need to create a dedicated S3 bucket for <mark>kOps</mark> to use. The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-storage
 
@@ -257,13 +257,13 @@ aws s3api put-bucket-versioning \
   --versioning-configuration Status=Enabled
 ```
 
-### Expose environment variable
+## Expose environment variable
 
 ```shell
 export KOPS_STATE_STORE=s3://kops-ashu-storage
 ```
 
-### Create the kubernetes cluster using kOps
+## Create the kubernetes cluster using kOps
 
 Creates a Kubernetes cluster using command line flags. This command creates cloud based resources such as networks and virtual machines. Once the infrastructure is in place Kubernetes is installed on the virtual machine. These operations are done in parallel and rely on eventual consistency.
 
@@ -418,7 +418,7 @@ kops create cluster \
 
 [List of installed resources](https://github.com/ashuhatkar/ashulearn-kubernetes-setup-on-prod-systems/blob/develop/01-install/kops-provision-resources.md)
 
-### Review/customize cluster configuration
+## Review/customize cluster configuration
 
 **Now we have a cluster configuration**, we can look at every aspect that defines our cluster by editing the description.
 
@@ -428,7 +428,7 @@ kops edit cluster --name demok8scluster.k8s.local
 
 This opens your editor (as defined) and allows you to edit the configuration. The configuration is loaded from the S3 bucket we created earlier, and automatically updated when we save and exit the editor.
 
-### Build/run kubernetes cluster
+## Build/run kubernetes cluster
 
 ```shell
 # This start an actual provisioning process; be ready to start paying for the resources
@@ -437,7 +437,7 @@ kops update cluster --name demok8scluster.k8s.local --yes --admin
 
 > This'll take a while. Once it finishes you'll have to wait longer while the booted instances finish downloading Kubernetes components and reach a "ready" state.
 
-### Validate cluster
+## Validate cluster
 
 Kubernetes usage
 
@@ -455,59 +455,59 @@ kubectl get ns
 kubectl get all -n kube-system
 ```
 
-### Deploying Nginx container on Kubernetes
+## Deploying Nginx container on Kubernetes
 
-### Create a custom Namespace
+## Create a custom Namespace
 
 ```shell
 kubectl create namespace ns-prod-alpha01
 ```
 
-### Verify the created namespace
+## Verify the created namespace
 
 ```shell
 kubectl get namespaces
 ```
 
-### Let's deploy an Nginx web server named "mynginx" inside the Namespace
+## Let's deploy an Nginx web server named "mynginx" inside the Namespace
 
 ```shell
 #kubectl run mynginx --image=nginx --replicas=2 -n ns-prod-alpha01
 kubectl create deployment mynginx --image=nginx -n ns-prod-alpha01
 ```
 
-### Now, let's verify that the "mynginx" Deployment has been created inside the "ns-prod-alpha01" Namespace.
+## Now, let's verify that the "mynginx" Deployment has been created inside the "ns-prod-alpha01" Namespace.
 
 ```shell
 #kubectl get all -n ns-prod-alpha01
 kubectl get deployments -n ns-prod-alpha01
 ```
 
-### Verify and get pod name.
+## Verify and get pod name.
 
 ```shell
 kubectl get pods -n ns-prod-alpha01
 ```
 
-### Access your application via kubernetes feature "port-forward" 8080 locally
+## Access your application via kubernetes feature "port-forward" 8080 locally
 
 ```shell
 #kubectl port-forward <pod_name> 8080:80 -n <namespace>
 kubectl port-forward mynginx-XXXXXXXXXX-z9pp6 8080:80 -n ns-prod-alpha01
 ```
 
-### Verify in browser
+## Verify in browser
 
 `http://localhost:8080/`
 `http://127.0.0.1:8080/`
 
-### Delete the sample deployment
+## Delete the sample deployment
 
 ```shell
 kubectl delete deployment mynginx -n ns-prod-alpha01
 ```
 
-### Terminate cluster
+## Terminate cluster
 
 ```sh
 # Preview AWS resources that will be terminated with cluster
