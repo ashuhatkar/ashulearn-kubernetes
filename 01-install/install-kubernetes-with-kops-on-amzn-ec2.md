@@ -1,8 +1,8 @@
 # Kubernetes setup using Kubernetes Operations (kOps) on Amazon EC2
 
-`Here are few resources and steps to get you started`:
+Here are few resources and steps to get you started:
 
-`You'll learn how to`:
+You'll learn how to:
 
 1. Create a kubernetes cluster
 2. Deploy app
@@ -13,7 +13,7 @@
 
 ## Create an Ubuntu EC2 instance or you can make use of your personal infrastructure
 
-`Prerequisites`:
+**Prerequisites**:
 
 1. AWS subscription
 2. AWS command-line interface (CLI)
@@ -21,7 +21,7 @@
 4. kOps
 5. Kube command-line interface (Kubectl)
 
-### `Setup your environment`
+# Setup your environment
 
 ## Install dependencies
 
@@ -57,7 +57,7 @@ sudo apt-get update
 sudo apt-get install -y python3-pip python3-venv kubectl
 ```
 
-### Verify the installation
+## Verify the installation
 
 ```python
 which python3
@@ -498,8 +498,8 @@ kubectl port-forward mynginx-XXXXXXXXXX-z9pp6 8080:80 -n ns-prod-alpha01
 
 ## Verify in browser
 
-`http://localhost:8080/`
-`http://127.0.0.1:8080/`
+- `http://localhost:8080/`
+- `http://127.0.0.1:8080/`
 
 ## Delete the sample deployment
 

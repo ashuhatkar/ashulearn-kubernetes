@@ -1,31 +1,30 @@
-
-### Scaling
+# Scaling
 
 As the number of pods and nodes grow, you will want to add more or remove node/s to handle the load. The process is going to remain the same for both master or worker nodes.
 
-### **`Decommissioning worker node`**
+## Decommissioning worker node
 
 `Steps:`
 
-### Validate cluster
+## Validate cluster
 
 ```sh
 kops validate cluster --name=demok8scluster.k8s.local
 ```
 
-### List available nodes
+## List available nodes
 
 ```sh
 kubectl get nodes -o wide
 ```
 
-### Get cluster
+## Get cluster
 
 ```sh
 kops get cluster
 ```
 
-### Update the cluster
+## Update the cluster
 
 Let's say our current number of worker nodes are two, and we want to remove one worker node. Basically, all the nodes whether they are master or worker nodes they'll be in an auto-scaling group, so we need to edit the auto-scaling group which is the instance groups, and set the MINSIZE and MAXSIZE as per your desire. So, let's do that:
 
@@ -50,7 +49,7 @@ The above command list the instance groups details.
 
 `Note: We're not editing the cluster configuration but we're editing the instance groups configuration`.
 
-### Edit an instance group desired configuration.
+## Edit an instance group desired configuration.
 
 ```sh
 # Usage
@@ -68,7 +67,7 @@ kops edit instancegroup --name demok8scluster.k8s.local nodes --state=s3://kops-
 
 > This opens your editor (as defined) and allows you to edit the configuration minSize: maxSize:, and automatically updated when we save and exit the editor.
 
-### Update the cluster
+## Update the cluster
 
 ```sh
 kops update cluster --name demok8scluster.k8s.local --yes
@@ -78,7 +77,7 @@ kops update cluster --name demok8scluster.k8s.local --yes
 kops rolling-update cluster --name demok8scluster.k8s.local --yes
 ```
 
-### Validate the cluster
+## Validate the cluster
 
 ```sh
 kops validate cluster --name demok8scluster.k8s.local
@@ -90,18 +89,18 @@ kubectl get nodes -o wide
 
 We've successfully decommissioned the worker node.
 
-### **`Upscaling Master node`**
+## Upscaling Master node
 
 `Steps:`
 
-### Get instance groups (alias instancegroups/ig)
+## Get instance groups (alias instancegroups/ig)
 
 ```sh
 # kops get ig --name demok8scluster.k8s.local
 kops get instancegroups --name demok8scluster.k8s.local
 ```
 
-### Edit instancegroup
+## Edit instancegroup
 
 ```sh
 # kops edit instancegroup --name <CLUSTER_NAME> <INSTANCE_GROUP_NAME> <STATE_STORE>
@@ -110,25 +109,25 @@ kops edit instancegroup --name demok8scluster.k8s.local <master_instance_group>
 
 > This opens your editor (as defined) and allows you to edit the configuration minSize: maxSize:, and automatically updated when we save and exit the editor.
 
-### Update the cluster
+## Update the cluster
 
 ```sh
 kops update cluster --name demok8scluster.k8s.local --yes
 ```
 
-### Validate cluster
+## Validate cluster
 
 ```sh
 kops validate cluster --name demok8scluster.k8s.local
 ```
 
-### List available nodes
+## List available nodes
 
 ```sh
 kubectl get nodes -o wide
 ```
 
-### Get cluster
+## Get cluster
 
 ```sh
 kops get cluster

@@ -1,4 +1,4 @@
-### Verify the cluster to delete
+# Verify the cluster to delete
 
 ```shell
 kops get cluster
@@ -12,7 +12,7 @@ kops validate cluster --name demok8scluster.k8s.local
 kubectl get nodes
 ```
 
-### Cleanup the cluster
+## Cleanup the cluster
 
 > Running a kubernetes cluster within AWS obviously costs money, and so you may want to delete your cluster if you are finished running experiments.
 
@@ -20,13 +20,13 @@ kubectl get nodes
 kops delete cluster --name demok8scluster.k8s.local --yes
 ```
 
-### Finally, verify the deleted cluster
+## Finally, verify the deleted cluster
 
 ```shell
 kops get cluster
 ```
 
-### Delete the S3 bucket
+## Delete the S3 bucket
 
 > When versioning is enabled, a simply DELETE cannot permanently delete an object. Instead, Amazon S3 inserts a delete marker.
 
@@ -46,7 +46,7 @@ aws s3api delete-object --bucket kops-ashu-storage --key test.txt --version-id v
 
 Example 1: Delete a bucket
 
-The following rb command removes a bucket. In this example, the user's bucket is ***kops-ashu-storage***. Note that the bucket must be empty in order to remove:
+The following rb command removes a bucket. In this example, the user's bucket is **_kops-ashu-storage_**. Note that the bucket must be empty in order to remove:
 
 ```shell
 aws s3 rb s3://kops-ashu-storage
@@ -54,7 +54,7 @@ aws s3 rb s3://kops-ashu-storage
 
 Example 2: Force delete a bucket
 
-The following rb command uses the --force parameter to first remove all of the objects in the bucket and then removes the bucket itself. In this example, the user's bucket is ***kops-ashu-storage*** and the objects in kops-ashu-storage are test1.txt and test2.txt:
+The following rb command uses the --force parameter to first remove all of the objects in the bucket and then removes the bucket itself. In this example, the user's bucket is **_kops-ashu-storage_** and the objects in kops-ashu-storage are test1.txt and test2.txt:
 
 ```shell
 aws s3 rb s3://kops-ashu-storage --force

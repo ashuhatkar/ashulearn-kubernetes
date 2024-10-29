@@ -1,13 +1,13 @@
-## Kubernetes setup using EKS and Terraform
+# Kubernetes setup using EKS and Terraform
 
 `Here are few resources and steps to get you started`:
 
-`You'll learn how to`:
+You'll learn how to:
 
 1. Create cluster
 2. Manage cluster
 
-`Pre-requisites`:
+**Prerequisites**:
 
 1. AWS subscription
 2. AWS command-line interface (AWS CLI)
@@ -15,7 +15,7 @@
 4. kubectl
 5. Terraform
 
-### `Setup your environment`
+# `Setup your environment`
 
 ## Install dependencies (LINUX - Ubuntu/Debian)
 
@@ -27,7 +27,7 @@
 aws configure
 ```
 
-## Setup kubectl and eksctl binary
+# Setup kubectl and eksctl binary
 
 ## Install or update kubectl
 
@@ -138,7 +138,7 @@ eksctl delete cluster \
    --region <region-code>
 ```
 
-## `Provision an EKS cluster with Terraform`
+## Provision an EKS cluster with Terraform
 
 ## Install Terraform
 
