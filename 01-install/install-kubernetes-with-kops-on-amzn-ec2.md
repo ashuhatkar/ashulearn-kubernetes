@@ -25,6 +25,7 @@ You'll learn how to:
 
 ## Install dependencies
 
+> [!NOTE]
 > The command <mark>sudo apt-get update</mark> downloads package information from all configured sources.
 
 ```python
@@ -36,12 +37,14 @@ sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-relea
 
 [Kubernetes](https://kubernetes.io/blog/2023/08/15/pkgs-k8s-io-introduction/)
 
+> [!NOTE]
 > Download the public signing key for the Kubernetes package repositories. The same signing key is used for all repositories, so you can disregard the version in the URL:
 
 ```
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
 
+> [!NOTE]
 > The command prints out the line describing the relevant repository and this is piped to <mark>sudo tee</mark> as a way of writing to <mark>/etc/apt/sources.list.d/kubernetes.list</mark>. Replace the <mark>apt</mark> repository definition so that <mark>apt</mark> points to the new repository instead of the Google-hosted repository. Make sure to replace the Kubernetes minor version in the command below with the minor version you're currently using.
 
 ```
@@ -50,6 +53,7 @@ echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.
 
 - Install the Python, AWS CLI, Kubectl workloads, using the following commands:
 
+> [!NOTE]
 > The command <mark>sudo apt-get update</mark> downloads package information from all configured sources.
 
 ```python
@@ -188,6 +192,7 @@ aws configure
 aws configure [--profile profile-name]
 ```
 
+> [!NOTE]
 > If the command is run with no arguments, you will be prompted for configuration values such as your AWS Access Key id and your AWS Secret Access Key. You can configure a named profile using the --profile argument. If your config file does not exist (default location is \~/.aws/config), the AWS CLI will create it for you. The values you provide will be written to the shared credentials file (~/.aws/credentials).
 
 ## Install kOps (using curl or wget)
@@ -219,6 +224,7 @@ kops version
 
 In order to store the state of your cluster, and the representation of your cluster, we need to create a dedicated S3 bucket for <mark>kOps</mark> to use. The following <mark>create-bucket</mark> command creates a bucket named kops-ashu-storage
 
+> [!TIP]
 > It is recommended keeping the creation of this bucket confined to us-east-1, otherwise more work will be required.
 
 ```shell
@@ -416,7 +422,7 @@ kops create cluster \
   --node-volume-size=8
 ```
 
-[List of installed resources](https://github.com/ashuhatkar/ashulearn-kubernetes-setup-on-prod-systems/blob/develop/01-install/kops-provision-resources.md)
+[Resources list](https://github.com/ashuhatkar/ashulearn-kubernetes-setup-on-prod-systems/blob/develop/01-install/kops-provision-resources.md)
 
 ## Review/customize cluster configuration
 
@@ -435,6 +441,7 @@ This opens your editor (as defined) and allows you to edit the configuration. Th
 kops update cluster --name demok8scluster.k8s.local --yes --admin
 ```
 
+> [!NOTE]
 > This'll take a while. Once it finishes you'll have to wait longer while the booted instances finish downloading Kubernetes components and reach a "ready" state.
 
 ## Validate cluster

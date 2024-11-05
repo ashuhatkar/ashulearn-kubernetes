@@ -15,21 +15,21 @@ You'll learn how to:
 4. kubectl
 5. Terraform
 
-# `Setup your environment`
+## Setup your environment
 
-## Install dependencies (LINUX - Ubuntu/Debian)
+### Install dependencies (LINUX - Ubuntu/Debian)
 
-[Setup](https://docs.aws.amazon.com/eks/latest/userguide/setting-up.html)
+[Reference](https://docs.aws.amazon.com/eks/latest/userguide/setting-up.html)
 
-## Configure AWS CLI
+### Configure AWS CLI
 
 ```sh
 aws configure
 ```
 
-# Setup kubectl and eksctl binary
+## Setup kubectl and eksctl binary
 
-## Install or update kubectl
+### Install / update kubectl
 
 kubectl is a command line tool that you use to communicate with the Kubernetes API server.
 
@@ -42,9 +42,9 @@ chmod +x ./kubectl
 mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH
 ```
 
-**eksctl**
+## eksctl
 
-**Prerequisite**:
+Prerequisite:
 
 You will need to have AWS API credentials configured. What works for AWS CLI or any other tools (kops, Terraform, etc.) should be sufficient. You can use `~/.aws/credentials file` or `environment variables`.
 
@@ -74,7 +74,7 @@ tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
 sudo mv /tmp/eksctl /usr/local/bin
 ```
 
-## Verify the installs
+### Verify the installs
 
 ```sh
 kubectl version
@@ -83,7 +83,7 @@ eksctl version
 
 Eksctl uses the credentials from the AWS CLI to connect to your account.
 
-## Step 1. Spin up a Amazon EKS cluster and nodes.
+### Step 1. Spin up a Amazon EKS cluster and nodes.
 
 Create your Amazon EKS cluster with the following command. You can replace **_my-cluster-name_** with your own value. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can't be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you're creating the cluster in. Replace **_region-code_** with any AWS Region that is supported by Amazon EKS.
 
@@ -120,7 +120,7 @@ eksctl create cluster \
 
 eksctl creates a `kubectl` `config` file in `~/.kube` or adds the new cluster's configuration within an existing config file in ~/.kube on your computer.
 
-## Step 2. Verify cluster
+### Step 2. Verify cluster
 
 ```sh
 eksctl get cluster \
@@ -130,7 +130,7 @@ eksctl get cluster \
 kubectl get nodes -o wide
 ```
 
-## Step 3. Delete cluster and nodes
+### Step 3. Delete cluster and nodes
 
 ```sh
 eksctl delete cluster \
@@ -140,7 +140,7 @@ eksctl delete cluster \
 
 ## Provision an EKS cluster with Terraform
 
-## Install Terraform
+### Install Terraform
 
 ```sh
 sudo apt-get update
@@ -153,7 +153,7 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://
 sudo apt update && sudo apt install terraform
 ```
 
-## Verify the install
+### Verify the install
 
 ```sh
 terraform -help
