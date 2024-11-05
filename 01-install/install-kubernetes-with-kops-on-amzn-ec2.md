@@ -9,7 +9,7 @@ You'll learn how to:
 3. Explore app
 4. Upgrade cluster
 5. Scaling cluster
-6. Destroying cluster
+6. Terminate cluster
 
 ## Create an Ubuntu EC2 instance or you can make use of your personal infrastructure
 
@@ -65,22 +65,22 @@ pip3 --version
 kubectl version
 ```
 
-The command install AWS CLI latest/specific version, using the pip3 command.
+The command installs AWS CLI <mark>latest/specific</mark> version, using pip3.
 
-- For an externally managed environment, create and activate a virtual environment using:
+- For an externally managed environment, create and activate a virtual environment:
 
 ```python
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-- For the latest version of the AWS CLI using pip3
+- To get the latest version of the AWS CLI using pip3.
 
 ```python
 pip3 install awscli --upgrade
 ```
 
-- For the specific version of the AWS CLI using pip3
+- To get the <mark>specific version</mark> of the AWS CLI using pip3.
 
 ```python
 pip3 install awscli<1.6.312 --upgrade
@@ -88,7 +88,7 @@ pip3 install awscli<1.6.312 --upgrade
 
 [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
 
-The command <mark>downloads, and installs</mark> AWS CLI latest/specific version, using the curl command.
+To download, and install AWS CLI <mark>latest/specific version</mark>, using curl.
 
 ```sh
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -96,7 +96,7 @@ unzip awscliv2.zip
 sudo ./aws/install
 ```
 
-The command update AWS CLI <mark>latest/specific version</mark>, using the curl command.
+To update AWS CLI <mark>latest/specific version</mark>, using curl.
 
 ```sh
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -105,19 +105,19 @@ unzip awscliv2.zip
 sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
 ```
 
-- The command installs AWS CLI v2 <mark>latest version</mark>, using the curl command.
+- To install AWS CLI v2 <mark>latest version</mark>, using curl.
 
 ```sh
 curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip.sig
 ```
 
-- The command installs AWS CLI v2 <mark>specific version</mark>, using the curl command.
+- To install AWS CLI v2 <mark>specific version</mark>, using curl.
 
 ```sh
 curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip.sig
 ```
 
-## Verify that the AWS CLI install correctly
+## Verify AWS CLI v2 installation
 
 ```shell
 which aws
@@ -257,7 +257,7 @@ aws s3api put-bucket-versioning \
   --versioning-configuration Status=Enabled
 ```
 
-## Expose environment variable
+## Expose the state store environment variable
 
 ```shell
 export KOPS_STATE_STORE=s3://kops-ashu-storage
@@ -498,8 +498,8 @@ kubectl port-forward mynginx-XXXXXXXXXX-z9pp6 8080:80 -n ns-prod-alpha01
 
 ## Verify in browser
 
-- `http://localhost:8080/`
-- `http://127.0.0.1:8080/`
+- <http://localhost:8080/>
+- <http://127.0.0.1:8080/>
 
 ## Delete the sample deployment
 
